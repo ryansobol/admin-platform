@@ -21,6 +21,7 @@
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
+	import Darkmode from '$lib/components/ui/darkmode/darkmode.svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
@@ -208,6 +209,7 @@
 					class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
 				/>
 			</div>
+			<Darkmode />
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger asChild let:builder>
 					<Button
