@@ -43,6 +43,7 @@
 				<Package2 class="h-4 w-4 transition-all group-hover:scale-110" />
 				<span class="sr-only">Acme Inc</span>
 			</a>
+
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -55,8 +56,10 @@
 						<span class="sr-only">Dashboard</span>
 					</a>
 				</Tooltip.Trigger>
+
 				<Tooltip.Content side="right">Dashboard</Tooltip.Content>
 			</Tooltip.Root>
+
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -69,8 +72,10 @@
 						<span class="sr-only">Orders</span>
 					</a>
 				</Tooltip.Trigger>
+
 				<Tooltip.Content side="right">Orders</Tooltip.Content>
 			</Tooltip.Root>
+
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -83,8 +88,10 @@
 						<span class="sr-only">Products</span>
 					</a>
 				</Tooltip.Trigger>
+
 				<Tooltip.Content side="right">Products</Tooltip.Content>
 			</Tooltip.Root>
+
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -97,8 +104,10 @@
 						<span class="sr-only">Customers</span>
 					</a>
 				</Tooltip.Trigger>
+
 				<Tooltip.Content side="right">Customers</Tooltip.Content>
 			</Tooltip.Root>
+
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -111,9 +120,11 @@
 						<span class="sr-only">Analytics</span>
 					</a>
 				</Tooltip.Trigger>
+
 				<Tooltip.Content side="right">Analytics</Tooltip.Content>
 			</Tooltip.Root>
 		</nav>
+
 		<nav class="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
@@ -131,6 +142,7 @@
 			</Tooltip.Root>
 		</nav>
 	</aside>
+
 	<div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
 		<header
 			class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6"
@@ -142,6 +154,7 @@
 						<span class="sr-only">Toggle Menu</span>
 					</Button>
 				</Sheet.Trigger>
+
 				<Sheet.Content side="left" class="sm:max-w-xs">
 					<nav class="grid gap-6 text-lg font-medium">
 						<a
@@ -186,6 +199,7 @@
 					</nav>
 				</Sheet.Content>
 			</Sheet.Root>
+
 			<Breadcrumb.Root class="hidden md:flex">
 				<Breadcrumb.List>
 					<Breadcrumb.Item>
@@ -201,6 +215,7 @@
 					</Breadcrumb.Item>
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
+
 			<div class="relative ml-auto flex-1 md:grow-0">
 				<Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
 				<Input
@@ -209,7 +224,9 @@
 					class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
 				/>
 			</div>
+
 			<Darkmode />
+
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger asChild let:builder>
 					<Button
@@ -227,6 +244,7 @@
 						/>
 					</Button>
 				</DropdownMenu.Trigger>
+
 				<DropdownMenu.Content align="end">
 					<DropdownMenu.Label>My Account</DropdownMenu.Label>
 					<DropdownMenu.Separator />
@@ -237,6 +255,7 @@
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 		</header>
+
 		<main
 			class="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3"
 		>
@@ -250,35 +269,43 @@
 								Analysis.
 							</Card.Description>
 						</Card.Header>
+
 						<Card.Footer>
 							<Button>Create New Order</Button>
 						</Card.Footer>
 					</Card.Root>
+
 					<Card.Root>
 						<Card.Header class="pb-2">
 							<Card.Description>This Week</Card.Description>
 							<Card.Title class="text-4xl">$1329</Card.Title>
 						</Card.Header>
+
 						<Card.Content>
 							<div class="text-xs text-muted-foreground">+25% from last week</div>
 						</Card.Content>
+
 						<Card.Footer>
 							<Progress value={25} aria-label="25% increase" />
 						</Card.Footer>
 					</Card.Root>
+
 					<Card.Root>
 						<Card.Header class="pb-2">
 							<Card.Description>This Month</Card.Description>
 							<Card.Title class="text-3xl">$5,329</Card.Title>
 						</Card.Header>
+
 						<Card.Content>
 							<div class="text-xs text-muted-foreground">+10% from last month</div>
 						</Card.Content>
+
 						<Card.Footer>
 							<Progress value={12} aria-label="12% increase" />
 						</Card.Footer>
 					</Card.Root>
 				</div>
+
 				<Tabs.Root value="week">
 					<div class="flex items-center">
 						<Tabs.List>
@@ -286,6 +313,7 @@
 							<Tabs.Trigger value="month">Month</Tabs.Trigger>
 							<Tabs.Trigger value="year">Year</Tabs.Trigger>
 						</Tabs.List>
+
 						<div class="ml-auto flex items-center gap-2">
 							<DropdownMenu.Root>
 								<DropdownMenu.Trigger asChild let:builder>
@@ -299,6 +327,7 @@
 										<span class="sr-only sm:not-sr-only">Filter</span>
 									</Button>
 								</DropdownMenu.Trigger>
+
 								<DropdownMenu.Content align="end">
 									<DropdownMenu.Label>Filter by</DropdownMenu.Label>
 									<DropdownMenu.Separator />
@@ -307,18 +336,21 @@
 									<DropdownMenu.CheckboxItem>Refunded</DropdownMenu.CheckboxItem>
 								</DropdownMenu.Content>
 							</DropdownMenu.Root>
+
 							<Button size="sm" variant="outline" class="h-7 gap-1 text-sm">
 								<File class="h-3.5 w-3.5" />
 								<span class="sr-only sm:not-sr-only">Export</span>
 							</Button>
 						</div>
 					</div>
+
 					<Tabs.Content value="week">
 						<Card.Root>
 							<Card.Header class="px-7">
 								<Card.Title>Orders</Card.Title>
 								<Card.Description>Recent orders from your store.</Card.Description>
 							</Card.Header>
+
 							<Card.Content>
 								<Table.Root>
 									<Table.Header>
@@ -330,6 +362,7 @@
 											<Table.Head class="text-right">Amount</Table.Head>
 										</Table.Row>
 									</Table.Header>
+
 									<Table.Body>
 										<Table.Row class="bg-accent">
 											<Table.Cell>
@@ -338,13 +371,18 @@
 													liam@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Sale</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-23</Table.Cell>
+
 											<Table.Cell class="text-right">$250.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Olivia Smith</div>
@@ -352,13 +390,18 @@
 													olivia@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Refund</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="outline">Declined</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-24</Table.Cell>
+
 											<Table.Cell class="text-right">$150.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Noah Williams</div>
@@ -366,13 +409,18 @@
 													noah@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Subscription</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-25</Table.Cell>
+
 											<Table.Cell class="text-right">$350.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Emma Brown</div>
@@ -380,13 +428,18 @@
 													emma@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Sale</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-26</Table.Cell>
+
 											<Table.Cell class="text-right">$450.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Liam Johnson</div>
@@ -394,13 +447,18 @@
 													liam@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Sale</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-23</Table.Cell>
+
 											<Table.Cell class="text-right">$250.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Liam Johnson</div>
@@ -408,13 +466,18 @@
 													liam@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Sale</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-23</Table.Cell>
+
 											<Table.Cell class="text-right">$250.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Olivia Smith</div>
@@ -422,13 +485,18 @@
 													olivia@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Refund</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="outline">Declined</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-24</Table.Cell>
+
 											<Table.Cell class="text-right">$150.00</Table.Cell>
 										</Table.Row>
+
 										<Table.Row>
 											<Table.Cell>
 												<div class="font-medium">Emma Brown</div>
@@ -436,11 +504,15 @@
 													emma@example.com
 												</div>
 											</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">Sale</Table.Cell>
+
 											<Table.Cell class="hidden sm:table-cell">
 												<Badge class="text-xs" variant="secondary">Fulfilled</Badge>
 											</Table.Cell>
+
 											<Table.Cell class="hidden md:table-cell">2023-06-26</Table.Cell>
+
 											<Table.Cell class="text-right">$450.00</Table.Cell>
 										</Table.Row>
 									</Table.Body>
@@ -450,12 +522,14 @@
 					</Tabs.Content>
 				</Tabs.Root>
 			</div>
+
 			<div>
 				<Card.Root class="overflow-hidden">
 					<Card.Header class="flex flex-row items-start bg-muted/50">
 						<div class="grid gap-0.5">
 							<Card.Title class="group flex items-center gap-2 text-lg">
 								Order Oe31b70H
+
 								<Button
 									size="icon"
 									variant="outline"
@@ -465,13 +539,16 @@
 									<span class="sr-only">Copy Order ID</span>
 								</Button>
 							</Card.Title>
+
 							<Card.Description>Date: November 23, 2023</Card.Description>
 						</div>
+
 						<div class="ml-auto flex items-center gap-1">
 							<Button size="sm" variant="outline" class="h-8 gap-1">
 								<Truck class="h-3.5 w-3.5" />
 								<span class="lg:sr-only xl:not-sr-only xl:whitespace-nowrap"> Track Order </span>
 							</Button>
+
 							<DropdownMenu.Root>
 								<DropdownMenu.Trigger asChild let:builder>
 									<Button builders={[builder]} size="icon" variant="outline" class="h-8 w-8">
@@ -479,6 +556,7 @@
 										<span class="sr-only">More</span>
 									</Button>
 								</DropdownMenu.Trigger>
+
 								<DropdownMenu.Content align="end">
 									<DropdownMenu.Item>Edit</DropdownMenu.Item>
 									<DropdownMenu.Item>Export</DropdownMenu.Item>
@@ -488,9 +566,11 @@
 							</DropdownMenu.Root>
 						</div>
 					</Card.Header>
+
 					<Card.Content class="p-6 text-sm">
 						<div class="grid gap-3">
 							<div class="font-semibold">Order Details</div>
+
 							<ul class="grid gap-3">
 								<li class="flex items-center justify-between">
 									<span class="text-muted-foreground">
@@ -498,6 +578,7 @@
 									</span>
 									<span>$250.00</span>
 								</li>
+
 								<li class="flex items-center justify-between">
 									<span class="text-muted-foreground">
 										Aqua Filters x <span>1</span>
@@ -505,55 +586,69 @@
 									<span>$49.00</span>
 								</li>
 							</ul>
+
 							<Separator class="my-2" />
+
 							<ul class="grid gap-3">
 								<li class="flex items-center justify-between">
 									<span class="text-muted-foreground">Subtotal</span>
 									<span>$299.00</span>
 								</li>
+
 								<li class="flex items-center justify-between">
 									<span class="text-muted-foreground">Shipping</span>
 									<span>$5.00</span>
 								</li>
+
 								<li class="flex items-center justify-between">
 									<span class="text-muted-foreground">Tax</span>
 									<span>$25.00</span>
 								</li>
+
 								<li class="flex items-center justify-between font-semibold">
 									<span class="text-muted-foreground">Total</span>
 									<span>$329.00</span>
 								</li>
 							</ul>
 						</div>
+
 						<Separator class="my-4" />
+
 						<div class="grid grid-cols-2 gap-4">
 							<div class="grid gap-3">
 								<div class="font-semibold">Shipping Information</div>
+
 								<address class="grid gap-0.5 not-italic text-muted-foreground">
 									<span>Liam Johnson</span>
 									<span>1234 Main St.</span>
 									<span>Anytown, CA 12345</span>
 								</address>
 							</div>
+
 							<div class="grid auto-rows-max gap-3">
 								<div class="font-semibold">Billing Information</div>
 								<div class="text-muted-foreground">Same as shipping address</div>
 							</div>
 						</div>
+
 						<Separator class="my-4" />
+
 						<div class="grid gap-3">
 							<div class="font-semibold">Customer Information</div>
+
 							<dl class="grid gap-3">
 								<div class="flex items-center justify-between">
 									<dt class="text-muted-foreground">Customer</dt>
 									<dd>Liam Johnson</dd>
 								</div>
+
 								<div class="flex items-center justify-between">
 									<dt class="text-muted-foreground">Email</dt>
 									<dd>
 										<a href="mailto:">liam@acme.com</a>
 									</dd>
 								</div>
+
 								<div class="flex items-center justify-between">
 									<dt class="text-muted-foreground">Phone</dt>
 									<dd>
@@ -562,9 +657,11 @@
 								</div>
 							</dl>
 						</div>
+
 						<Separator class="my-4" />
 						<div class="grid gap-3">
 							<div class="font-semibold">Payment Information</div>
+
 							<dl class="grid gap-3">
 								<div class="flex items-center justify-between">
 									<dt class="flex items-center gap-1 text-muted-foreground">
@@ -576,10 +673,12 @@
 							</dl>
 						</div>
 					</Card.Content>
+
 					<Card.Footer class="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
 						<div class="text-xs text-muted-foreground">
 							Updated <time dateTime="2023-11-23">November 23, 2023</time>
 						</div>
+
 						<Pagination.Root count={10} class="ml-auto mr-0 w-auto">
 							<Pagination.Content>
 								<Pagination.Item>
@@ -588,6 +687,7 @@
 										<span class="sr-only">Previous Order</span>
 									</Button>
 								</Pagination.Item>
+
 								<Pagination.Item>
 									<Button size="icon" variant="outline" class="h-6 w-6">
 										<ChevronRight class="h-3.5 w-3.5" />
