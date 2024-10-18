@@ -64,7 +64,10 @@
 							</Table.Cell>
 
 							<Table.Cell class="hidden md:table-cell">
-								{Temporal.ZonedDateTime.from(order.createdAt).toPlainDate().toString()}
+								{Temporal.Instant.from(order.createdAt)
+									.toZonedDateTimeISO(Temporal.Now.timeZoneId())
+									.toPlainDate()
+									.toString()}
 							</Table.Cell>
 
 							<Table.Cell class="text-right">{currencyFormatter.format(order.total)}</Table.Cell>

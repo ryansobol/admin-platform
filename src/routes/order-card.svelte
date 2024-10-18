@@ -26,7 +26,6 @@
 	const { order }: Props = $props();
 
 	const locale = 'en-US';
-
 	const options: Intl.DateTimeFormatOptions = {
 		month: 'long',
 		day: 'numeric',
@@ -35,6 +34,13 @@
 		minute: 'numeric',
 		timeZoneName: 'short'
 	};
+
+	const createdAtZoned = Temporal.Instant.from(order.createdAt).toZonedDateTimeISO(
+		Temporal.Now.timeZoneId()
+	);
+	const updatedAtZoned = Temporal.Instant.from(order.updatedAt).toZonedDateTimeISO(
+		Temporal.Now.timeZoneId()
+	);
 </script>
 
 <Card.Root class="overflow-hidden">
@@ -51,8 +57,8 @@
 			</Card.Title>
 
 			<Card.Description>
-				Created <time dateTime={order.createdAt}>
-					{Temporal.ZonedDateTime.from(order.createdAt).toLocaleString(locale, options)}
+				Created on <time dateTime={createdAtZoned.toString()}>
+					{createdAtZoned.toLocaleString(locale, options)}
 				</time>
 			</Card.Description>
 		</div>
@@ -195,8 +201,8 @@
 
 	<Card.Footer class="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
 		<div class="text-xs text-muted-foreground">
-			Updated <time dateTime={order.updatedAt}>
-				{Temporal.ZonedDateTime.from(order.updatedAt).toLocaleString(locale, options)}
+			Last updated on <time dateTime={updatedAtZoned.toString()}>
+				{updatedAtZoned.toLocaleString(locale, options)}
 			</time>
 		</div>
 
