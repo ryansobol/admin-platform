@@ -15,7 +15,7 @@
 		selected: Code;
 	};
 
-	const { orders, selected }: Props = $props();
+	let { orders, selected = $bindable() }: Props = $props();
 </script>
 
 <Tabs.Root value="week">
@@ -52,6 +52,6 @@
 	</div>
 
 	<Tabs.Content value="week">
-		<OrdersCard {orders} {selected} />
+		<OrdersCard {orders} bind:selected />
 	</Tabs.Content>
 </Tabs.Root>

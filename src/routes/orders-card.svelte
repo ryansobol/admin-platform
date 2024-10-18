@@ -14,7 +14,7 @@
 		selected: Code;
 	};
 
-	const { orders, selected }: Props = $props();
+	let { orders, selected = $bindable() }: Props = $props();
 </script>
 
 <Card.Root>
@@ -37,7 +37,7 @@
 
 			<Table.Body>
 				{#each Object.entries(orders) as [code, order] (order.id)}
-					<Table.Row class={selected === code ? 'bg-accent' : ''}>
+					<Table.Row class={selected === code ? 'bg-accent' : ''} onclick={() => (selected = code)}>
 						<Table.Cell>
 							<div class="font-medium">{order.customer.name}</div>
 							<div class="hidden text-sm text-muted-foreground md:inline">

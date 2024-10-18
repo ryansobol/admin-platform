@@ -31,7 +31,7 @@
 	const { data }: Props = $props();
 	const { orders } = data;
 
-	const selectedOrderCode = Object.keys(orders)[0];
+	let selectedOrderCode = $state(Object.keys(orders)[0]);
 </script>
 
 <div class="flex min-h-screen w-full flex-col bg-muted/40">
@@ -307,7 +307,7 @@
 					</Card.Root>
 				</div>
 
-				<OrdersTabs {orders} selected={selectedOrderCode} />
+				<OrdersTabs {orders} bind:selected={selectedOrderCode} />
 			</div>
 
 			<div>
