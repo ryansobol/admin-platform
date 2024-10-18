@@ -16,6 +16,17 @@
 	};
 
 	let { orders, selected = $bindable() }: Props = $props();
+
+	let showFulfilled = $state(true);
+	let showDeclined = $state(true);
+
+	let ordersFiltered = $derived(
+		Object.values(orders).filter(
+			(order) =>
+				(showFulfilled && order.status === 'Fulfilled') ||
+				(showDeclined && order.status === 'Declined')
+		)
+	);
 </script>
 
 <Tabs.Root value="week">
@@ -36,11 +47,14 @@
 				</DropdownMenu.Trigger>
 
 				<DropdownMenu.Content align="end">
-					<DropdownMenu.Label>Filter by</DropdownMenu.Label>
+					<DropdownMenu.Label>Order Status</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.CheckboxItem checked>Fulfilled</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem>Declined</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem>Refunded</DropdownMenu.CheckboxItem>
+					<DropdownMenu.CheckboxItem bind:checked={showFulfilled}>
+						Fulfilled
+					</DropdownMenu.CheckboxItem>
+					<DropdownMenu.CheckboxItem bind:checked={showDeclined}>
+						Declined
+					</DropdownMenu.CheckboxItem>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 
@@ -52,6 +66,6 @@
 	</div>
 
 	<Tabs.Content value="week">
-		<OrdersCard {orders} bind:selected />
+		<OrdersCard orders={ordersFiltered} bind:selected />
 	</Tabs.Content>
 </Tabs.Root>
