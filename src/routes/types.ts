@@ -1,5 +1,3 @@
-import type { Temporal } from 'temporal-polyfill';
-
 export type Code = string;
 
 export type Customer = {
@@ -32,8 +30,8 @@ export type Order = {
 	customer: Customer;
 	type: 'Sale' | 'Refund' | 'Subscription';
 	status: 'Fulfilled' | 'Declined';
-	createdAt: Temporal.ZonedDateTime;
-	updatedAt: Temporal.ZonedDateTime;
+	createdAt: string;
+	updatedAt: string;
 	products: Product[];
 	subtotal: 299;
 	shipping: number;

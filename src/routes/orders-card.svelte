@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Temporal } from 'temporal-polyfill';
+
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
@@ -50,7 +52,7 @@
 						</Table.Cell>
 
 						<Table.Cell class="hidden md:table-cell">
-							{order.createdAt.toPlainDate().toString()}
+							{Temporal.ZonedDateTime.from(order.createdAt).toPlainDate().toString()}
 						</Table.Cell>
 
 						<Table.Cell class="text-right">{currencyFormatter.format(order.total)}</Table.Cell>

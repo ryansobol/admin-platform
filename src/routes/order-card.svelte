@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Temporal } from 'temporal-polyfill';
+
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 	import CreditCard from 'lucide-svelte/icons/credit-card';
@@ -22,6 +24,8 @@
 	};
 
 	const { order }: Props = $props();
+
+	const locale = 'en-US';
 
 	const options: Intl.DateTimeFormatOptions = {
 		month: 'long',
@@ -47,8 +51,8 @@
 			</Card.Title>
 
 			<Card.Description>
-				Created <time dateTime={order.createdAt.toString()}>
-					{order.createdAt.toLocaleString('en-US', options)}
+				Created <time dateTime={order.createdAt}>
+					{Temporal.ZonedDateTime.from(order.createdAt).toLocaleString(locale, options)}
 				</time>
 			</Card.Description>
 		</div>
@@ -191,8 +195,8 @@
 
 	<Card.Footer class="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
 		<div class="text-xs text-muted-foreground">
-			Updated <time dateTime={order.updatedAt.toString()}>
-				{order.updatedAt.toLocaleString('en-US', options)}
+			Updated <time dateTime={order.updatedAt}>
+				{Temporal.ZonedDateTime.from(order.updatedAt).toLocaleString(locale, options)}
 			</time>
 		</div>
 
