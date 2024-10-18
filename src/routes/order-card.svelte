@@ -24,7 +24,7 @@
 </script>
 
 <Card.Root class="overflow-hidden">
-	<Card.Header class="flex flex-row items-start bg-muted/50">
+	<Card.Header class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6">
 		<div class="grid gap-0.5">
 			<Card.Title class="group flex items-center gap-2 text-lg">
 				Order {order.code}
