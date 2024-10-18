@@ -3,6 +3,8 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
 
+	import { currencyFormatter } from './utils';
+
 	import type { Code, Order } from './types';
 
 	type Props = {
@@ -11,11 +13,6 @@
 	};
 
 	const { orders, selected }: Props = $props();
-
-	const formatter = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD'
-	});
 </script>
 
 <Card.Root>
@@ -56,7 +53,7 @@
 							{order.createdAt.toPlainDate().toString()}
 						</Table.Cell>
 
-						<Table.Cell class="text-right">{formatter.format(order.total)}</Table.Cell>
+						<Table.Cell class="text-right">{currencyFormatter.format(order.total)}</Table.Cell>
 					</Table.Row>
 				{/each}
 			</Table.Body>

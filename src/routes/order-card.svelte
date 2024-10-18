@@ -12,6 +12,8 @@
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
+	import { currencyFormatter } from './utils';
+
 	import type { Order } from './types';
 
 	type Props = {
@@ -19,11 +21,6 @@
 	};
 
 	const { order }: Props = $props();
-
-	const formatter = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD'
-	});
 </script>
 
 <Card.Root class="overflow-hidden">
@@ -85,7 +82,7 @@
 						<span class="text-muted-foreground">
 							{product.name} x <span>{product.quantity}</span>
 						</span>
-						<span>{formatter.format(product.quantity * product.price)}</span>
+						<span>{currencyFormatter.format(product.quantity * product.price)}</span>
 					</li>
 				{/each}
 			</ul>
@@ -95,22 +92,22 @@
 			<ul class="grid gap-3">
 				<li class="flex items-center justify-between">
 					<span class="text-muted-foreground">Subtotal</span>
-					<span>{formatter.format(order.subtotal)}</span>
+					<span>{currencyFormatter.format(order.subtotal)}</span>
 				</li>
 
 				<li class="flex items-center justify-between">
 					<span class="text-muted-foreground">Shipping</span>
-					<span>{formatter.format(order.shipping)}</span>
+					<span>{currencyFormatter.format(order.shipping)}</span>
 				</li>
 
 				<li class="flex items-center justify-between">
 					<span class="text-muted-foreground">Tax</span>
-					<span>{formatter.format(order.tax)}</span>
+					<span>{currencyFormatter.format(order.tax)}</span>
 				</li>
 
 				<li class="flex items-center justify-between font-semibold">
 					<span class="text-muted-foreground">Total</span>
-					<span>{formatter.format(order.total)}</span>
+					<span>{currencyFormatter.format(order.total)}</span>
 				</li>
 			</ul>
 		</div>
