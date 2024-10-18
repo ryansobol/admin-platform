@@ -12,7 +12,7 @@
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
-	import type { Order } from '$lib/types';
+	import type { Order } from './types';
 
 	type Props = {
 		order: Order;

@@ -24,7 +24,7 @@
 	import OrderCard from './order-card.svelte';
 	import OrdersTabs from './orders-tabs.svelte';
 
-	import type { Code, Order } from '$lib/types';
+	import type { Code, Order } from './types';
 
 	const selectedOrderCode: Code = '64HG0';
 

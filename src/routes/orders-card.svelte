@@ -3,7 +3,7 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
 
-	import type { Code, Order } from '$lib/types';
+	import type { Code, Order } from './types';
 
 	type Props = {
 		orders: Record<Code, Order>;
