@@ -21,6 +21,15 @@
 	};
 
 	const { order }: Props = $props();
+
+	const options: Intl.DateTimeFormatOptions = {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		timeZoneName: 'short'
+	};
 </script>
 
 <Card.Root class="overflow-hidden">
@@ -40,11 +49,9 @@
 			</Card.Title>
 
 			<Card.Description>
-				Date: {order.createdAt.toLocaleString('en-US', {
-					month: 'long',
-					day: 'numeric',
-					year: 'numeric'
-				})}
+				Created <time dateTime={order.createdAt.toString()}>
+					{order.createdAt.toLocaleString('en-US', options)}
+				</time>
 			</Card.Description>
 		</div>
 
@@ -186,12 +193,8 @@
 
 	<Card.Footer class="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
 		<div class="text-xs text-muted-foreground">
-			Updated <time dateTime={order.createdAt.toPlainDate().toString()}>
-				{order.createdAt.toLocaleString('en-US', {
-					month: 'long',
-					day: 'numeric',
-					year: 'numeric'
-				})}
+			Updated <time dateTime={order.updatedAt.toString()}>
+				{order.updatedAt.toLocaleString('en-US', options)}
 			</time>
 		</div>
 
