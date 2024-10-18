@@ -11,6 +11,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
+	import * as Tooltip from '$lib/components/ui/tooltip';
 
 	import { currencyFormatter } from './utils';
 
@@ -36,16 +37,25 @@
 	<Card.Header class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6">
 		<div class="grid gap-0.5">
 			<Card.Title class="group flex items-center gap-2 text-lg">
-				Order {order.code}
+				Order Code {order.code}
 
-				<Button
-					size="icon"
-					variant="outline"
-					class="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-				>
-					<Copy class="h-3 w-3" />
-					<span class="sr-only">Copy Order ID</span>
-				</Button>
+				<Tooltip.Root>
+					<Tooltip.Trigger asChild let:builder>
+						<Button
+							builders={[builder]}
+							size="icon"
+							variant="outline"
+							class="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
+						>
+							<Copy class="h-3 w-3" />
+							<span class="sr-only">Copy Order Code</span>
+						</Button>
+					</Tooltip.Trigger>
+
+					<Tooltip.Content>
+						<p>Copy Order Code</p>
+					</Tooltip.Content>
+				</Tooltip.Root>
 			</Card.Title>
 
 			<Card.Description>
