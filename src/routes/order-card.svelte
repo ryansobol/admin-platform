@@ -1,7 +1,6 @@
 <script lang="ts">
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import Copy from 'lucide-svelte/icons/copy';
 	import CreditCard from 'lucide-svelte/icons/credit-card';
 	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
 	import Truck from 'lucide-svelte/icons/truck';
@@ -11,7 +10,8 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
-	import * as Tooltip from '$lib/components/ui/tooltip';
+
+	import ButtonCopy from './button-copy.svelte';
 
 	import { currencyFormatter } from './utils';
 
@@ -39,23 +39,11 @@
 			<Card.Title class="group flex items-center gap-2 text-lg">
 				Order Code {order.code}
 
-				<Tooltip.Root>
-					<Tooltip.Trigger asChild let:builder>
-						<Button
-							builders={[builder]}
-							size="icon"
-							variant="outline"
-							class="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-						>
-							<Copy class="h-3 w-3" />
-							<span class="sr-only">Copy Order Code</span>
-						</Button>
-					</Tooltip.Trigger>
-
-					<Tooltip.Content>
-						<p>Copy Order Code</p>
-					</Tooltip.Content>
-				</Tooltip.Root>
+				<ButtonCopy
+					class="opacity-0 transition-opacity group-hover:opacity-100"
+					label="order code"
+					value={order.code}
+				/>
 			</Card.Title>
 
 			<Card.Description>
