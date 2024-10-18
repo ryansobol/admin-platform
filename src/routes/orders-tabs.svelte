@@ -20,13 +20,17 @@
 	let showStatusDeclined = $state(true);
 	let showStatusFulfilled = $state(true);
 	let showStatusRefunded = $state(true);
+	let showTypeMonthlySubscription = $state(true);
+	let showTypeOneTimePurchase = $state(true);
 
 	let ordersFiltered = $derived(
 		Object.values(orders).filter(
 			(order) =>
-				(showStatusDeclined && order.status === 'Declined') ||
-				(showStatusFulfilled && order.status === 'Fulfilled') ||
-				(showStatusRefunded && order.status === 'Refunded')
+				((showStatusDeclined && order.status === 'Declined') ||
+					(showStatusFulfilled && order.status === 'Fulfilled') ||
+					(showStatusRefunded && order.status === 'Refunded')) &&
+				((showTypeMonthlySubscription && order.type === 'Monthly Subscription') ||
+					(showTypeOneTimePurchase && order.type === 'One-time Purchase'))
 		)
 	);
 </script>
@@ -59,6 +63,17 @@
 					</DropdownMenu.CheckboxItem>
 					<DropdownMenu.CheckboxItem bind:checked={showStatusRefunded}>
 						Refunded
+					</DropdownMenu.CheckboxItem>
+
+					<DropdownMenu.Separator />
+
+					<DropdownMenu.Label>Order Type</DropdownMenu.Label>
+					<DropdownMenu.Separator />
+					<DropdownMenu.CheckboxItem bind:checked={showTypeMonthlySubscription}>
+						Monthly Subscription
+					</DropdownMenu.CheckboxItem>
+					<DropdownMenu.CheckboxItem bind:checked={showTypeOneTimePurchase}>
+						One-time Purchase
 					</DropdownMenu.CheckboxItem>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

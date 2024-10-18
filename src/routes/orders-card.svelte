@@ -51,7 +51,11 @@
 								</div>
 							</Table.Cell>
 
-							<Table.Cell class="hidden sm:table-cell">{order.type}</Table.Cell>
+							<Table.Cell class="hidden sm:table-cell">
+								<Badge class="text-xs " variant={order.type}>
+									{order.type}
+								</Badge>
+							</Table.Cell>
 
 							<Table.Cell class="hidden sm:table-cell">
 								<Badge class="text-xs " variant={order.status}>
