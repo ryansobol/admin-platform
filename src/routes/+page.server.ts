@@ -10,7 +10,7 @@ export const load = async () => {
 				email: 'liam@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Sale',
+			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-23T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-23T20:06:13-0700[-0700]',
@@ -51,7 +51,7 @@ export const load = async () => {
 				email: 'olivia@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Refund',
+			type: 'One-time Purchase',
 			status: 'Declined',
 			createdAt: '2023-06-24T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-24T20:06:13-0700[-0700]',
@@ -79,7 +79,7 @@ export const load = async () => {
 				email: 'noah@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Subscription',
+			type: 'Monthly Subscription',
 			status: 'Fulfilled',
 			createdAt: '2023-06-25T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-25T20:06:13-0700[-0700]',
@@ -107,7 +107,7 @@ export const load = async () => {
 				email: 'emma@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Sale',
+			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-26T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-26T20:06:13-0700[-0700]',
@@ -135,7 +135,7 @@ export const load = async () => {
 				email: 'liam@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Sale',
+			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-23T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-23T20:06:13-0700[-0700]',
@@ -163,7 +163,7 @@ export const load = async () => {
 				email: 'liam@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Sale',
+			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-23T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-23T20:06:13-0700[-0700]',
@@ -191,7 +191,7 @@ export const load = async () => {
 				email: 'olivia@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Refund',
+			type: 'Monthly Subscription',
 			status: 'Declined',
 			createdAt: '2023-06-24T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-24T20:06:13-0700[-0700]',
@@ -219,8 +219,8 @@ export const load = async () => {
 				email: 'emma@example.com',
 				phone: '+1-234-567-8900'
 			},
-			type: 'Sale',
-			status: 'Fulfilled',
+			type: 'One-time Purchase',
+			status: 'Refunded',
 			createdAt: '2023-06-26T20:06:13-0700[-0700]',
 			updatedAt: '2023-06-26T20:06:13-0700[-0700]',
 			products: [],

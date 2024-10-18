@@ -17,14 +17,16 @@
 
 	let { orders, selected = $bindable() }: Props = $props();
 
-	let showFulfilled = $state(true);
-	let showDeclined = $state(true);
+	let showStatusDeclined = $state(true);
+	let showStatusFulfilled = $state(true);
+	let showStatusRefunded = $state(true);
 
 	let ordersFiltered = $derived(
 		Object.values(orders).filter(
 			(order) =>
-				(showFulfilled && order.status === 'Fulfilled') ||
-				(showDeclined && order.status === 'Declined')
+				(showStatusDeclined && order.status === 'Declined') ||
+				(showStatusFulfilled && order.status === 'Fulfilled') ||
+				(showStatusRefunded && order.status === 'Refunded')
 		)
 	);
 </script>
@@ -49,11 +51,14 @@
 				<DropdownMenu.Content align="end">
 					<DropdownMenu.Label>Order Status</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.CheckboxItem bind:checked={showFulfilled}>
+					<DropdownMenu.CheckboxItem bind:checked={showStatusDeclined}>
+						Declined
+					</DropdownMenu.CheckboxItem>
+					<DropdownMenu.CheckboxItem bind:checked={showStatusFulfilled}>
 						Fulfilled
 					</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem bind:checked={showDeclined}>
-						Declined
+					<DropdownMenu.CheckboxItem bind:checked={showStatusRefunded}>
+						Refunded
 					</DropdownMenu.CheckboxItem>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

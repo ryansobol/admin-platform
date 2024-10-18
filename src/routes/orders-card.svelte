@@ -54,10 +54,7 @@
 							<Table.Cell class="hidden sm:table-cell">{order.type}</Table.Cell>
 
 							<Table.Cell class="hidden sm:table-cell">
-								<Badge
-									class="text-xs"
-									variant={order.status === 'Declined' ? 'destructive' : 'default'}
-								>
+								<Badge class="text-xs " variant={order.status}>
 									{order.status}
 								</Badge>
 							</Table.Cell>

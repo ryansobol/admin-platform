@@ -6,6 +6,8 @@ export type Customer = {
 	phone: string;
 };
 
+export type OrderStatus = 'Declined' | 'Fulfilled' | 'Refunded';
+
 export type Product = {
 	id: number;
 	name: string;
@@ -28,8 +30,8 @@ export type Order = {
 	id: number;
 	code: Code;
 	customer: Customer;
-	type: 'Sale' | 'Refund' | 'Subscription';
-	status: 'Fulfilled' | 'Declined';
+	type: 'One-time Purchase' | 'Monthly Subscription';
+	status: OrderStatus;
 	createdAt: string;
 	updatedAt: string;
 	products: Product[];
