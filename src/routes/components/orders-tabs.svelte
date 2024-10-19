@@ -40,6 +40,37 @@
 	);
 </script>
 
+{#snippet orderFilterDropdownMenu()}
+	<DropdownMenu.Root>
+		<DropdownMenu.Trigger asChild let:builder>
+			<Button variant="outline" size="sm" class="h-7 gap-1 text-sm" builders={[builder]}>
+				<ListFilter class="h-3.5 w-3.5" />
+				<span class="sr-only sm:not-sr-only">Filter</span>
+			</Button>
+		</DropdownMenu.Trigger>
+
+		<DropdownMenu.Content align="end">
+			<DropdownMenu.Label>Order Status</DropdownMenu.Label>
+			<DropdownMenu.Separator />
+			{#each Object.keys(isOrderShownFromOrderStatus) as orderStatus}
+				<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderStatus[orderStatus]}>
+					{orderStatus}
+				</DropdownMenu.CheckboxItem>
+			{/each}
+
+			<DropdownMenu.Separator />
+
+			<DropdownMenu.Label>Order Type</DropdownMenu.Label>
+			<DropdownMenu.Separator />
+			{#each Object.keys(isOrderShownFromOrderType) as orderType}
+				<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderType[orderType]}>
+					{orderType}
+				</DropdownMenu.CheckboxItem>
+			{/each}
+		</DropdownMenu.Content>
+	</DropdownMenu.Root>
+{/snippet}
+
 <Tabs.Root value="week">
 	<div class="flex items-center">
 		<Tabs.List>
@@ -49,34 +80,7 @@
 		</Tabs.List>
 
 		<div class="ml-auto flex items-center gap-2">
-			<DropdownMenu.Root>
-				<DropdownMenu.Trigger asChild let:builder>
-					<Button variant="outline" size="sm" class="h-7 gap-1 text-sm" builders={[builder]}>
-						<ListFilter class="h-3.5 w-3.5" />
-						<span class="sr-only sm:not-sr-only">Filter</span>
-					</Button>
-				</DropdownMenu.Trigger>
-
-				<DropdownMenu.Content align="end">
-					<DropdownMenu.Label>Order Status</DropdownMenu.Label>
-					<DropdownMenu.Separator />
-					{#each Object.keys(isOrderShownFromOrderStatus) as orderStatus}
-						<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderStatus[orderStatus]}>
-							{orderStatus}
-						</DropdownMenu.CheckboxItem>
-					{/each}
-
-					<DropdownMenu.Separator />
-
-					<DropdownMenu.Label>Order Type</DropdownMenu.Label>
-					<DropdownMenu.Separator />
-					{#each Object.keys(isOrderShownFromOrderType) as orderType}
-						<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderType[orderType]}>
-							{orderType}
-						</DropdownMenu.CheckboxItem>
-					{/each}
-				</DropdownMenu.Content>
-			</DropdownMenu.Root>
+			{@render orderFilterDropdownMenu()}
 
 			<Button size="sm" variant="outline" class="h-7 gap-1 text-sm">
 				<File class="h-3.5 w-3.5" />
