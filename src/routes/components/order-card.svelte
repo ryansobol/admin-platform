@@ -7,13 +7,12 @@
 	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
 	import Truck from 'lucide-svelte/icons/truck';
 
-	import * as Card from '$lib/components/ui/card/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import ButtonCopy from '../../lib/components/ui/button-copy/button-copy.svelte';
+	import * as Card from '$lib/components/ui/card/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
-
-	import ButtonCopy from './button-copy.svelte';
 
 	import { currencyFormatter } from '../utils';
 
