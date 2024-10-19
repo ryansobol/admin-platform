@@ -12,12 +12,12 @@ export const badgeVariants = tv({
 			outline: 'text-foreground',
 
 			Declined: 'bg-red-800 text-primary-foreground border-transparent',
-			Fulfilled: 'bg-emerald-800 text-primary-foreground border-transparent',
-			Pending: 'bg-amber-800 text-primary-foreground border-transparent',
+			Fulfilled: 'bg-green-800 text-primary-foreground border-transparent',
+			Pending: 'bg-yellow-800 text-primary-foreground border-transparent',
 			Refunded: 'bg-violet-800 text-primary-foreground border-transparent',
 
-			'One-time Purchase': 'bg-blue-800 text-primary-foreground border-transparent',
-			'Monthly Subscription': 'bg-cyan-800 text-primary-foreground border-transparent'
+			'One-time Purchase': 'bg-sky-800 text-primary-foreground border-transparent',
+			'Monthly Subscription': 'bg-fuchsia-800 text-primary-foreground border-transparent'
 		}
 	},
 	defaultVariants: {
