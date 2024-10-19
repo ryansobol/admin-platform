@@ -1,7 +1,5 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card/index.js';
-	import { Progress } from '$lib/components/ui/progress/index.js';
-
+	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import OrderCard from './components/order-card.svelte';
 	import OrdersTabs from './components/orders-tabs.svelte';
@@ -25,20 +23,7 @@
 
 		<ThisWeekCard />
 
-		<Card.Root>
-			<Card.Header class="pb-2">
-				<Card.Description>This Month</Card.Description>
-				<Card.Title class="text-3xl">$5,329</Card.Title>
-			</Card.Header>
-
-			<Card.Content>
-				<div class="text-xs text-muted-foreground">+10% from last month</div>
-			</Card.Content>
-
-			<Card.Footer>
-				<Progress value={12} aria-label="12% increase" />
-			</Card.Footer>
-		</Card.Root>
+		<ThisMonthCard />
 	</div>
 
 	<OrdersTabs {orders} bind:selected={selectedOrderCode} />
