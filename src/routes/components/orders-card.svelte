@@ -5,9 +5,9 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
 
-	import { currencyFormatter } from './utils';
+	import { currencyFormatter } from '../utils';
 
-	import type { Code, Order } from './types';
+	import type { Code, Order } from '../types';
 
 	type Props = {
 		orders: Order[];

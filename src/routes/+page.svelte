@@ -4,8 +4,8 @@
 
 	import { Progress } from '$lib/components/ui/progress/index.js';
 
-	import OrderCard from './order-card.svelte';
-	import OrdersTabs from './orders-tabs.svelte';
+	import OrderCard from './components/order-card.svelte';
+	import OrdersTabs from './components/orders-tabs.svelte';
 
 	import type { PageServerData } from './$types';
 

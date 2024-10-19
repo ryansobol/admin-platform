@@ -8,7 +8,7 @@
 
 	import OrdersCard from './orders-card.svelte';
 
-	import type { Code, Order } from './types';
+	import type { Code, Order } from '../types';
 
 	type Props = {
 		orders: Record<Code, Order>;

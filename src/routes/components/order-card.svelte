@@ -15,9 +15,9 @@
 
 	import ButtonCopy from './button-copy.svelte';
 
-	import { currencyFormatter } from './utils';
+	import { currencyFormatter } from '../utils';
 
-	import type { Order } from './types';
+	import type { Order } from '../types';
 
 	type Props = {
 		order: Order;
