@@ -1,8 +1,8 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
-
 	import { Progress } from '$lib/components/ui/progress/index.js';
 
+	import ThisWeekCard from './components/this-week-card.svelte';
 	import OrderCard from './components/order-card.svelte';
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
@@ -23,20 +23,7 @@
 	<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
 		<YourOrdersCard />
 
-		<Card.Root>
-			<Card.Header class="pb-2">
-				<Card.Description>This Week</Card.Description>
-				<Card.Title class="text-4xl">$1329</Card.Title>
-			</Card.Header>
-
-			<Card.Content>
-				<div class="text-xs text-muted-foreground">+25% from last week</div>
-			</Card.Content>
-
-			<Card.Footer>
-				<Progress value={25} aria-label="25% increase" />
-			</Card.Footer>
-		</Card.Root>
+		<ThisWeekCard />
 
 		<Card.Root>
 			<Card.Header class="pb-2">
