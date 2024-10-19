@@ -193,10 +193,6 @@
 			<Breadcrumb.Root class="hidden md:flex">
 				<Breadcrumb.List>
 					<Breadcrumb.Item>
-						<Breadcrumb.Link href="##">Dashboard</Breadcrumb.Link>
-					</Breadcrumb.Item>
-					<Breadcrumb.Separator />
-					<Breadcrumb.Item>
 						<Breadcrumb.Link href="##">Orders</Breadcrumb.Link>
 					</Breadcrumb.Item>
 					<Breadcrumb.Separator />
