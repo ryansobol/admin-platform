@@ -8,8 +8,7 @@
 
 	import OrdersCard from './orders-card.svelte';
 
-	import { OrderStatus, type Code, type Order } from '../types';
-	import { createEventDispatcher } from 'svelte';
+	import { OrderStatus, OrderType, type Code, type Order } from '../types';
 
 	type Props = {
 		orders: Record<Code, Order>;
@@ -22,19 +21,21 @@
 		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
 	);
 
-	let showTypeMonthlySubscription = $state(true);
-	let showTypeOneTimePurchase = $state(true);
+	let isOrderShownFromOrderType = $state(
+		Object.fromEntries(Object.values(OrderType).map((ot) => [ot, true]))
+	);
 
 	let ordersFiltered = $derived(
 		Object.values(orders).filter(
 			(order) =>
 				Object.values(OrderStatus).reduce(
-					(prev, orderStatus) =>
-						prev || (isOrderShownFromOrderStatus[orderStatus] && order.status === orderStatus),
+					(prev, os) => prev || (isOrderShownFromOrderStatus[os] && order.status === os),
 					false
 				) &&
-				((showTypeMonthlySubscription && order.type === 'Monthly Subscription') ||
-					(showTypeOneTimePurchase && order.type === 'One-time Purchase'))
+				Object.values(OrderType).reduce(
+					(prev, ot) => prev || (isOrderShownFromOrderType[ot] && order.type === ot),
+					false
+				)
 		)
 	);
 </script>
@@ -69,12 +70,11 @@
 
 					<DropdownMenu.Label>Order Type</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.CheckboxItem bind:checked={showTypeMonthlySubscription}>
-						Monthly Subscription
-					</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem bind:checked={showTypeOneTimePurchase}>
-						One-time Purchase
-					</DropdownMenu.CheckboxItem>
+					{#each Object.keys(isOrderShownFromOrderType) as orderType}
+						<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderType[orderType]}>
+							{orderType}
+						</DropdownMenu.CheckboxItem>
+					{/each}
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 

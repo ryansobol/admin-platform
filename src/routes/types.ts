@@ -6,6 +6,13 @@ export type Customer = {
 	phone: string;
 };
 
+export const OrderType = {
+	oneTimePurchase: 'One-time Purchase',
+	monthlySubscription: 'Monthly Subscription'
+} as const;
+
+export type OrderType = (typeof OrderType)[keyof typeof OrderType];
+
 export const OrderStatus = {
 	declined: 'Declined',
 	fulfilled: 'Fulfilled',
@@ -37,7 +44,7 @@ export type Order = {
 	id: number;
 	code: Code;
 	customer: Customer;
-	type: 'One-time Purchase' | 'Monthly Subscription';
+	type: OrderType;
 	status: OrderStatus;
 	createdAt: string;
 	updatedAt: string;
