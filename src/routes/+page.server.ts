@@ -13,29 +13,29 @@ export const load = async () => {
 			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-23T20:06:13-07:00',
-			updatedAt: '2023-06-23T20:06:13-07:00',
+			updatedAt: '2023-06-24T20:06:13-07:00',
 			products: [
 				{
 					id: 1,
-					name: 'Glimmer Lamps',
-					quantity: 2,
-					price: 125
+					name: 'Clay Sculpting Tool Set',
+					quantity: 1,
+					price: 45
 				},
 				{
 					id: 2,
-					name: 'Aqua Filters',
-					quantity: 1,
-					price: 49
+					name: 'Premium White Clay',
+					quantity: 3,
+					price: 15
 				}
 			],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			subtotal: 90,
+			shipping: 10,
+			tax: 8.1,
+			total: 108.1,
 			shippingAddress: {
 				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line2: '432 Pine St.',
+				line3: 'Springfield, IL 62701'
 			},
 			billingAddress: null,
 			creditCard: {
@@ -49,26 +49,37 @@ export const load = async () => {
 			customer: {
 				name: 'Olivia Smith',
 				email: 'olivia@example.com',
-				phone: '+1-234-567-8900'
+				phone: '+1-234-567-8901'
 			},
 			type: 'One-time Purchase',
 			status: 'Declined',
 			createdAt: '2023-06-24T20:06:13-07:00',
-			updatedAt: '2023-06-24T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			updatedAt: '2023-06-24T21:06:13-07:00',
+			products: [
+				{
+					id: 3,
+					name: 'Ceramic Glaze Set (6 colors)',
+					quantity: 2,
+					price: 60
+				}
+			],
+			subtotal: 120,
+			shipping: 12,
+			tax: 10.5,
+			total: 142.5,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Olivia Smith',
+				line2: '45 Maple Rd.',
+				line3: 'Boston, MA 02134'
 			},
-			billingAddress: null,
+			billingAddress: {
+				line1: 'Diane Smith',
+				line2: '45 Maple Rd.',
+				line3: 'Boston, MA 02134'
+			},
 			creditCard: {
-				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				type: 'Mastercard',
+				numberRedacted: '**** **** **** 1234'
 			}
 		},
 		'6V5G4': {
@@ -77,26 +88,33 @@ export const load = async () => {
 			customer: {
 				name: 'Noah Williams',
 				email: 'noah@example.com',
-				phone: '+1-234-567-8900'
+				phone: '+1-234-567-8902'
 			},
 			type: 'Monthly Subscription',
 			status: 'Fulfilled',
 			createdAt: '2023-06-25T20:06:13-07:00',
-			updatedAt: '2023-06-25T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
+			updatedAt: '2023-07-25T20:06:13-07:00',
+			products: [
+				{
+					id: 4,
+					name: 'Monthly Clay Refill (10 lbs)',
+					quantity: 1,
+					price: 30
+				}
+			],
+			subtotal: 30,
 			shipping: 5,
-			tax: 25,
-			total: 329,
+			tax: 3.15,
+			total: 38.15,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Noah Williams',
+				line2: '789 Oak Ave.',
+				line3: 'Seattle, WA 98122'
 			},
 			billingAddress: null,
 			creditCard: {
-				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				type: 'American Express',
+				numberRedacted: '**** ****** 12345'
 			}
 		},
 		'78HG5': {
@@ -105,26 +123,39 @@ export const load = async () => {
 			customer: {
 				name: 'Emma Brown',
 				email: 'emma@example.com',
-				phone: '+1-234-567-8900'
+				phone: '+1-234-567-8903'
 			},
 			type: 'One-time Purchase',
-			status: 'Fulfilled',
+			status: 'Pending',
 			createdAt: '2023-06-26T20:06:13-07:00',
-			updatedAt: '2023-06-26T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			updatedAt: '2023-06-26T21:06:13-07:00',
+			products: [
+				{
+					id: 5,
+					name: 'Pottery Wheel (Electric)',
+					quantity: 1,
+					price: 400
+				},
+				{
+					id: 6,
+					name: 'Stoneware Clay (25 lbs)',
+					quantity: 1,
+					price: 25
+				}
+			],
+			subtotal: 425,
+			shipping: 25,
+			tax: 38,
+			total: 488,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Emma Brown',
+				line2: '101 Cedar Blvd.',
+				line3: 'Austin, TX 73301'
 			},
 			billingAddress: null,
 			creditCard: {
-				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				type: 'Mastercard',
+				numberRedacted: '**** **** **** 5678'
 			}
 		},
 		'7LTGZ': {
@@ -138,49 +169,67 @@ export const load = async () => {
 			type: 'One-time Purchase',
 			status: 'Fulfilled',
 			createdAt: '2023-06-23T20:06:13-07:00',
-			updatedAt: '2023-06-23T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			updatedAt: '2023-06-23T21:06:13-07:00',
+			products: [
+				{
+					id: 7,
+					name: 'Kiln Shelves',
+					quantity: 2,
+					price: 150
+				}
+			],
+			subtotal: 300,
+			shipping: 20,
+			tax: 27,
+			total: 347,
 			shippingAddress: {
 				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line2: '432 Pine St.',
+				line3: 'Springfield, IL 62701'
 			},
 			billingAddress: null,
 			creditCard: {
-				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				type: 'Discover',
+				numberRedacted: '**** **** **** 6789'
 			}
 		},
 		'7Z5GI': {
 			id: 103,
 			code: '7Z5GI',
 			customer: {
-				name: 'Liam Johnson',
-				email: 'liam@example.com',
-				phone: '+1-234-567-8900'
+				name: 'Sophia Davis',
+				email: 'sophia@example.com',
+				phone: '+1-234-567-8904'
 			},
 			type: 'One-time Purchase',
-			status: 'Fulfilled',
+			status: 'Refunded',
 			createdAt: '2023-06-23T20:06:13-07:00',
-			updatedAt: '2023-06-23T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
+			updatedAt: '2023-06-27T20:06:13-07:00',
+			products: [
+				{
+					id: 8,
+					name: 'Handheld Clay Cutter',
+					quantity: 1,
+					price: 25
+				}
+			],
+			subtotal: 25,
 			shipping: 5,
-			tax: 25,
-			total: 329,
+			tax: 2.25,
+			total: 32.25,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Sophia Davis',
+				line2: '321 Birch Ln.',
+				line3: 'Chicago, IL 60607'
 			},
-			billingAddress: null,
+			billingAddress: {
+				line1: 'Sophia Davis',
+				line2: '456 SW Harris St.',
+				line3: 'Chicago, IL 60603'
+			},
 			creditCard: {
 				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				numberRedacted: '**** **** **** 9876'
 			}
 		},
 		'8CHGD': {
@@ -189,21 +238,28 @@ export const load = async () => {
 			customer: {
 				name: 'Olivia Smith',
 				email: 'olivia@example.com',
-				phone: '+1-234-567-8900'
+				phone: '+1-234-567-8901'
 			},
 			type: 'Monthly Subscription',
-			status: 'Declined',
+			status: 'Pending',
 			createdAt: '2023-06-24T20:06:13-07:00',
 			updatedAt: '2023-06-24T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			products: [
+				{
+					id: 9,
+					name: 'Monthly Glaze Refill (3 colors)',
+					quantity: 1,
+					price: 20
+				}
+			],
+			subtotal: 20,
+			shipping: 3,
+			tax: 1.8,
+			total: 24.8,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Olivia Smith',
+				line2: '45 Maple Rd.',
+				line3: 'Boston, MA 02134'
 			},
 			billingAddress: null,
 			creditCard: {
@@ -217,26 +273,33 @@ export const load = async () => {
 			customer: {
 				name: 'Emma Brown',
 				email: 'emma@example.com',
-				phone: '+1-234-567-8900'
+				phone: '+1-234-567-8903'
 			},
 			type: 'One-time Purchase',
 			status: 'Refunded',
 			createdAt: '2023-06-26T20:06:13-07:00',
-			updatedAt: '2023-06-26T20:06:13-07:00',
-			products: [],
-			subtotal: 299,
-			shipping: 5,
-			tax: 25,
-			total: 329,
+			updatedAt: '2023-06-28T20:06:13-07:00',
+			products: [
+				{
+					id: 10,
+					name: 'Pottery Wheel Repair Kit',
+					quantity: 1,
+					price: 100
+				}
+			],
+			subtotal: 100,
+			shipping: 10,
+			tax: 9,
+			total: 119,
 			shippingAddress: {
-				line1: 'Liam Johnson',
-				line2: '1234 Main St.',
-				line3: 'Anytown, CA 12345'
+				line1: 'Emma Brown',
+				line2: '101 Cedar Blvd.',
+				line3: 'Austin, TX 73301'
 			},
 			billingAddress: null,
 			creditCard: {
-				type: 'Visa',
-				numberRedacted: '**** **** **** 4532'
+				type: 'American Express',
+				numberRedacted: '**** ****** 54321'
 			}
 		}
 	};

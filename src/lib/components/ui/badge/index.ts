@@ -11,12 +11,13 @@ export const badgeVariants = tv({
 				'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent',
 			outline: 'text-foreground',
 
-			Declined: 'bg-red-600 text-primary-foreground border-transparent',
-			Fulfilled: 'bg-emerald-600 text-primary-foreground border-transparent',
-			Refunded: 'bg-violet-600 text-primary-foreground border-transparent',
+			Declined: 'bg-red-800 text-primary-foreground border-transparent',
+			Fulfilled: 'bg-emerald-800 text-primary-foreground border-transparent',
+			Pending: 'bg-amber-800 text-primary-foreground border-transparent',
+			Refunded: 'bg-violet-800 text-primary-foreground border-transparent',
 
-			'One-time Purchase': 'bg-blue-600 text-primary-foreground border-transparent',
-			'Monthly Subscription': 'bg-cyan-700 text-primary-foreground border-transparent'
+			'One-time Purchase': 'bg-blue-800 text-primary-foreground border-transparent',
+			'Monthly Subscription': 'bg-cyan-800 text-primary-foreground border-transparent'
 		}
 	},
 	defaultVariants: {

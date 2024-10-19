@@ -6,7 +6,14 @@ export type Customer = {
 	phone: string;
 };
 
-export type OrderStatus = 'Declined' | 'Fulfilled' | 'Refunded';
+export const OrderStatus = {
+	declined: 'Declined',
+	fulfilled: 'Fulfilled',
+	pending: 'Pending',
+	refunded: 'Refunded'
+} as const;
+
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 
 export type Product = {
 	id: number;

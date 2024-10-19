@@ -8,7 +8,8 @@
 
 	import OrdersCard from './orders-card.svelte';
 
-	import type { Code, Order } from '../types';
+	import { OrderStatus, type Code, type Order } from '../types';
+	import { createEventDispatcher } from 'svelte';
 
 	type Props = {
 		orders: Record<Code, Order>;
@@ -17,18 +18,21 @@
 
 	let { orders, selected = $bindable() }: Props = $props();
 
-	let showStatusDeclined = $state(true);
-	let showStatusFulfilled = $state(true);
-	let showStatusRefunded = $state(true);
+	let isOrderShownFromOrderStatus = $state(
+		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
+	);
+
 	let showTypeMonthlySubscription = $state(true);
 	let showTypeOneTimePurchase = $state(true);
 
 	let ordersFiltered = $derived(
 		Object.values(orders).filter(
 			(order) =>
-				((showStatusDeclined && order.status === 'Declined') ||
-					(showStatusFulfilled && order.status === 'Fulfilled') ||
-					(showStatusRefunded && order.status === 'Refunded')) &&
+				Object.values(OrderStatus).reduce(
+					(prev, orderStatus) =>
+						prev || (isOrderShownFromOrderStatus[orderStatus] && order.status === orderStatus),
+					false
+				) &&
 				((showTypeMonthlySubscription && order.type === 'Monthly Subscription') ||
 					(showTypeOneTimePurchase && order.type === 'One-time Purchase'))
 		)
@@ -55,15 +59,11 @@
 				<DropdownMenu.Content align="end">
 					<DropdownMenu.Label>Order Status</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.CheckboxItem bind:checked={showStatusDeclined}>
-						Declined
-					</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem bind:checked={showStatusFulfilled}>
-						Fulfilled
-					</DropdownMenu.CheckboxItem>
-					<DropdownMenu.CheckboxItem bind:checked={showStatusRefunded}>
-						Refunded
-					</DropdownMenu.CheckboxItem>
+					{#each Object.keys(isOrderShownFromOrderStatus) as orderStatus}
+						<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderStatus[orderStatus]}>
+							{orderStatus}
+						</DropdownMenu.CheckboxItem>
+					{/each}
 
 					<DropdownMenu.Separator />
 
