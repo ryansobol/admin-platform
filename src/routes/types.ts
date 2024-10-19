@@ -35,7 +35,7 @@ export type Order = {
 	createdAt: string;
 	updatedAt: string;
 	products: Product[];
-	subtotal: 299;
+	subtotal: number;
 	shipping: number;
 	tax: number;
 	total: number;
