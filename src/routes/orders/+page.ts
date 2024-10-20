@@ -1,6 +1,7 @@
+import type { PageLoad } from './$types';
 import type { Code, Order } from './types';
 
-export const load = async () => {
+export const load: PageLoad = () => {
 	const orders: Record<Code, Order> = {
 		'64HG0': {
 			id: 108,

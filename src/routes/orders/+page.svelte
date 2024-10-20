@@ -5,10 +5,10 @@
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
 
-	import type { PageServerData } from './$types';
+	import type { PageData } from './$types';
 
 	type Props = {
-		data: PageServerData;
+		data: PageData;
 	};
 
 	const { data }: Props = $props();
