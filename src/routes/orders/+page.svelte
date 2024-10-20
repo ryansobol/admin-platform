@@ -5,13 +5,7 @@
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
 
-	import type { PageData } from './$types';
-
-	type Props = {
-		data: PageData;
-	};
-
-	const { data }: Props = $props();
+	const { data } = $props();
 	const { orders } = data;
 
 	let selectedOrderCode = $state(Object.keys(orders)[0]);
