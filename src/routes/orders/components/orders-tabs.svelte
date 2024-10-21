@@ -12,10 +12,9 @@
 
 	type Props = {
 		orders: Record<Code, Order>;
-		selected: Code;
 	};
 
-	let { orders, selected = $bindable() }: Props = $props();
+	const { orders }: Props = $props();
 
 	let isOrderShownFromOrderStatus = $state(
 		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
@@ -90,6 +89,6 @@
 	</div>
 
 	<Tabs.Content value="week">
-		<OrdersCard orders={ordersFiltered} bind:selected />
+		<OrdersCard orders={ordersFiltered} />
 	</Tabs.Content>
 </Tabs.Root>

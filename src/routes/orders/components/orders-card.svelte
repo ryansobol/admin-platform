@@ -1,20 +1,24 @@
 <script lang="ts">
 	import { Temporal } from 'temporal-polyfill';
 
+	import { goto, preloadData, pushState, replaceState } from '$app/navigation';
+	import { page } from '$app/stores';
+
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Table from '$lib/components/ui/table/index.js';
 
 	import { currencyFormatter } from '../utils';
 
-	import type { Code, Order } from '../types';
+	import type { Order } from '../types';
 
 	type Props = {
 		orders: Order[];
-		selected: Code;
 	};
 
-	let { orders, selected = $bindable() }: Props = $props();
+	const { orders }: Props = $props();
+
+	let selected = $derived($page.state?.selectedOrder?.code ?? '');
 </script>
 
 {#if orders.length}
@@ -42,7 +46,21 @@
 
 						<Table.Row
 							class={selected === code ? 'bg-accent' : ''}
-							onclick={() => (selected = selected === code ? '' : code)}
+							onclick={async () => {
+								if (selected === code) {
+									replaceState($page.url.pathname, {});
+									return;
+								}
+
+								const href = `${$page.url.pathname}\\${code}`;
+								const result = await preloadData(href);
+
+								if (result.type === 'loaded' && result.status === 200) {
+									pushState(href, { selectedOrder: result.data.order });
+								} else {
+									goto(href);
+								}
+							}}
 						>
 							<Table.Cell>
 								<div class="font-medium">{order.customer.name}</div>

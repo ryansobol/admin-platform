@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { replaceState } from '$app/navigation';
+
+	import { page } from '$app/stores';
+
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import OrderCard from './components/order-card.svelte';
@@ -7,16 +11,13 @@
 
 	const { data } = $props();
 	const { orders } = data;
-
-	import type { Code } from './types';
-
-	let selectedOrderCode: Code = $state('');
 </script>
 
 <svelte:window
 	onkeydown={(event: KeyboardEvent) => {
 		if (event.key === 'Escape') {
-			selectedOrderCode = '';
+			replaceState($page.url.pathname, {});
+			return;
 		}
 	}}
 />
@@ -30,9 +31,9 @@
 		<ThisMonthCard />
 	</div>
 
-	<OrdersTabs {orders} bind:selected={selectedOrderCode} />
+	<OrdersTabs {orders} />
 </div>
 
 <div>
-	<OrderCard order={orders[selectedOrderCode]} />
+	<OrderCard />
 </div>
