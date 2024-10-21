@@ -42,7 +42,7 @@
 
 						<Table.Row
 							class={selected === code ? 'bg-accent' : ''}
-							onclick={() => (selected = code)}
+							onclick={() => (selected = selected === code ? '' : code)}
 						>
 							<Table.Cell>
 								<div class="font-medium">{order.customer.name}</div>
