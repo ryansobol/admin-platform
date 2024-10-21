@@ -17,8 +17,15 @@
 
 	import { currencyFormatter } from '../utils';
 
-	const { data } = $props();
-	const { order } = data;
+	let { data } = $props();
+
+	let order = $derived(data.order);
+	let createdAtZoned = $derived(
+		Temporal.Instant.from(order.createdAt).toZonedDateTimeISO(Temporal.Now.timeZoneId())
+	);
+	let updatedAtZoned = $derived(
+		Temporal.Instant.from(order.updatedAt).toZonedDateTimeISO(Temporal.Now.timeZoneId())
+	);
 
 	const locale = 'en-US';
 	const options: Intl.DateTimeFormatOptions = {
@@ -29,12 +36,6 @@
 		minute: 'numeric',
 		timeZoneName: 'short'
 	};
-	const createdAtZoned = Temporal.Instant.from(order.createdAt).toZonedDateTimeISO(
-		Temporal.Now.timeZoneId()
-	);
-	const updatedAtZoned = Temporal.Instant.from(order.updatedAt).toZonedDateTimeISO(
-		Temporal.Now.timeZoneId()
-	);
 </script>
 
 <Card.Root class="overflow-hidden">
