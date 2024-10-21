@@ -14,7 +14,9 @@
 	<Card.Root class="overflow-hidden">
 		<Card.Content class="px-7">
 			<Card.Title>No order selected</Card.Title>
-			<Card.Description>Try selecting an order from the recent orders table.</Card.Description>
+			<Card.Description>
+				To view an order, select one from the recent orders table.
+			</Card.Description>
 		</Card.Content>
 	</Card.Root>
 {/if}
