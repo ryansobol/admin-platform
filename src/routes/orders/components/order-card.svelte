@@ -17,6 +17,7 @@
 	import { currencyFormatter } from '../utils';
 
 	import type { Order } from '../types';
+	import Badge from '$lib/components/ui/badge/badge.svelte';
 
 	type Props = {
 		order: Order;
@@ -60,6 +61,15 @@
 					{createdAtZoned.toLocaleString(locale, options)}
 				</time>
 			</Card.Description>
+
+			<div>
+				<Badge class="text-xs" variant={order.type}>
+					{order.type}
+				</Badge>
+				<Badge class="text-xs" variant={order.status}>
+					{order.status}
+				</Badge>
+			</div>
 		</div>
 
 		<div class="ml-auto flex items-center gap-1">
