@@ -17,13 +17,13 @@
 	let { orders, selected = $bindable() }: Props = $props();
 </script>
 
-<Card.Root>
-	<Card.Header class="px-7">
-		<Card.Title>Orders</Card.Title>
-		<Card.Description>Recent orders from your store.</Card.Description>
-	</Card.Header>
+{#if orders.length}
+	<Card.Root>
+		<Card.Header class="px-7">
+			<Card.Title>Orders</Card.Title>
+			<Card.Description>Recent orders from your store.</Card.Description>
+		</Card.Header>
 
-	{#if orders.length}
 		<Card.Content>
 			<Table.Root>
 				<Table.Header>
@@ -76,10 +76,12 @@
 				</Table.Body>
 			</Table.Root>
 		</Card.Content>
-	{:else}
+	</Card.Root>
+{:else}
+	<Card.Root>
 		<Card.Content class="px-7">
 			<Card.Title>No orders found</Card.Title>
 			<Card.Description>Try selecting a different time period or set of filters.</Card.Description>
 		</Card.Content>
-	{/if}
-</Card.Root>
+	</Card.Root>
+{/if}

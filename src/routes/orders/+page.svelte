@@ -8,7 +8,9 @@
 	const { data } = $props();
 	const { orders } = data;
 
-	let selectedOrderCode = $state(Object.keys(orders)[0]);
+	import type { Code } from './types';
+
+	let selectedOrderCode: Code = $state('');
 </script>
 
 <div class="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
