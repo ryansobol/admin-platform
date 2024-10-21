@@ -20,7 +20,7 @@
 {#if orders.length}
 	<Card.Root>
 		<Card.Header class="px-7">
-			<Card.Title>Orders</Card.Title>
+			<Card.Title>Recent Orders</Card.Title>
 			<Card.Description>Recent orders from your store.</Card.Description>
 		</Card.Header>
 
