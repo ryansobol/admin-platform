@@ -19,6 +19,12 @@
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+
+	import { page } from '$app/stores';
+
+	let breadcrumbs = $derived($page.data.breadcrumbs);
+
+	const { children } = $props();
 </script>
 
 <ModeWatcher />
@@ -53,7 +59,7 @@
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
-						href="##"
+						href="/orders"
 						class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
 						use:builder.action
 						{...builder}
@@ -161,7 +167,7 @@
 							<House class="h-5 w-5" />
 							Dashboard
 						</a>
-						<a href="##" class="flex items-center gap-4 px-2.5 text-foreground">
+						<a href="/orders" class="flex items-center gap-4 px-2.5 text-foreground">
 							<ShoppingCart class="h-5 w-5" />
 							Orders
 						</a>
@@ -193,12 +199,17 @@
 			<Breadcrumb.Root class="hidden md:flex">
 				<Breadcrumb.List>
 					<Breadcrumb.Item>
-						<Breadcrumb.Link href="##">Orders</Breadcrumb.Link>
+						<Breadcrumb.Page>Home</Breadcrumb.Page>
 					</Breadcrumb.Item>
-					<Breadcrumb.Separator />
-					<Breadcrumb.Item>
-						<Breadcrumb.Page>Recent Orders</Breadcrumb.Page>
-					</Breadcrumb.Item>
+
+					{#each breadcrumbs as breadcrumb}
+						<Breadcrumb.Separator />
+						<Breadcrumb.Item>
+							<Breadcrumb.Link href={breadcrumb.href}>
+								{breadcrumb.name}
+							</Breadcrumb.Link>
+						</Breadcrumb.Item>
+					{/each}
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
 
@@ -245,7 +256,7 @@
 		<main
 			class="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3"
 		>
-			<slot />
+			{@render children()}
 		</main>
 	</div>
 </div>

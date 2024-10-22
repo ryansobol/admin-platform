@@ -9,7 +9,7 @@
 </script>
 
 {#if order}
-	<OrderPage data={{ order }} />
+	<OrderPage data={{ breadcrumbs: [], order }} />
 {:else}
 	<Card.Root class="overflow-hidden">
 		<Card.Content class="px-7">
