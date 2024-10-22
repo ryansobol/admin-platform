@@ -52,7 +52,7 @@
 									return;
 								}
 
-								const href = `${$page.url.pathname}\\${code}`;
+								const href = `${$page.url.pathname}/${code}`;
 								const result = await preloadData(href);
 
 								if (result.type === 'loaded' && result.status === 200) {
