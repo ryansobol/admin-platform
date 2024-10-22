@@ -10,10 +10,10 @@
 
 	import { currencyFormatter } from '../utils';
 
-	import type { Order } from '../types';
+	import type { PartialOrder } from '../types';
 
 	type Props = {
-		orders: Order[];
+		orders: PartialOrder[];
 	};
 
 	const { orders }: Props = $props();
@@ -64,9 +64,9 @@
 							onmouseover={async () => await preloadData(`${$page.url.pathname}/${code}`)}
 						>
 							<Table.Cell>
-								<div class="font-medium">{order.customer.name}</div>
+								<div class="font-medium">{order.customerName}</div>
 								<div class="hidden text-sm text-muted-foreground md:inline">
-									{order.customer.email}
+									{order.customerEmail}
 								</div>
 							</Table.Cell>
 

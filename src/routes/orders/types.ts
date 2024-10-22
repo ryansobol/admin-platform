@@ -57,3 +57,14 @@ export type Order = {
 	billingAddress: Address | null;
 	creditCard: CreditCard;
 };
+
+export type PartialOrder = {
+	id: number;
+	code: string;
+	customerName: string;
+	customerEmail: string;
+	type: OrderType;
+	status: OrderStatus;
+	createdAt: string;
+	total: number;
+};

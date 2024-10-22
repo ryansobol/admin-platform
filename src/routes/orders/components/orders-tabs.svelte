@@ -8,10 +8,10 @@
 
 	import OrdersCard from './orders-card.svelte';
 
-	import { OrderStatus, OrderType, type Code, type Order } from '../types';
+	import { OrderStatus, OrderType, type Code, type PartialOrder } from '../types';
 
 	type Props = {
-		orders: Record<Code, Order>;
+		orders: Record<Code, PartialOrder>;
 	};
 
 	const { orders }: Props = $props();

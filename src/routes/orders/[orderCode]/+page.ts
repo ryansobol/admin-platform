@@ -1,7 +1,7 @@
-import { orders } from '../db';
+import { findOrder } from '../db';
 
 export const load = ({ params }) => {
-	const order = orders[params.orderCode];
+	const order = findOrder(params.orderCode);
 
 	return { order };
 };
