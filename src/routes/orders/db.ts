@@ -1,3 +1,5 @@
+import * as R from 'remeda';
+
 import type { Code, Order, PartialOrder } from './types';
 
 const orderRecords: Record<Code, Order> = {
@@ -303,22 +305,35 @@ const orderRecords: Record<Code, Order> = {
 	}
 };
 
-export const findOrders = (): PartialOrder[] => {
-	return Object.entries(orderRecords).map(([_, order]) => {
-		const { id, code, customer, type, status, createdAt, total } = order;
-		const { name: customerName, email: customerEmail } = customer;
+export const findOrders = (
+	limit: number = 10,
+	skip: number = 0
+): { orders: PartialOrder[]; count: number; perPage: number } => {
+	const count = R.values(orderRecords).length;
 
-		return {
-			id,
-			code,
-			customerName,
-			customerEmail,
-			type,
-			status,
-			createdAt,
-			total
-		};
-	});
+	const orders = R.pipe(
+		orderRecords,
+		R.values(),
+		R.drop(skip),
+		R.take(limit),
+		R.map((order) => {
+			const { id, code, customer, type, status, createdAt, total } = order;
+			const { name: customerName, email: customerEmail } = customer;
+
+			return {
+				id,
+				code,
+				customerName,
+				customerEmail,
+				type,
+				status,
+				createdAt,
+				total
+			};
+		})
+	);
+
+	return { orders, count, perPage: limit };
 };
 
 export const findOrder = (orderCode: Code) => {

@@ -12,9 +12,11 @@
 
 	type Props = {
 		orders: PartialOrder[];
+		count: number;
+		perPage: number;
 	};
 
-	const { orders }: Props = $props();
+	const { orders, count, perPage }: Props = $props();
 
 	let isOrderShownFromOrderStatus = $state(
 		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
@@ -89,6 +91,6 @@
 	</div>
 
 	<Tabs.Content value="week">
-		<OrdersCard orders={ordersFiltered} />
+		<OrdersCard orders={ordersFiltered} {count} {perPage} />
 	</Tabs.Content>
 </Tabs.Root>

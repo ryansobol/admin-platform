@@ -9,8 +9,8 @@
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
 
-	const { data } = $props();
-	const { orders } = data;
+	let { data } = $props();
+	let { orders, count, perPage } = data;
 </script>
 
 <svelte:window
@@ -31,7 +31,7 @@
 		<ThisMonthCard />
 	</div>
 
-	<OrdersTabs {orders} />
+	<OrdersTabs {orders} {count} {perPage} />
 </div>
 
 <div>

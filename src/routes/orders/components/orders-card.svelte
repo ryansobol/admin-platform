@@ -4,8 +4,12 @@
 	import { goto, preloadData, pushState, replaceState } from '$app/navigation';
 	import { page } from '$app/stores';
 
+	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
+	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
+	import * as Pagination from '$lib/components/ui/pagination';
 	import * as Table from '$lib/components/ui/table/index.js';
 
 	import { currencyFormatter } from '../utils';
@@ -14,9 +18,11 @@
 
 	type Props = {
 		orders: PartialOrder[];
+		count: number;
+		perPage: number;
 	};
 
-	const { orders }: Props = $props();
+	let { orders, count, perPage }: Props = $props();
 
 	let selected = $derived($page.state?.selectedOrder?.code ?? '');
 </script>
@@ -95,6 +101,54 @@
 				</Table.Body>
 			</Table.Root>
 		</Card.Content>
+
+		{#if count > perPage}
+			<Card.Footer class="px-7">
+				<Pagination.Root
+					class="items-start"
+					let:pages
+					let:currentPage
+					{count}
+					{perPage}
+					onPageChange={async (page) => {
+						const result = await fetch(`/api/orders?limit=${perPage}&skip=${(page - 1) * perPage}`);
+						const data = await result.json();
+
+						orders = data.orders;
+					}}
+				>
+					<Pagination.Content>
+						<Pagination.Item>
+							<Pagination.PrevButton>
+								<ChevronLeft class="h-4 w-4" />
+								<span class="hidden sm:block">Previous</span>
+							</Pagination.PrevButton>
+						</Pagination.Item>
+
+						{#each pages as page (page.key)}
+							{#if page.type === 'ellipsis'}
+								<Pagination.Item>
+									<Pagination.Ellipsis />
+								</Pagination.Item>
+							{:else}
+								<Pagination.Item>
+									<Pagination.Link {page} isActive={currentPage === page.value}>
+										{page.value}
+									</Pagination.Link>
+								</Pagination.Item>
+							{/if}
+						{/each}
+
+						<Pagination.Item>
+							<Pagination.NextButton>
+								<span class="hidden sm:block">Next</span>
+								<ChevronRight class="h-4 w-4" />
+							</Pagination.NextButton>
+						</Pagination.Item>
+					</Pagination.Content>
+				</Pagination.Root>
+			</Card.Footer>
+		{/if}
 	</Card.Root>
 {:else}
 	<Card.Root>
