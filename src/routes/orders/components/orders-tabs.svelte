@@ -8,10 +8,10 @@
 
 	import OrdersCard from './orders-card.svelte';
 
-	import { OrderStatus, OrderType, type Code, type PartialOrder } from '../types';
+	import { OrderStatus, OrderType, type PartialOrder } from '../types';
 
 	type Props = {
-		orders: Record<Code, PartialOrder>;
+		orders: PartialOrder[];
 	};
 
 	const { orders }: Props = $props();
@@ -25,7 +25,7 @@
 	);
 
 	let ordersFiltered = $derived(
-		Object.values(orders).filter(
+		orders.filter(
 			(order) =>
 				Object.values(OrderStatus).reduce(
 					(prev, os) => prev || (isOrderShownFromOrderStatus[os] && order.status === os),

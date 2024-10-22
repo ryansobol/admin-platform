@@ -1,6 +1,6 @@
 import type { Code, Order, PartialOrder } from './types';
 
-const orders: Record<Code, Order> = {
+const orderRecords: Record<Code, Order> = {
 	'64HG0': {
 		id: 108,
 		code: '64HG0',
@@ -303,29 +303,24 @@ const orders: Record<Code, Order> = {
 	}
 };
 
-export const findOrders = (): Record<Code, PartialOrder> => {
-	return Object.fromEntries(
-		Object.entries(orders).map(([code, order]) => {
-			const { id, customer, type, status, createdAt, total } = order;
-			const { name: customerName, email: customerEmail } = customer;
+export const findOrders = (): PartialOrder[] => {
+	return Object.entries(orderRecords).map(([_, order]) => {
+		const { id, code, customer, type, status, createdAt, total } = order;
+		const { name: customerName, email: customerEmail } = customer;
 
-			return [
-				code,
-				{
-					id,
-					code,
-					customerName,
-					customerEmail,
-					type,
-					status,
-					createdAt,
-					total
-				}
-			];
-		})
-	);
+		return {
+			id,
+			code,
+			customerName,
+			customerEmail,
+			type,
+			status,
+			createdAt,
+			total
+		};
+	});
 };
 
 export const findOrder = (orderCode: Code) => {
-	return orders[orderCode];
+	return orderRecords[orderCode];
 };
