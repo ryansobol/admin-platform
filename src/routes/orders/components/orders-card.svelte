@@ -61,6 +61,7 @@
 									goto(href);
 								}
 							}}
+							onmouseover={async () => await preloadData(`${$page.url.pathname}/${code}`)}
 						>
 							<Table.Cell>
 								<div class="font-medium">{order.customer.name}</div>
