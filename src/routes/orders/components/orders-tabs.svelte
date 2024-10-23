@@ -6,40 +6,17 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
 	import OrdersCard from './orders-card.svelte';
 
-	import { OrderStatus, OrderType, type PartialOrder } from '../types';
-
-	let orders: PartialOrder[] = $derived($page.data.orders);
-
-	let isOrderShownFromOrderStatus = $state(
-		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
-	);
-
-	let isOrderShownFromOrderType = $state(
-		Object.fromEntries(Object.values(OrderType).map((ot) => [ot, true]))
-	);
-
-	// TODO: Move to a load function
-	let ordersFiltered = $derived(
-		orders.filter(
-			(order) =>
-				Object.values(OrderStatus).reduce(
-					(prev, os) => prev || (isOrderShownFromOrderStatus[os] && order.status === os),
-					false
-				) &&
-				Object.values(OrderType).reduce(
-					(prev, ot) => prev || (isOrderShownFromOrderType[ot] && order.type === ot),
-					false
-				)
-		)
-	);
+	let isOrderShownFromOrderStatus: { [k: string]: boolean } = $derived($page.data.status);
+	let isOrderShownFromOrderType: { [k: string]: boolean } = $derived($page.data.type);
 </script>
 
 {#snippet orderFilterDropdownMenu()}
-	<DropdownMenu.Root>
+	<DropdownMenu.Root closeOnItemClick={false}>
 		<DropdownMenu.Trigger asChild let:builder>
 			<Button variant="outline" size="sm" class="h-7 gap-1 text-sm" builders={[builder]}>
 				<ListFilter class="h-3.5 w-3.5" />
@@ -51,7 +28,16 @@
 			<DropdownMenu.Label>Order Status</DropdownMenu.Label>
 			<DropdownMenu.Separator />
 			{#each Object.keys(isOrderShownFromOrderStatus) as orderStatus}
-				<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderStatus[orderStatus]}>
+				<DropdownMenu.CheckboxItem
+					checked={isOrderShownFromOrderStatus[orderStatus]}
+					onCheckedChange={(checked) => {
+						const newParams = new URLSearchParams($page.url.searchParams);
+
+						newParams.set(`${orderStatus}`, checked.toString());
+
+						goto(`${$page.url.pathname}?${newParams}`);
+					}}
+				>
 					{orderStatus}
 				</DropdownMenu.CheckboxItem>
 			{/each}
@@ -61,7 +47,16 @@
 			<DropdownMenu.Label>Order Type</DropdownMenu.Label>
 			<DropdownMenu.Separator />
 			{#each Object.keys(isOrderShownFromOrderType) as orderType}
-				<DropdownMenu.CheckboxItem bind:checked={isOrderShownFromOrderType[orderType]}>
+				<DropdownMenu.CheckboxItem
+					checked={isOrderShownFromOrderType[orderType]}
+					onCheckedChange={(checked) => {
+						const newParams = new URLSearchParams($page.url.searchParams);
+
+						newParams.set(`${orderType}`, checked.toString());
+
+						goto(`${$page.url.pathname}?${newParams}`);
+					}}
+				>
 					{orderType}
 				</DropdownMenu.CheckboxItem>
 			{/each}

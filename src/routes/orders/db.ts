@@ -1,5 +1,6 @@
 import * as R from 'remeda';
 
+import { OrderStatus, OrderType } from './types';
 import type { Code, Order, PartialOrder } from './types';
 
 const orderRecords: Record<Code, Order> = {
@@ -1619,13 +1620,37 @@ const orderRecords: Record<Code, Order> = {
 
 export const paginateOrders = (
 	page: number,
-	perPage: number
-): { orders: PartialOrder[]; count: number; page: number; perPage: number } => {
-	const count = R.values(orderRecords).length;
-
-	const orders = R.pipe(
+	perPage: number,
+	status: { [k: string]: boolean },
+	type: { [k: string]: boolean }
+): {
+	orders: PartialOrder[];
+	count: number;
+	page: number;
+	perPage: number;
+	status: { [k: string]: boolean };
+	type: { [k: string]: boolean };
+} => {
+	const ordersFiltered = R.pipe(
 		orderRecords,
 		R.values(),
+		R.filter(
+			(order) =>
+				Object.values(OrderStatus).reduce(
+					(prev, os) => prev || (status[os] && order.status === os),
+					false
+				) &&
+				Object.values(OrderType).reduce(
+					(prev, ot) => prev || (type[ot] && order.type === ot),
+					false
+				)
+		)
+	);
+
+	const count = ordersFiltered.length;
+
+	const orders = R.pipe(
+		ordersFiltered,
 		R.drop((page - 1) * perPage),
 		R.take(perPage),
 		R.map((order) => {
@@ -1645,7 +1670,7 @@ export const paginateOrders = (
 		})
 	);
 
-	return { orders, count, page, perPage };
+	return { orders, count, page, perPage, status, type };
 };
 
 export const findOrder = (orderCode: Code) => {
