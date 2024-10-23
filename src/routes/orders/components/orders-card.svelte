@@ -20,7 +20,7 @@
 	let count: number = $derived($page.data.count);
 	let perPage: number = $derived($page.data.perPage);
 
-	let selected = $derived($page.state?.selectedOrder?.code ?? '');
+	let selected = $derived($page.data.order?.code ?? '');
 </script>
 
 {#if orders.length}
@@ -48,22 +48,17 @@
 
 						<Table.Row
 							class={selected === code ? 'bg-accent' : ''}
-							onclick={async () => {
+							onclick={() => {
+								const newParams = new URLSearchParams($page.url.searchParams);
+
 								if (selected === code) {
-									replaceState($page.url.pathname, {});
-									return;
-								}
-
-								const href = `${$page.url.pathname}/${code}`;
-								const result = await preloadData(href);
-
-								if (result.type === 'loaded' && result.status === 200) {
-									pushState(href, { selectedOrder: result.data.order });
+									newParams.delete('code');
 								} else {
-									goto(href);
+									newParams.set('code', code);
 								}
+
+								goto(`${$page.url.pathname}?${newParams}`);
 							}}
-							onmouseover={async () => await preloadData(`${$page.url.pathname}/${code}`)}
 						>
 							<Table.Cell>
 								<div class="font-medium">{order.customerName}</div>

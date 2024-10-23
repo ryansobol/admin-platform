@@ -1673,6 +1673,6 @@ export const paginateOrders = (
 	return { orders, count, page, perPage, status, type };
 };
 
-export const findOrder = (orderCode: Code) => {
-	return orderRecords[orderCode];
+export const findOrder = (orderCode: Code): Order | null => {
+	return orderRecords[orderCode] ?? null;
 };

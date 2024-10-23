@@ -1,4 +1,4 @@
-import { paginateOrders } from './db';
+import { findOrder, paginateOrders } from './db';
 
 export const load = ({ url }) => {
 	const page = Number(url.searchParams.get('page') ?? 1);
@@ -16,5 +16,10 @@ export const load = ({ url }) => {
 		'Monthly Subscription': (url.searchParams.get('Monthly Subscription') ?? 'true') === 'true'
 	};
 
-	return paginateOrders(page, perPage, status, type);
+	const code = url.searchParams.get('code') ?? '';
+
+	return {
+		...paginateOrders(page, perPage, status, type),
+		order: findOrder(code)
+	};
 };
