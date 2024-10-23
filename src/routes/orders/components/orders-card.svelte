@@ -16,13 +16,9 @@
 
 	import type { PartialOrder } from '../types';
 
-	type Props = {
-		orders: PartialOrder[];
-		count: number;
-		perPage: number;
-	};
-
-	let { orders, count, perPage }: Props = $props();
+	let orders: PartialOrder[] = $derived($page.data.orders);
+	let count: number = $derived($page.data.count);
+	let perPage: number = $derived($page.data.perPage);
 
 	let selected = $derived($page.state?.selectedOrder?.code ?? '');
 </script>
@@ -110,11 +106,13 @@
 					let:currentPage
 					{count}
 					{perPage}
-					onPageChange={async (page) => {
-						const result = await fetch(`/api/orders?limit=${perPage}&skip=${(page - 1) * perPage}`);
-						const data = await result.json();
+					onPageChange={(pageNumber) => {
+						const newParams = new URLSearchParams($page.url.searchParams);
 
-						orders = data.orders;
+						newParams.set('page', pageNumber.toString());
+						newParams.set('perPage', perPage.toString());
+
+						goto(`${$page.url.pathname}?${newParams}`);
 					}}
 				>
 					<Pagination.Content>

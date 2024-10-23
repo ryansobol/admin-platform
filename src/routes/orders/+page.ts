@@ -1,10 +1,8 @@
-import { findOrders } from './db';
+import { paginateOrders } from './db';
 
 export const load = ({ url }) => {
-	const limit = Number(url.searchParams.get('limit') ?? 10);
-	const skip = Number(url.searchParams.get('skip') ?? 0);
+	const page = Number(url.searchParams.get('page') ?? 1);
+	const perPage = Number(url.searchParams.get('perPage') ?? 10);
 
-	const orders = findOrders(limit, skip);
-
-	return orders;
+	return paginateOrders(page, perPage);
 };

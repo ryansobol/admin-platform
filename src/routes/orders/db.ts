@@ -1617,17 +1617,17 @@ const orderRecords: Record<Code, Order> = {
 	}
 };
 
-export const findOrders = (
-	limit: number = 10,
-	skip: number = 0
-): { orders: PartialOrder[]; count: number; perPage: number } => {
+export const paginateOrders = (
+	page: number,
+	perPage: number
+): { orders: PartialOrder[]; count: number; page: number; perPage: number } => {
 	const count = R.values(orderRecords).length;
 
 	const orders = R.pipe(
 		orderRecords,
 		R.values(),
-		R.drop(skip),
-		R.take(limit),
+		R.drop((page - 1) * perPage),
+		R.take(perPage),
 		R.map((order) => {
 			const { id, code, customer, type, status, createdAt, total } = order;
 			const { name: customerName, email: customerEmail } = customer;
@@ -1645,7 +1645,7 @@ export const findOrders = (
 		})
 	);
 
-	return { orders, count, perPage: limit };
+	return { orders, count, page, perPage };
 };
 
 export const findOrder = (orderCode: Code) => {

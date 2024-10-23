@@ -6,17 +6,13 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 
+	import { page } from '$app/stores';
+
 	import OrdersCard from './orders-card.svelte';
 
 	import { OrderStatus, OrderType, type PartialOrder } from '../types';
 
-	type Props = {
-		orders: PartialOrder[];
-		count: number;
-		perPage: number;
-	};
-
-	const { orders, count, perPage }: Props = $props();
+	let orders: PartialOrder[] = $derived($page.data.orders);
 
 	let isOrderShownFromOrderStatus = $state(
 		Object.fromEntries(Object.values(OrderStatus).map((os) => [os, true]))
@@ -26,6 +22,7 @@
 		Object.fromEntries(Object.values(OrderType).map((ot) => [ot, true]))
 	);
 
+	// TODO: Move to a load function
 	let ordersFiltered = $derived(
 		orders.filter(
 			(order) =>
@@ -91,6 +88,6 @@
 	</div>
 
 	<Tabs.Content value="week">
-		<OrdersCard orders={ordersFiltered} {count} {perPage} />
+		<OrdersCard />
 	</Tabs.Content>
 </Tabs.Root>
