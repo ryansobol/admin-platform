@@ -73,7 +73,9 @@
 			<div class="ml-auto flex items-center gap-1">
 				<Button size="sm" variant="outline" class="h-8 gap-1">
 					<Truck class="h-3.5 w-3.5" />
-					<span class="lg:sr-only xl:not-sr-only xl:whitespace-nowrap"> Track Order </span>
+					<span class="sr-only sm:not-sr-only xl:sr-only 2xl:not-sr-only 2xl:whitespace-nowrap">
+						Track Order
+					</span>
 				</Button>
 
 				<DropdownMenu.Root>
