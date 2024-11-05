@@ -44,6 +44,15 @@
 	}
 </script>
 
+{#snippet sortColumnIcon(column: 'createdAt' | 'total')}
+	{#if sortColumn === column}
+		{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
+		<Icon class="ml-2 h-4 w-4 text-primary-foreground" />
+	{:else}
+		<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+	{/if}
+{/snippet}
+
 {#if orders.length}
 	<Card.Root>
 		<Card.Header class="px-7">
@@ -61,29 +70,13 @@
 						<Table.Head>
 							<Button variant="ghost" on:click={() => handleSort('createdAt')}>
 								Date
-								{#if sortColumn === 'createdAt'}
-									{#if sortDirection === 'asc'}
-										<ChevronUp class="ml-2 h-4 w-4 text-primary-foreground" />
-									{:else}
-										<ChevronDown class="ml-2 h-4 w-4 text-primary-foreground" />
-									{/if}
-								{:else}
-									<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
-								{/if}
+								{@render sortColumnIcon('createdAt')}
 							</Button>
 						</Table.Head>
 						<Table.Head class="text-right">
 							<Button variant="ghost" on:click={() => handleSort('total')}>
 								Amount
-								{#if sortColumn === 'total'}
-									{#if sortDirection === 'asc'}
-										<ChevronUp class="ml-2 h-4 w-4 text-primary-foreground" />
-									{:else}
-										<ChevronDown class="ml-2 h-4 w-4 text-primary-foreground" />
-									{/if}
-								{:else}
-									<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
-								{/if}
+								{@render sortColumnIcon('total')}
 							</Button>
 						</Table.Head>
 					</Table.Row>
