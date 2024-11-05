@@ -29,7 +29,7 @@
 	let sortDirection: SortDirection = $derived($page.data.sortDirection);
 	let selected = $derived($page.data.order?.code ?? '');
 
-	function handleSort(column: SortColumn, direction: SortDirection) {
+	function handleSort(column: SortColumn, initialDirection: SortDirection) {
 		const newParams = new URLSearchParams($page.url.searchParams);
 
 		if (sortColumn === column) {
@@ -40,17 +40,17 @@
 			}
 		} else {
 			newParams.set('sortColumn', column);
-			newParams.set('sortDirection', direction);
+			newParams.set('sortDirection', initialDirection);
 		}
 
 		goto(`${$page.url.pathname}?${newParams}`);
 	}
 </script>
 
-{#snippet buttonSortableColumn(column: SortColumn, direction: SortDirection, label: string)}
+{#snippet buttonSortableColumn(column: SortColumn, initialDirection: SortDirection, label: string)}
 	<Button
 		class={cn('gap-1', sortColumn === column ? 'text-primary-foreground' : '')}
-		onclick={() => handleSort(column, direction)}
+		onclick={() => handleSort(column, initialDirection)}
 		variant="ghost"
 	>
 		{label}
