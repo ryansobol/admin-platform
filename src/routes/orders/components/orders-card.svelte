@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { Temporal } from 'temporal-polyfill';
 
-	import { goto, preloadData, pushState, replaceState } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Pagination from '$lib/components/ui/pagination';
 	import * as Table from '$lib/components/ui/table/index.js';
@@ -19,7 +22,7 @@
 	let orders: PartialOrder[] = $derived($page.data.orders);
 	let count: number = $derived($page.data.count);
 	let perPage: number = $derived($page.data.perPage);
-
+	let sortDirection: 'asc' | 'desc' = $derived($page.data.sortDirection);
 	let selected = $derived($page.data.order?.code ?? '');
 </script>
 
@@ -37,7 +40,29 @@
 						<Table.Head>Customer</Table.Head>
 						<Table.Head class="hidden sm:table-cell">Type</Table.Head>
 						<Table.Head>Status</Table.Head>
-						<Table.Head class="hidden lg:table-cell">Date</Table.Head>
+						<Table.Head class="hidden lg:table-cell">
+							<Button
+								variant="ghost"
+								on:click={() => {
+									const newParams = new URLSearchParams($page.url.searchParams);
+
+									if (sortDirection === 'asc') {
+										newParams.set('sortDirection', 'desc');
+									} else {
+										newParams.set('sortDirection', 'asc');
+									}
+
+									goto(`${$page.url.pathname}?${newParams}`);
+								}}
+							>
+								Date
+								{#if sortDirection === 'asc'}
+									<ChevronUp class="ml-2 h-4 w-4" />
+								{:else}
+									<ChevronDown class="ml-2 h-4 w-4" />
+								{/if}
+							</Button>
+						</Table.Head>
 						<Table.Head class="text-right">Amount</Table.Head>
 					</Table.Row>
 				</Table.Header>
