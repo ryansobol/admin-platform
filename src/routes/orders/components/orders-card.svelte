@@ -22,8 +22,26 @@
 	let orders: PartialOrder[] = $derived($page.data.orders);
 	let count: number = $derived($page.data.count);
 	let perPage: number = $derived($page.data.perPage);
+	let sortColumn: 'createdAt' | 'total' = $derived($page.data.sortColumn);
 	let sortDirection: 'asc' | 'desc' = $derived($page.data.sortDirection);
 	let selected = $derived($page.data.order?.code ?? '');
+
+	function handleSort(column: 'createdAt' | 'total') {
+		const newParams = new URLSearchParams($page.url.searchParams);
+
+		if (sortColumn === column) {
+			if (sortDirection === 'asc') {
+				newParams.set('sortDirection', 'desc');
+			} else {
+				newParams.set('sortDirection', 'asc');
+			}
+		} else {
+			newParams.set('sortColumn', column);
+			newParams.set('sortDirection', 'desc');
+		}
+
+		goto(`${$page.url.pathname}?${newParams}`);
+	}
 </script>
 
 {#if orders.length}
@@ -41,29 +59,33 @@
 						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
 						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
 						<Table.Head>
-							<Button
-								variant="ghost"
-								on:click={() => {
-									const newParams = new URLSearchParams($page.url.searchParams);
-
-									if (sortDirection === 'asc') {
-										newParams.set('sortDirection', 'desc');
-									} else {
-										newParams.set('sortDirection', 'asc');
-									}
-
-									goto(`${$page.url.pathname}?${newParams}`);
-								}}
-							>
+							<Button variant="ghost" on:click={() => handleSort('createdAt')}>
 								Date
-								{#if sortDirection === 'asc'}
-									<ChevronUp class="ml-2 h-4 w-4" />
+								{#if sortColumn === 'createdAt'}
+									{#if sortDirection === 'asc'}
+										<ChevronUp class="ml-2 h-4 w-4 text-primary-foreground" />
+									{:else}
+										<ChevronDown class="ml-2 h-4 w-4 text-primary-foreground" />
+									{/if}
 								{:else}
-									<ChevronDown class="ml-2 h-4 w-4" />
+									<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
 								{/if}
 							</Button>
 						</Table.Head>
-						<Table.Head class="text-right">Amount</Table.Head>
+						<Table.Head class="text-right">
+							<Button variant="ghost" on:click={() => handleSort('total')}>
+								Amount
+								{#if sortColumn === 'total'}
+									{#if sortDirection === 'asc'}
+										<ChevronUp class="ml-2 h-4 w-4 text-primary-foreground" />
+									{:else}
+										<ChevronDown class="ml-2 h-4 w-4 text-primary-foreground" />
+									{/if}
+								{:else}
+									<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+								{/if}
+							</Button>
+						</Table.Head>
 					</Table.Row>
 				</Table.Header>
 

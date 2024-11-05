@@ -1624,6 +1624,7 @@ export const paginateOrders = (
 	perPage: number,
 	status: { [k: string]: boolean },
 	type: { [k: string]: boolean },
+	sortColumn: 'createdAt' | 'total',
 	sortDirection: 'asc' | 'desc'
 ): {
 	orders: PartialOrder[];
@@ -1632,6 +1633,7 @@ export const paginateOrders = (
 	perPage: number;
 	status: { [k: string]: boolean };
 	type: { [k: string]: boolean };
+	sortColumn: 'createdAt' | 'total';
 	sortDirection: 'asc' | 'desc';
 } => {
 	const ordersFiltered = R.pipe(
@@ -1654,7 +1656,12 @@ export const paginateOrders = (
 
 	const orders = R.pipe(
 		ordersFiltered,
-		R.sortBy([(order) => Temporal.Instant.from(order.createdAt).epochMilliseconds, sortDirection]),
+		R.sortBy([
+			sortColumn === 'createdAt'
+				? (order) => Temporal.Instant.from(order.createdAt).epochMilliseconds
+				: (order) => order.total,
+			sortDirection
+		]),
 		R.drop((page - 1) * perPage),
 		R.take(perPage),
 		R.map((order) => {
@@ -1674,7 +1681,7 @@ export const paginateOrders = (
 		})
 	);
 
-	return { orders, count, page, perPage, status, type, sortDirection };
+	return { orders, count, page, perPage, status, type, sortColumn, sortDirection };
 };
 
 export const findOrder = (orderCode: Code): Order | null => {

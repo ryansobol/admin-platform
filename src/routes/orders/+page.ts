@@ -16,12 +16,13 @@ export const load = ({ url }) => {
 		'Monthly Subscription': (url.searchParams.get('Monthly Subscription') ?? 'true') === 'true'
 	};
 
+	const sortColumn = url.searchParams.get('sortColumn') === 'total' ? 'total' : 'createdAt';
 	const sortDirection = url.searchParams.get('sortDirection') === 'asc' ? 'asc' : 'desc';
 
 	const code = url.searchParams.get('code') ?? '';
 
 	return {
-		...paginateOrders(page, perPage, status, type, sortDirection),
+		...paginateOrders(page, perPage, status, type, sortColumn, sortDirection),
 		order: findOrder(code)
 	};
 };
