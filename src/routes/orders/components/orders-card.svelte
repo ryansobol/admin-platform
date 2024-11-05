@@ -16,6 +16,8 @@
 	import * as Pagination from '$lib/components/ui/pagination';
 	import * as Table from '$lib/components/ui/table/index.js';
 
+	import { cn } from '$lib/utils';
+
 	import { currencyFormatter } from '../utils';
 
 	import type { PartialOrder } from '../types';
@@ -46,7 +48,11 @@
 </script>
 
 {#snippet buttonSortableColumn(column: 'createdAt' | 'total', label: 'Date' | 'Amount')}
-	<Button class="gap-1 text-primary-foreground" onclick={() => handleSort(column)} variant="ghost">
+	<Button
+		class={cn('gap-1', sortColumn === column ? 'text-primary-foreground' : '')}
+		onclick={() => handleSort(column)}
+		variant="ghost"
+	>
 		{label}
 
 		{#if sortColumn === column}
