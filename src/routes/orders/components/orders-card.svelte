@@ -4,9 +4,9 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import ArrowDown from 'lucide-svelte/icons/arrow-down';
-	import ArrowDownUp from 'lucide-svelte/icons/arrow-down-up';
-	import ArrowUp from 'lucide-svelte/icons/arrow-up';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+	import ChevronsUpDown from 'lucide-svelte/icons/chevrons-up-down';
+	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
@@ -52,7 +52,7 @@
 		{@const iconClasses = 'ml-2 size-4'}
 
 		{#if sortColumn === column}
-			{@const Icon = sortDirection === 'asc' ? ArrowUp : ArrowDown}
+			{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
 
 			<Icon class="{iconClasses} text-primary-foreground" />
 			<span class="sr-only">
@@ -60,7 +60,7 @@
 				{sortDirection === 'asc' ? 'ascending' : 'descending'} order
 			</span>
 		{:else}
-			<ArrowDownUp class="{iconClasses} text-muted-foreground" />
+			<ChevronsUpDown class="{iconClasses} text-muted-foreground" />
 			<span class="sr-only">
 				Sort by {label} in either descending or ascending order
 			</span>
