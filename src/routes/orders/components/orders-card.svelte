@@ -45,11 +45,13 @@
 </script>
 
 {#snippet sortColumnIcon(column: 'createdAt' | 'total')}
+	{@const iconClasses = 'ml-2 size-4'}
+
 	{#if sortColumn === column}
 		{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
-		<Icon class="ml-2 h-4 w-4 text-primary-foreground" />
+		<Icon class="{iconClasses} text-primary-foreground" />
 	{:else}
-		<ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+		<ChevronDown class="{iconClasses} text-muted-foreground" />
 	{/if}
 {/snippet}
 
