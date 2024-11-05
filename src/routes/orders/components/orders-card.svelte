@@ -36,8 +36,8 @@
 					<Table.Row>
 						<Table.Head>Customer</Table.Head>
 						<Table.Head class="hidden sm:table-cell">Type</Table.Head>
-						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
-						<Table.Head class="hidden md:table-cell">Date</Table.Head>
+						<Table.Head>Status</Table.Head>
+						<Table.Head class="hidden lg:table-cell">Date</Table.Head>
 						<Table.Head class="text-right">Amount</Table.Head>
 					</Table.Row>
 				</Table.Header>
@@ -73,13 +73,13 @@
 								</Badge>
 							</Table.Cell>
 
-							<Table.Cell class="hidden sm:table-cell">
+							<Table.Cell>
 								<Badge class="text-xs" variant={order.status}>
 									{order.status}
 								</Badge>
 							</Table.Cell>
 
-							<Table.Cell class="hidden md:table-cell">
+							<Table.Cell class="hidden lg:table-cell">
 								{Temporal.Instant.from(order.createdAt)
 									.toZonedDateTimeISO(Temporal.Now.timeZoneId())
 									.toPlainDate()
