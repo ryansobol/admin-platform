@@ -4,10 +4,11 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+	import ArrowDown from 'lucide-svelte/icons/arrow-down';
+	import ArrowDownUp from 'lucide-svelte/icons/arrow-down-up';
+	import ArrowUp from 'lucide-svelte/icons/arrow-up';
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button';
@@ -44,15 +45,26 @@
 	}
 </script>
 
-{#snippet sortColumnIcon(column: 'createdAt' | 'total')}
-	{@const iconClasses = 'ml-2 size-4'}
+{#snippet buttonSortableColumn(label: 'Date' | 'Amount', column: 'createdAt' | 'total')}
+	<Button variant="ghost" on:click={() => handleSort(column)}>
+		{label}
 
-	{#if sortColumn === column}
-		{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
-		<Icon class="{iconClasses} text-primary-foreground" />
-	{:else}
-		<ChevronDown class="{iconClasses} text-muted-foreground" />
-	{/if}
+		{@const iconClasses = 'ml-2 size-4'}
+
+		{#if sortColumn === column}
+			{@const Icon = sortDirection === 'asc' ? ArrowUp : ArrowDown}
+			<Icon class="{iconClasses} font-bold text-primary-foreground" />
+			<span class="sr-only">
+				Sort by {label} in
+				{sortDirection === 'asc' ? 'descending' : 'ascending'} order
+			</span>
+		{:else}
+			<ArrowDownUp class="{iconClasses} text-muted-foreground" />
+			<span class="sr-only">
+				Sort by {label} in either descending or ascending order
+			</span>
+		{/if}
+	</Button>
 {/snippet}
 
 {#if orders.length}
@@ -70,16 +82,10 @@
 						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
 						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
 						<Table.Head>
-							<Button variant="ghost" on:click={() => handleSort('createdAt')}>
-								Date
-								{@render sortColumnIcon('createdAt')}
-							</Button>
+							{@render buttonSortableColumn('Date', 'createdAt')}
 						</Table.Head>
 						<Table.Head class="text-right">
-							<Button variant="ghost" on:click={() => handleSort('total')}>
-								Amount
-								{@render sortColumnIcon('total')}
-							</Button>
+							{@render buttonSortableColumn('Amount', 'total')}
 						</Table.Head>
 					</Table.Row>
 				</Table.Header>
