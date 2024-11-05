@@ -135,8 +135,11 @@
 							<Table.Cell>
 								{Temporal.Instant.from(order.createdAt)
 									.toZonedDateTimeISO(Temporal.Now.timeZoneId())
-									.toPlainDate()
-									.toString()}
+									.toLocaleString('en-US', {
+										month: 'short',
+										day: 'numeric',
+										year: 'numeric'
+									})}
 							</Table.Cell>
 
 							<Table.Cell class="text-right">{currencyFormatter.format(order.total)}</Table.Cell>
