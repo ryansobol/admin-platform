@@ -45,18 +45,19 @@
 	}
 </script>
 
-{#snippet buttonSortableColumn(label: 'Date' | 'Amount', column: 'createdAt' | 'total')}
-	<Button variant="ghost" onclick={() => handleSort(column)}>
+{#snippet buttonSortableColumn(column: 'createdAt' | 'total', label: 'Date' | 'Amount')}
+	<Button onclick={() => handleSort(column)} variant="ghost">
 		{label}
 
 		{@const iconClasses = 'ml-2 size-4'}
 
 		{#if sortColumn === column}
 			{@const Icon = sortDirection === 'asc' ? ArrowUp : ArrowDown}
-			<Icon class="{iconClasses} font-bold text-primary-foreground" />
+
+			<Icon class="{iconClasses} text-primary-foreground" />
 			<span class="sr-only">
-				Sort by {label} in
-				{sortDirection === 'asc' ? 'descending' : 'ascending'} order
+				Sorted by {label} in
+				{sortDirection === 'asc' ? 'ascending' : 'descending'} order
 			</span>
 		{:else}
 			<ArrowDownUp class="{iconClasses} text-muted-foreground" />
@@ -82,10 +83,10 @@
 						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
 						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
 						<Table.Head>
-							{@render buttonSortableColumn('Date', 'createdAt')}
+							{@render buttonSortableColumn('createdAt', 'Date')}
 						</Table.Head>
 						<Table.Head class="text-right">
-							{@render buttonSortableColumn('Amount', 'total')}
+							{@render buttonSortableColumn('total', 'Amount')}
 						</Table.Head>
 					</Table.Row>
 				</Table.Header>
