@@ -38,9 +38,9 @@
 				<Table.Header>
 					<Table.Row>
 						<Table.Head>Customer</Table.Head>
-						<Table.Head class="hidden sm:table-cell">Type</Table.Head>
-						<Table.Head>Status</Table.Head>
-						<Table.Head class="hidden lg:table-cell">
+						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
+						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
+						<Table.Head>
 							<Button
 								variant="ghost"
 								on:click={() => {
@@ -92,19 +92,19 @@
 								</div>
 							</Table.Cell>
 
-							<Table.Cell class="hidden sm:table-cell">
+							<Table.Cell class="hidden lg:table-cell">
 								<Badge class="text-xs" variant={order.type}>
 									{order.type}
 								</Badge>
 							</Table.Cell>
 
-							<Table.Cell>
+							<Table.Cell class="hidden sm:table-cell">
 								<Badge class="text-xs" variant={order.status}>
 									{order.status}
 								</Badge>
 							</Table.Cell>
 
-							<Table.Cell class="hidden lg:table-cell">
+							<Table.Cell>
 								{Temporal.Instant.from(order.createdAt)
 									.toZonedDateTimeISO(Temporal.Now.timeZoneId())
 									.toPlainDate()
