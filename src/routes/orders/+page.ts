@@ -1,4 +1,5 @@
 import { findOrder, paginateOrders } from './db';
+import { SortColumn } from './types';
 
 export const load = ({ url }) => {
 	const page = Number(url.searchParams.get('page') ?? 1);
@@ -16,7 +17,7 @@ export const load = ({ url }) => {
 		'Monthly Subscription': (url.searchParams.get('Monthly Subscription') ?? 'true') === 'true'
 	};
 
-	const sortColumn = url.searchParams.get('sortColumn') === 'total' ? 'total' : 'createdAt';
+	const sortColumn = SortColumn[url.searchParams.get('sortColumn') ?? ''] ?? 'createdAt';
 	const sortDirection = url.searchParams.get('sortDirection') === 'asc' ? 'asc' : 'desc';
 
 	const code = url.searchParams.get('code') ?? '';

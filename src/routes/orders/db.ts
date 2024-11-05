@@ -2,7 +2,7 @@ import * as R from 'remeda';
 import { Temporal } from 'temporal-polyfill';
 
 import { OrderStatus, OrderType } from './types';
-import type { Code, Order, PartialOrder } from './types';
+import type { Code, Order, PartialOrder, SortColumn, SortDirection } from './types';
 
 const orderRecords: Record<Code, Order> = {
 	'1V2VK': {
@@ -1624,8 +1624,8 @@ export const paginateOrders = (
 	perPage: number,
 	status: { [k: string]: boolean },
 	type: { [k: string]: boolean },
-	sortColumn: 'createdAt' | 'total',
-	sortDirection: 'asc' | 'desc'
+	sortColumn: SortColumn,
+	sortDirection: SortDirection
 ): {
 	orders: PartialOrder[];
 	count: number;
@@ -1633,8 +1633,8 @@ export const paginateOrders = (
 	perPage: number;
 	status: { [k: string]: boolean };
 	type: { [k: string]: boolean };
-	sortColumn: 'createdAt' | 'total';
-	sortDirection: 'asc' | 'desc';
+	sortColumn: SortColumn;
+	sortDirection: SortDirection;
 } => {
 	const ordersFiltered = R.pipe(
 		orderRecords,
@@ -1654,14 +1654,15 @@ export const paginateOrders = (
 
 	const count = ordersFiltered.length;
 
+	const projectionsFromColumn = {
+		createdAt: (order: Order) => Temporal.Instant.from(order.createdAt).epochMilliseconds,
+		status: (order: Order) => order.status,
+		total: (order: Order) => order.total
+	};
+
 	const orders = R.pipe(
 		ordersFiltered,
-		R.sortBy([
-			sortColumn === 'createdAt'
-				? (order) => Temporal.Instant.from(order.createdAt).epochMilliseconds
-				: (order) => order.total,
-			sortDirection
-		]),
+		R.sortBy([projectionsFromColumn[sortColumn], sortDirection]),
 		R.drop((page - 1) * perPage),
 		R.take(perPage),
 		R.map((order) => {

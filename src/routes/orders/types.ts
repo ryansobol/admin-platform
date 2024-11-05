@@ -68,3 +68,22 @@ export type PartialOrder = {
 	createdAt: string;
 	total: number;
 };
+
+// NOTE: Redundant, but necessary to create a type-safe mapping from any string to
+// one of the values in the enum
+export const SortColumn: Record<string, 'createdAt' | 'status' | 'total'> = new Proxy(
+	{
+		createdAt: 'createdAt',
+		status: 'status',
+		total: 'total'
+	} as const,
+	{
+		get(target, prop) {
+			return target[prop as keyof typeof target] ?? 'createdAt';
+		}
+	}
+);
+
+export type SortColumn = (typeof SortColumn)[keyof typeof SortColumn];
+
+export type SortDirection = 'asc' | 'desc';

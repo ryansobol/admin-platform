@@ -20,16 +20,16 @@
 
 	import { currencyFormatter } from '../utils';
 
-	import type { PartialOrder } from '../types';
+	import type { PartialOrder, SortColumn, SortDirection } from '../types';
 
 	let orders: PartialOrder[] = $derived($page.data.orders);
 	let count: number = $derived($page.data.count);
 	let perPage: number = $derived($page.data.perPage);
-	let sortColumn: 'createdAt' | 'total' = $derived($page.data.sortColumn);
-	let sortDirection: 'asc' | 'desc' = $derived($page.data.sortDirection);
+	let sortColumn: SortColumn = $derived($page.data.sortColumn);
+	let sortDirection: SortDirection = $derived($page.data.sortDirection);
 	let selected = $derived($page.data.order?.code ?? '');
 
-	function handleSort(column: 'createdAt' | 'total') {
+	function handleSort(column: SortColumn, direction: SortDirection) {
 		const newParams = new URLSearchParams($page.url.searchParams);
 
 		if (sortColumn === column) {
@@ -40,17 +40,17 @@
 			}
 		} else {
 			newParams.set('sortColumn', column);
-			newParams.set('sortDirection', 'desc');
+			newParams.set('sortDirection', direction);
 		}
 
 		goto(`${$page.url.pathname}?${newParams}`);
 	}
 </script>
 
-{#snippet buttonSortableColumn(column: 'createdAt' | 'total', label: 'Date' | 'Amount')}
+{#snippet buttonSortableColumn(column: SortColumn, direction: SortDirection, label: string)}
 	<Button
 		class={cn('gap-1', sortColumn === column ? 'text-primary-foreground' : '')}
-		onclick={() => handleSort(column)}
+		onclick={() => handleSort(column, direction)}
 		variant="ghost"
 	>
 		{label}
@@ -85,12 +85,14 @@
 					<Table.Row>
 						<Table.Head>Customer</Table.Head>
 						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
-						<Table.Head class="hidden sm:table-cell">Status</Table.Head>
+						<Table.Head class="hidden sm:table-cell">
+							{@render buttonSortableColumn('status', 'asc', 'Status')}
+						</Table.Head>
 						<Table.Head>
-							{@render buttonSortableColumn('createdAt', 'Date')}
+							{@render buttonSortableColumn('createdAt', 'desc', 'Date')}
 						</Table.Head>
 						<Table.Head class="text-right">
-							{@render buttonSortableColumn('total', 'Amount')}
+							{@render buttonSortableColumn('total', 'desc', 'Amount')}
 						</Table.Head>
 					</Table.Row>
 				</Table.Header>
