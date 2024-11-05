@@ -83,7 +83,9 @@
 			<Table.Root>
 				<Table.Header>
 					<Table.Row>
-						<Table.Head>Customer</Table.Head>
+						<Table.Head>
+							{@render buttonSortableColumn('customerName', 'asc', 'Customer')}
+						</Table.Head>
 						<Table.Head class="hidden lg:table-cell">
 							{@render buttonSortableColumn('type', 'asc', 'Type')}
 						</Table.Head>
