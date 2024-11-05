@@ -46,21 +46,19 @@
 </script>
 
 {#snippet buttonSortableColumn(column: 'createdAt' | 'total', label: 'Date' | 'Amount')}
-	<Button onclick={() => handleSort(column)} variant="ghost">
+	<Button class="gap-1 text-primary-foreground" onclick={() => handleSort(column)} variant="ghost">
 		{label}
-
-		{@const iconClasses = 'ml-2 size-4'}
 
 		{#if sortColumn === column}
 			{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
 
-			<Icon class="{iconClasses} text-primary-foreground" />
+			<Icon class="size-4" />
 			<span class="sr-only">
 				Sorted by {label} in
 				{sortDirection === 'asc' ? 'ascending' : 'descending'} order
 			</span>
 		{:else}
-			<ChevronsUpDown class="{iconClasses} text-muted-foreground" />
+			<ChevronsUpDown class="size-4" />
 			<span class="sr-only">
 				Sort by {label} in either descending or ascending order
 			</span>
@@ -162,7 +160,7 @@
 					<Pagination.Content>
 						<Pagination.Item>
 							<Pagination.PrevButton>
-								<ChevronLeft class="h-4 w-4" />
+								<ChevronLeft class="size-4" />
 								<span class="hidden sm:block">Previous</span>
 							</Pagination.PrevButton>
 						</Pagination.Item>
@@ -184,7 +182,7 @@
 						<Pagination.Item>
 							<Pagination.NextButton>
 								<span class="hidden sm:block">Next</span>
-								<ChevronRight class="h-4 w-4" />
+								<ChevronRight class="size-4" />
 							</Pagination.NextButton>
 						</Pagination.Item>
 					</Pagination.Content>
