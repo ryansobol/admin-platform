@@ -1,4 +1,5 @@
 import * as R from 'remeda';
+import { Temporal } from 'temporal-polyfill';
 
 import { OrderStatus, OrderType } from './types';
 import type { Code, Order, PartialOrder } from './types';
@@ -1651,6 +1652,7 @@ export const paginateOrders = (
 
 	const orders = R.pipe(
 		ordersFiltered,
+		R.sortBy([(order) => Temporal.Instant.from(order.createdAt).epochMilliseconds, 'desc']),
 		R.drop((page - 1) * perPage),
 		R.take(perPage),
 		R.map((order) => {
