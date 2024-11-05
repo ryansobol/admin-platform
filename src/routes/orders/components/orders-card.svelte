@@ -46,7 +46,7 @@
 </script>
 
 {#snippet buttonSortableColumn(label: 'Date' | 'Amount', column: 'createdAt' | 'total')}
-	<Button variant="ghost" on:click={() => handleSort(column)}>
+	<Button variant="ghost" onclick={() => handleSort(column)}>
 		{label}
 
 		{@const iconClasses = 'ml-2 size-4'}
