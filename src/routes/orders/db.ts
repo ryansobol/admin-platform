@@ -1657,7 +1657,8 @@ export const paginateOrders = (
 	const projectionsFromColumn = {
 		createdAt: (order: Order) => Temporal.Instant.from(order.createdAt).epochMilliseconds,
 		status: (order: Order) => order.status,
-		total: (order: Order) => order.total
+		total: (order: Order) => order.total,
+		type: (order: Order) => order.type
 	};
 
 	const orders = R.pipe(

@@ -84,7 +84,9 @@
 				<Table.Header>
 					<Table.Row>
 						<Table.Head>Customer</Table.Head>
-						<Table.Head class="hidden lg:table-cell">Type</Table.Head>
+						<Table.Head class="hidden lg:table-cell">
+							{@render buttonSortableColumn('type', 'asc', 'Type')}
+						</Table.Head>
 						<Table.Head class="hidden sm:table-cell">
 							{@render buttonSortableColumn('status', 'asc', 'Status')}
 						</Table.Head>

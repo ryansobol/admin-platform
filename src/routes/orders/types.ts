@@ -71,11 +71,12 @@ export type PartialOrder = {
 
 // NOTE: Redundant, but necessary to create a type-safe mapping from any string to
 // one of the values in the enum
-export const SortColumn: Record<string, 'createdAt' | 'status' | 'total'> = new Proxy(
+export const SortColumn: Record<string, 'createdAt' | 'status' | 'total' | 'type'> = new Proxy(
 	{
 		createdAt: 'createdAt',
 		status: 'status',
-		total: 'total'
+		total: 'total',
+		type: 'type'
 	} as const,
 	{
 		get(target, prop) {
