@@ -1,6 +1,8 @@
 <script lang="ts">
 	import File from 'lucide-svelte/icons/file';
 	import ListFilter from 'lucide-svelte/icons/list-filter';
+	import Origami from 'lucide-svelte/icons/origami';
+	import Waypoints from 'lucide-svelte/icons/waypoints';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
@@ -27,7 +29,10 @@
 		</DropdownMenu.Trigger>
 
 		<DropdownMenu.Content align="end">
-			<DropdownMenu.Label>Order Status</DropdownMenu.Label>
+			<DropdownMenu.Label class="inline-flex items-center gap-2">
+				<Waypoints class="h-3.5 w-3.5" />
+				Order Status
+			</DropdownMenu.Label>
 			<DropdownMenu.Separator />
 			{#each Object.entries(isOrderShownFromOrderStatus) as [orderStatus, isOrderShown]}
 				{@const status = orderStatus as OrderStatus}
@@ -50,7 +55,10 @@
 
 			<DropdownMenu.Separator />
 
-			<DropdownMenu.Label>Order Type</DropdownMenu.Label>
+			<DropdownMenu.Label class="inline-flex items-center gap-2">
+				<Origami class="h-3.5 w-3.5" />
+				Order Type
+			</DropdownMenu.Label>
 			<DropdownMenu.Separator />
 			{#each Object.entries(isOrderShownFromOrderType) as [orderType, isOrderShown]}
 				{@const type = orderType as OrderType}
