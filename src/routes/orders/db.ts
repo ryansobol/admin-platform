@@ -1622,8 +1622,8 @@ const orderRecords: Record<Code, Order> = {
 export const paginateOrders = (
 	page: number,
 	perPage: number,
-	status: { [k: string]: boolean },
-	type: { [k: string]: boolean },
+	status: Record<OrderStatus, boolean>,
+	type: Record<OrderType, boolean>,
 	sortColumn: SortColumn,
 	sortDirection: SortDirection
 ): {
@@ -1631,8 +1631,8 @@ export const paginateOrders = (
 	count: number;
 	page: number;
 	perPage: number;
-	status: { [k: string]: boolean };
-	type: { [k: string]: boolean };
+	status: { [k in OrderStatus]: boolean };
+	type: { [k in OrderType]: boolean };
 	sortColumn: SortColumn;
 	sortDirection: SortDirection;
 } => {

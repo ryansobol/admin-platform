@@ -2,6 +2,7 @@
 	import File from 'lucide-svelte/icons/file';
 	import ListFilter from 'lucide-svelte/icons/list-filter';
 
+	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
@@ -10,9 +11,10 @@
 	import { page } from '$app/stores';
 
 	import OrdersCard from './orders-card.svelte';
+	import type { OrderStatus, OrderType } from '../types';
 
-	let isOrderShownFromOrderStatus: { [k: string]: boolean } = $derived($page.data.status);
-	let isOrderShownFromOrderType: { [k: string]: boolean } = $derived($page.data.type);
+	let isOrderShownFromOrderStatus: Record<OrderStatus, boolean> = $derived($page.data.status);
+	let isOrderShownFromOrderType: Record<OrderType, boolean> = $derived($page.data.type);
 </script>
 
 {#snippet orderFilterDropdownMenu()}
@@ -27,9 +29,11 @@
 		<DropdownMenu.Content align="end">
 			<DropdownMenu.Label>Order Status</DropdownMenu.Label>
 			<DropdownMenu.Separator />
-			{#each Object.keys(isOrderShownFromOrderStatus) as orderStatus}
+			{#each Object.entries(isOrderShownFromOrderStatus) as [orderStatus, isOrderShown]}
+				{@const status = orderStatus as OrderStatus}
+
 				<DropdownMenu.CheckboxItem
-					checked={isOrderShownFromOrderStatus[orderStatus]}
+					checked={isOrderShown}
 					onCheckedChange={(checked) => {
 						const newParams = new URLSearchParams($page.url.searchParams);
 
@@ -38,7 +42,9 @@
 						goto(`${$page.url.pathname}?${newParams}`);
 					}}
 				>
-					{orderStatus}
+					<Badge class="text-xs" variant={status}>
+						{orderStatus}
+					</Badge>
 				</DropdownMenu.CheckboxItem>
 			{/each}
 
@@ -46,9 +52,11 @@
 
 			<DropdownMenu.Label>Order Type</DropdownMenu.Label>
 			<DropdownMenu.Separator />
-			{#each Object.keys(isOrderShownFromOrderType) as orderType}
+			{#each Object.entries(isOrderShownFromOrderType) as [orderType, isOrderShown]}
+				{@const type = orderType as OrderType}
+
 				<DropdownMenu.CheckboxItem
-					checked={isOrderShownFromOrderType[orderType]}
+					checked={isOrderShown}
 					onCheckedChange={(checked) => {
 						const newParams = new URLSearchParams($page.url.searchParams);
 
@@ -57,7 +65,9 @@
 						goto(`${$page.url.pathname}?${newParams}`);
 					}}
 				>
-					{orderType}
+					<Badge class="text-xs" variant={type}>
+						{type}
+					</Badge>
 				</DropdownMenu.CheckboxItem>
 			{/each}
 		</DropdownMenu.Content>
