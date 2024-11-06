@@ -4,11 +4,13 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronsUpDown from 'lucide-svelte/icons/chevrons-up-down';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import ArrowDown10 from 'lucide-svelte/icons/arrow-down-1-0';
+	import ArrowDownAZ from 'lucide-svelte/icons/arrow-down-a-z';
+	import ArrowDownUp from 'lucide-svelte/icons/arrow-down-up';
+	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
+	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import ArrowUp10 from 'lucide-svelte/icons/arrow-up-1-0';
+	import ArrowUpAZ from 'lucide-svelte/icons/arrow-up-a-z';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button';
@@ -56,7 +58,14 @@
 		{label}
 
 		{#if sortColumn === column}
-			{@const Icon = sortDirection === 'asc' ? ChevronUp : ChevronDown}
+			{@const Icon =
+				sortDirection === 'asc'
+					? ['customerName', 'type', 'status'].includes(sortColumn)
+						? ArrowDownAZ
+						: ArrowUp10
+					: ['customerName', 'type', 'status'].includes(sortColumn)
+						? ArrowUpAZ
+						: ArrowDown10}
 
 			<Icon class="size-4" />
 			<span class="sr-only">
@@ -64,7 +73,7 @@
 				{sortDirection === 'asc' ? 'ascending' : 'descending'} order
 			</span>
 		{:else}
-			<ChevronsUpDown class="size-4" />
+			<ArrowDownUp class="size-4" />
 			<span class="sr-only">
 				Sort by {label} in either descending or ascending order
 			</span>
@@ -175,7 +184,7 @@
 					<Pagination.Content>
 						<Pagination.Item>
 							<Pagination.PrevButton>
-								<ChevronLeft class="size-4" />
+								<ArrowLeft class="size-4" />
 								<span class="hidden sm:block">Previous</span>
 							</Pagination.PrevButton>
 						</Pagination.Item>
@@ -197,7 +206,7 @@
 						<Pagination.Item>
 							<Pagination.NextButton>
 								<span class="hidden sm:block">Next</span>
-								<ChevronRight class="size-4" />
+								<ArrowRight class="size-4" />
 							</Pagination.NextButton>
 						</Pagination.Item>
 					</Pagination.Content>
