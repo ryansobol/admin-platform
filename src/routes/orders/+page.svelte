@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { replaceState } from '$app/navigation';
-
 	import { page } from '$app/stores';
 
-	import ThisMonthCard from './components/this-month-card.svelte';
-	import ThisWeekCard from './components/this-week-card.svelte';
 	import OrderCard from './components/order-card.svelte';
 	import OrdersTabs from './components/orders-tabs.svelte';
+	import ThisMonthCard from './components/this-month-card.svelte';
+	import ThisWeekCard from './components/this-week-card.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
 </script>
 

@@ -4,16 +4,17 @@
 	import Origami from 'lucide-svelte/icons/origami';
 	import Waypoints from 'lucide-svelte/icons/waypoints';
 
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 
-	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	import type { OrderStatus, OrderType } from '../types';
 
 	import OrdersCard from './orders-card.svelte';
-	import type { OrderStatus, OrderType } from '../types';
 
 	let isOrderShownFromOrderStatus: Record<OrderStatus, boolean> = $derived($page.data.status);
 	let isOrderShownFromOrderType: Record<OrderType, boolean> = $derived($page.data.type);

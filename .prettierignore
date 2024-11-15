@@ -2,3 +2,7 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+tailwind.config.ts
+src/lib/utils.ts
+src/lib/components/ui/

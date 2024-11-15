@@ -7,19 +7,19 @@
 	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
 	import Truck from 'lucide-svelte/icons/truck';
 
+	import { page } from '$app/stores';
+
 	import Badge from '$lib/components/ui/badge/badge.svelte';
-	import { Button } from '$lib/components/ui/button/index.js';
 	import ButtonCopy from '$lib/components/ui/button-copy/button-copy.svelte';
+	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
-	import { currencyFormatter } from '../utils';
-
 	import type { Order } from '../types';
 
-	import { page } from '$app/stores';
+	import { currencyFormatter } from '../utils';
 
 	let order: Order | null = $derived($page.data.order);
 

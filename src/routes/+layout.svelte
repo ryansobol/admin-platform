@@ -1,9 +1,10 @@
 <script lang="ts">
 	import '../app.css';
+
 	import { ModeWatcher } from 'mode-watcher';
 
-	import House from 'lucide-svelte/icons/house';
 	import ChartLine from 'lucide-svelte/icons/chart-line';
+	import House from 'lucide-svelte/icons/house';
 	import Package from 'lucide-svelte/icons/package';
 	import Package2 from 'lucide-svelte/icons/package-2';
 	import PanelLeft from 'lucide-svelte/icons/panel-left';
@@ -11,6 +12,8 @@
 	import Settings from 'lucide-svelte/icons/settings';
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import UsersRound from 'lucide-svelte/icons/users-round';
+
+	import { page } from '$app/stores';
 
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
@@ -20,9 +23,7 @@
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 
-	import { page } from '$app/stores';
-
-	let breadcrumbs = $derived($page.data.breadcrumbs);
+	const breadcrumbs = $derived($page.data.breadcrumbs);
 
 	const { children } = $props();
 </script>
