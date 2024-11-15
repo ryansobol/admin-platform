@@ -17,9 +17,8 @@
 	import * as Pagination from '$lib/components/ui/pagination/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
-	import type { Order } from '../types';
-
 	import { currencyFormatter } from '../utils';
+	import type { Order } from '../types';
 
 	let order: Order | null = $derived($page.data.order);
 

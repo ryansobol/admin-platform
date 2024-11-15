@@ -1,9 +1,8 @@
 import * as R from 'remeda';
 import { Temporal } from 'temporal-polyfill';
 
-import type { Code, Order, PartialOrder, SortColumn, SortDirection } from './types';
-
 import { OrderStatus, OrderType } from './types';
+import type { Code, Order, PartialOrder, SortColumn, SortDirection } from './types';
 
 const orderRecords: Record<Code, Order> = {
 	'1V2VK': {

@@ -19,9 +19,8 @@
 	import * as Table from '$lib/components/ui/table/index.js';
 	import { cn } from '$lib/utils';
 
-	import type { PartialOrder, SortColumn, SortDirection } from '../types';
-
 	import { currencyFormatter } from '../utils';
+	import type { PartialOrder, SortColumn, SortDirection } from '../types';
 
 	let orders: PartialOrder[] = $derived($page.data.orders);
 	let count: number = $derived($page.data.count);

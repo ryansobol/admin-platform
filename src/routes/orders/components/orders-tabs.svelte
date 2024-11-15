@@ -12,9 +12,8 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 
-	import type { OrderStatus, OrderType } from '../types';
-
 	import OrdersCard from './orders-card.svelte';
+	import type { OrderStatus, OrderType } from '../types';
 
 	let isOrderShownFromOrderStatus: Record<OrderStatus, boolean> = $derived($page.data.status);
 	let isOrderShownFromOrderType: Record<OrderType, boolean> = $derived($page.data.type);
