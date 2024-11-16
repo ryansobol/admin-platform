@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`greeting appears on click 1`] = `
+<p>
+  Hello World
+</p>
+`;
+
+exports[`no initial greeting 1`] = `
+<button>
+  Greet
+</button>
+`;
+
+exports[`no initial greeting 2`] = `null`;
