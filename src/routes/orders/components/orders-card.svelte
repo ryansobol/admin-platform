@@ -49,7 +49,7 @@
 
 {#snippet buttonSortableColumn(column: SortColumn, initialDirection: SortDirection, label: string)}
 	<Button
-		class={cn('gap-1', sortColumn === column ? 'text-primary-foreground' : '')}
+		class={cn('gap-1', sortColumn === column ? 'text-foreground' : '')}
 		onclick={() => handleSort(column, initialDirection)}
 		variant="ghost"
 	>
