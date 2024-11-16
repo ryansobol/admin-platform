@@ -2,7 +2,7 @@
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import OrderCard from './components/order-card.svelte';
+	import * as Order from './components/order/index.js';
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
@@ -32,6 +32,6 @@
 	</div>
 
 	<div>
-		<OrderCard />
+		<Order.Card />
 	</div>
 </main>
