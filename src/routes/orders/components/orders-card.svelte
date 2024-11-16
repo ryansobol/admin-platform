@@ -113,7 +113,8 @@
 						{@const code = order.code}
 
 						<Table.Row
-							class={selected === code ? 'bg-accent' : ''}
+							class="cursor-pointer"
+							data-state={selected === code ? 'selected' : ''}
 							onclick={() => {
 								const newParams = new URLSearchParams($page.url.searchParams);
 
