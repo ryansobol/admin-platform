@@ -109,11 +109,11 @@
 				</Table.Header>
 
 				<Table.Body>
-					{#each orders as order (order.id)}
+					{#each orders as order, index (order.id)}
 						{@const code = order.code}
 
 						<Table.Row
-							class="cursor-pointer"
+							class={cn('cursor-pointer', index % 2 === 0 ? 'bg-muted/30 dark:bg-muted/15' : '')}
 							data-state={selected === code ? 'selected' : ''}
 							onclick={() => {
 								const newParams = new URLSearchParams($page.url.searchParams);
