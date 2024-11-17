@@ -10,6 +10,6 @@
 	const { children }: Props = $props();
 </script>
 
-<Card.Root class="overflow-hidden">
+<Card.Root>
 	{@render children?.()}
 </Card.Root>
