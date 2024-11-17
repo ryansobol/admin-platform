@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the component with an order prop 1`] = `
+<div
+  class="p-6 flex flex-row items-center border-t bg-muted/50 px-6 py-3"
+  role="contentinfo"
+>
+  <div
+    class="text-xs text-muted-foreground"
+  >
+    Last updated on 
+    <time
+      datetime="2023-01-11T03:11:27-08:00[America/Los_Angeles]"
+    >
+      January 11, 2023 at 3:11 AM PST
+    </time>
+  </div>
+  <!---->
+</div>
+`;
