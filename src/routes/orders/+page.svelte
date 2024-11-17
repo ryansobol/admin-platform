@@ -2,11 +2,14 @@
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import * as Order from './components/order/index.js';
+	import * as OrderCard from './components/order-card/index.js';
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
+	import type { Order } from './types';
+
+	let order: Order | undefined = $derived($page.data.order);
 </script>
 
 <svelte:window
@@ -32,6 +35,10 @@
 	</div>
 
 	<div>
-		<Order.Card />
+		<OrderCard.Root>
+			<OrderCard.Header {order} />
+			<OrderCard.Content {order} />
+			<OrderCard.Footer {order} />
+		</OrderCard.Root>
 	</div>
 </main>

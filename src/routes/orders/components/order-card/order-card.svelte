@@ -1,0 +1,15 @@
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	import * as Card from '$lib/components/ui/card/index.js';
+
+	type Props = {
+		children: Snippet;
+	};
+
+	const { children }: Props = $props();
+</script>
+
+<Card.Root class="overflow-hidden">
+	{@render children?.()}
+</Card.Root>
