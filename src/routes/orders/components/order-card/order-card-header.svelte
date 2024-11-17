@@ -33,7 +33,7 @@
 	{@const createdAtZoned = Temporal.Instant.from(order.createdAt).toZonedDateTimeISO(
 		Temporal.Now.timeZoneId()
 	)}
-	<Card.Header class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6">
+	<Card.Header class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6" role="complementary">
 		<div class="grid gap-0.5">
 			<Card.Title class="group flex items-center gap-2 text-lg">
 				Order Code {order.code}
