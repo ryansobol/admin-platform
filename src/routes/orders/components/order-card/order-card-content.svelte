@@ -111,6 +111,7 @@
 		</div>
 
 		<Separator class="my-4" />
+
 		<div class="grid gap-3">
 			<div class="font-semibold">Payment Information</div>
 
