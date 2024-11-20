@@ -1,0 +1,69 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the component with an order prop 1`] = `
+<section
+  aria-labelledby="customer-info"
+  class="grid gap-3"
+>
+  <h4
+    class="font-semibold"
+    id="customer-info"
+  >
+    Customer Information
+  </h4>
+   
+  <dl
+    class="grid gap-3"
+  >
+    <div
+      class="flex items-center justify-between"
+    >
+      <dt
+        class="text-muted-foreground"
+      >
+        Customer
+      </dt>
+       
+      <dd>
+        Firstname Lastname
+      </dd>
+    </div>
+     
+    <div
+      class="flex items-center justify-between"
+    >
+      <dt
+        class="text-muted-foreground"
+      >
+        Email
+      </dt>
+       
+      <dd>
+        <a
+          href="mailto:firstname.lastname@example.com"
+        >
+          firstname.lastname@example.com
+        </a>
+      </dd>
+    </div>
+     
+    <div
+      class="flex items-center justify-between"
+    >
+      <dt
+        class="text-muted-foreground"
+      >
+        Phone
+      </dt>
+       
+      <dd>
+        <a
+          href="tel:+1-234-567-8900"
+        >
+          +1-234-567-8900
+        </a>
+      </dd>
+    </div>
+  </dl>
+</section>
+`;

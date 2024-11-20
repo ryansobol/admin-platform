@@ -1,0 +1,72 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the component with an order prop 1`] = `
+<section
+  aria-labelledby="payment-info"
+  class="grid gap-3"
+>
+  <h4
+    class="font-semibold"
+    id="payment-info"
+  >
+    Payment Information
+  </h4>
+   
+  <dl
+    class="grid gap-3"
+  >
+    <div
+      class="flex items-center justify-between"
+    >
+      <dt
+        class="flex items-center gap-1 text-muted-foreground"
+      >
+        <svg
+          class="lucide-icon lucide lucide-credit-card h-4 w-4"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="14"
+            rx="2"
+            width="20"
+            x="2"
+            y="5"
+          >
+            
+          </rect>
+          <!---->
+          
+          <line
+            x1="2"
+            x2="22"
+            y1="10"
+            y2="10"
+          >
+            
+          </line>
+          <!---->
+          
+          <!---->
+          <!---->
+          
+          <!---->
+        </svg>
+        <!---->
+         Visa
+      </dt>
+       
+      <dd>
+        **** **** **** 3088
+      </dd>
+    </div>
+  </dl>
+</section>
+`;

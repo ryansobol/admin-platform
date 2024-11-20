@@ -1,0 +1,119 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the component with an order prop that has a shipping address but no billing address 1`] = `
+<section
+  aria-label="Order Addresses"
+  class="grid grid-cols-2 gap-4"
+>
+  <section
+    aria-labelledby="shipping-address"
+    class="grid gap-3"
+  >
+    <h4
+      class="font-semibold"
+      id="shipping-address"
+    >
+      Shipping Address
+    </h4>
+     
+    <address
+      class="grid gap-0.5 not-italic text-muted-foreground"
+    >
+      <span>
+        Firstname Lastname
+      </span>
+       
+      <span>
+        117 1st Ave.
+      </span>
+       
+      <span>
+        Phoenix, NY 60975
+      </span>
+    </address>
+  </section>
+   
+  <section
+    aria-labelledby="billing-address"
+    class="grid auto-rows-max gap-3"
+  >
+    <h4
+      class="font-semibold"
+      id="billing-address"
+    >
+      Billing Address
+    </h4>
+     
+    <div
+      class="text-muted-foreground"
+    >
+      Same as shipping address
+    </div>
+    <!---->
+  </section>
+</section>
+`;
+
+exports[`renders the component with an order prop that has both shipping and billing addresses 1`] = `
+<section
+  aria-label="Order Addresses"
+  class="grid grid-cols-2 gap-4"
+>
+  <section
+    aria-labelledby="shipping-address"
+    class="grid gap-3"
+  >
+    <h4
+      class="font-semibold"
+      id="shipping-address"
+    >
+      Shipping Address
+    </h4>
+     
+    <address
+      class="grid gap-0.5 not-italic text-muted-foreground"
+    >
+      <span>
+        Firstname Lastname
+      </span>
+       
+      <span>
+        117 1st Ave.
+      </span>
+       
+      <span>
+        Phoenix, NY 60975
+      </span>
+    </address>
+  </section>
+   
+  <section
+    aria-labelledby="billing-address"
+    class="grid auto-rows-max gap-3"
+  >
+    <h4
+      class="font-semibold"
+      id="billing-address"
+    >
+      Billing Address
+    </h4>
+     
+    <address
+      class="grid gap-0.5 not-italic text-muted-foreground"
+    >
+      <span>
+        Firstname Lastname
+      </span>
+       
+      <span>
+        117 1st Ave.
+      </span>
+       
+      <span>
+        Phoenix, NY 60975
+      </span>
+    </address>
+    <!---->
+  </section>
+</section>
+`;
