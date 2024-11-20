@@ -27,7 +27,11 @@
 		Temporal.Now.timeZoneId()
 	)}
 
-	<Card.Footer class="flex flex-row items-center border-t bg-muted/50 px-6 py-3" role="contentinfo">
+	<Card.Footer
+		aria-label="Order Last Updated Date"
+		class="flex flex-row items-center border-t bg-muted/50 px-6 py-3"
+		role="region"
+	>
 		<div class="text-xs text-muted-foreground">
 			Last updated on <time dateTime={updatedAtZoned.toString()}>
 				{updatedAtZoned.toLocaleString(locale, options)}

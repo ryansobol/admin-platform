@@ -2,8 +2,9 @@
 
 exports[`renders the component with an order prop 1`] = `
 <div
+  aria-label="Order Last Updated Date"
   class="p-6 flex flex-row items-center border-t bg-muted/50 px-6 py-3"
-  role="contentinfo"
+  role="region"
 >
   <div
     class="text-xs text-muted-foreground"

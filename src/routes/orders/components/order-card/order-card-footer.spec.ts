@@ -7,7 +7,7 @@ import type { Order } from '../../types';
 it('renders nothing without an order prop', () => {
 	render(OrderCardFooter);
 
-	const element = screen.queryByRole('contentinfo');
+	const element = screen.queryByRole('region', { name: 'Order Last Updated Date' });
 
 	expect(element).toBeNull();
 });
@@ -48,7 +48,7 @@ it('renders the component with an order prop', () => {
 
 	render(OrderCardFooter, { order });
 
-	const element = screen.getByRole('contentinfo');
+	const element = screen.getByRole('region', { name: 'Order Last Updated Date' });
 
 	expect(element).toMatchSnapshot();
 });
