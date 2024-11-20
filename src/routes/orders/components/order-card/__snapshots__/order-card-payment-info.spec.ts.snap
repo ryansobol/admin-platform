@@ -2,12 +2,11 @@
 
 exports[`renders the component with an order prop 1`] = `
 <section
-  aria-labelledby="payment-info"
+  aria-label="Order Payment Information"
   class="grid gap-3"
 >
   <h4
     class="font-semibold"
-    id="payment-info"
   >
     Payment Information
   </h4>

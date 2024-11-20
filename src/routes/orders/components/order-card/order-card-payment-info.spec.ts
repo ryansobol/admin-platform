@@ -7,7 +7,7 @@ import type { Order } from '../../types';
 it('renders nothing without an order prop', () => {
 	render(OrderCardPaymentInfo);
 
-	const element = screen.queryByRole('region', { name: 'Payment Information' });
+	const element = screen.queryByRole('region', { name: 'Order Payment Information' });
 
 	expect(element).toBeNull();
 });
@@ -48,7 +48,7 @@ it('renders the component with an order prop', () => {
 
 	render(OrderCardPaymentInfo, { order });
 
-	const element = screen.getByRole('region', { name: 'Payment Information' });
+	const element = screen.getByRole('region', { name: 'Order Payment Information' });
 
 	expect(element).toMatchSnapshot();
 });

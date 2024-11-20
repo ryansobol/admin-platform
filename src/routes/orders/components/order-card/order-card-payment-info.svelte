@@ -11,8 +11,8 @@
 </script>
 
 {#if order}
-	<section aria-labelledby="payment-info" class="grid gap-3">
-		<h4 class="font-semibold" id="payment-info">Payment Information</h4>
+	<section aria-label="Order Payment Information" class="grid gap-3">
+		<h4 class="font-semibold">Payment Information</h4>
 
 		<dl class="grid gap-3">
 			<div class="flex items-center justify-between">

@@ -9,8 +9,8 @@
 </script>
 
 {#if order}
-	<section aria-labelledby="customer-info" class="grid gap-3">
-		<h4 class="font-semibold" id="customer-info">Customer Information</h4>
+	<section aria-label="Order Customer Information" class="grid gap-3">
+		<h4 class="font-semibold">Customer Information</h4>
 
 		<dl class="grid gap-3">
 			<div class="flex items-center justify-between">
