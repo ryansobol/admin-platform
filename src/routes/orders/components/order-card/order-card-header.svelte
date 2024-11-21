@@ -51,12 +51,8 @@
 			</Card.Description>
 
 			<div>
-				<Badge class="text-xs" variant={order.type}>
-					{order.type}
-				</Badge>
-				<Badge class="text-xs" variant={order.status}>
-					{order.status}
-				</Badge>
+				<Badge class="text-xs" variant={order.type}>{order.type}</Badge>
+				<Badge class="text-xs" variant={order.status}>{order.status}</Badge>
 			</div>
 		</div>
 
