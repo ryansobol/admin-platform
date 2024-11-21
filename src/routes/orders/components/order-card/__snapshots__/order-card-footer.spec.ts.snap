@@ -7,7 +7,7 @@ exports[`renders the component with an order prop 1`] = `
   role="region"
 >
   <div
-    class="text-xs text-muted-foreground"
+    class="text-sm text-muted-foreground"
   >
     Last updated on 
     <time

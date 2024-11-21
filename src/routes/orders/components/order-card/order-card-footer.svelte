@@ -32,7 +32,7 @@
 		class="flex flex-row items-center border-t bg-muted/50 px-6 py-3"
 		role="region"
 	>
-		<div class="text-xs text-muted-foreground">
+		<div class="text-sm text-muted-foreground">
 			Last updated on <time dateTime={updatedAtZoned.toString()}>
 				{updatedAtZoned.toLocaleString(locale, options)}
 			</time>
