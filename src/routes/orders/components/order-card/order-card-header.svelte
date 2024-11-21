@@ -35,12 +35,12 @@
 	)}
 	<Card.Header
 		aria-label="Order Metadata and Actions"
-		class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6"
+		class="flex flex-row place-content-between space-y-0 bg-muted/50 p-6"
 		role="region"
 	>
-		<div class="grid gap-1">
+		<div class="space-y-2">
 			<div class="flex items-center gap-2">
-				<Card.Title class="text-lg">Order {order.code}</Card.Title>
+				<Card.Title class="text-xl">Order {order.code}</Card.Title>
 				<ButtonCopy label="order code" value={order.code} />
 			</div>
 
@@ -56,8 +56,8 @@
 			</div>
 		</div>
 
-		<div class="ml-auto flex items-center gap-1">
-			<Button size="sm" variant="outline" class="h-8 gap-1">
+		<div class="flex gap-2">
+			<Button size="sm" variant="outline" class="h-8 gap-2">
 				<Truck aria-hidden class="h-3.5 w-3.5" />
 				<span class="sr-only sm:not-sr-only xl:sr-only 2xl:not-sr-only 2xl:whitespace-nowrap">
 					Track Order

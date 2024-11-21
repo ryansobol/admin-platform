@@ -38,17 +38,17 @@
 	<Tooltip.Trigger asChild let:builder>
 		<Button
 			builders={[builder]}
-			class={cn('h-6 w-6', className)}
+			class={cn('h-8 w-8', className)}
 			{onclick}
 			size="icon"
 			variant="outline"
 			{...restProps}
 		>
 			{#if hasCopied}
-				<Check aria-hidden class="h-3 w-3 text-green-600" />
+				<Check aria-hidden class="h-3.5 w-3.5 text-green-600" />
 				<span class="sr-only">{label} copied to clipboard</span>
 			{:else}
-				<Copy aria-hidden class="h-3 w-3" />
+				<Copy aria-hidden class="h-3.5 w-3.5" />
 				<span class="sr-only">copy {label} to clipboard</span>
 			{/if}
 		</Button>
