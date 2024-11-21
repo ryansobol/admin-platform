@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
-import OrderCardOrderAddresses from './order-card-order-addresses.svelte';
+import OrderCardContentAddresses from './order-card-content-addresses.svelte';
 import type { Order } from '../../types';
 
 it('renders nothing without an order prop', () => {
-	render(OrderCardOrderAddresses);
+	render(OrderCardContentAddresses);
 
 	const element = screen.queryByRole('region', { name: 'Order Addresses' });
 
@@ -46,7 +46,7 @@ it('renders the component with an order prop that has both shipping and billing 
 		}
 	};
 
-	render(OrderCardOrderAddresses, { order });
+	render(OrderCardContentAddresses, { order });
 
 	const element = screen.getByRole('region', { name: 'Order Addresses' });
 
@@ -83,7 +83,7 @@ it('renders the component with an order prop that has a shipping address but no 
 		}
 	};
 
-	render(OrderCardOrderAddresses, { order });
+	render(OrderCardContentAddresses, { order });
 
 	const element = screen.getByRole('region', { name: 'Order Addresses' });
 

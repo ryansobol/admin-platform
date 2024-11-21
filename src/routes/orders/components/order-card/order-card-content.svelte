@@ -2,9 +2,9 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
+	import OrderCardContentAddresses from './order-card-content-addresses.svelte';
 	import OrderCardContentCustomer from './order-card-content-customer.svelte';
 	import OrderCardContentSummary from './order-card-content-summary.svelte';
-	import OrderCardOrderAddresses from './order-card-order-addresses.svelte';
 	import OrderCardPaymentInfo from './order-card-payment-info.svelte';
 	import type { Order } from '../../types';
 
@@ -21,7 +21,7 @@
 
 		<Separator class="my-4" />
 
-		<OrderCardOrderAddresses {order} />
+		<OrderCardContentAddresses {order} />
 
 		<Separator class="my-4" />
 
