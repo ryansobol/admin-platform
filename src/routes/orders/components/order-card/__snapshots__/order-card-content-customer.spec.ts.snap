@@ -2,13 +2,13 @@
 
 exports[`renders the component with an order prop 1`] = `
 <section
-  aria-label="Order Customer Information"
+  aria-label="Order Customer"
   class="grid gap-3"
 >
   <h4
     class="font-semibold"
   >
-    Customer Information
+    Customer
   </h4>
    
   <dl
@@ -20,7 +20,7 @@ exports[`renders the component with an order prop 1`] = `
       <dt
         class="text-muted-foreground"
       >
-        Customer
+        Name
       </dt>
        
       <dd>

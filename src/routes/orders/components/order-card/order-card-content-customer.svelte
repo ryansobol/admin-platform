@@ -9,12 +9,12 @@
 </script>
 
 {#if order}
-	<section aria-label="Order Customer Information" class="grid gap-3">
-		<h4 class="font-semibold">Customer Information</h4>
+	<section aria-label="Order Customer" class="grid gap-3">
+		<h4 class="font-semibold">Customer</h4>
 
 		<dl class="grid gap-3">
 			<div class="flex items-center justify-between">
-				<dt class="text-muted-foreground">Customer</dt>
+				<dt class="text-muted-foreground">Name</dt>
 				<dd>{order.customer.name}</dd>
 			</div>
 

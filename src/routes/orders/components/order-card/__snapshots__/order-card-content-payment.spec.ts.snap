@@ -2,13 +2,13 @@
 
 exports[`renders the component with an order prop 1`] = `
 <section
-  aria-label="Order Payment Information"
+  aria-label="Order Payment"
   class="grid gap-3"
 >
   <h4
     class="font-semibold"
   >
-    Payment Information
+    Payment
   </h4>
    
   <dl
