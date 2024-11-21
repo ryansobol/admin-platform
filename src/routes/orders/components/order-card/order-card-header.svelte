@@ -39,11 +39,10 @@
 		role="region"
 	>
 		<div class="grid gap-0.5">
-			<Card.Title class="flex items-center gap-2 text-lg">
-				Order Code {order.code}
-
-				<ButtonCopy class="" label="order code" value={order.code} />
-			</Card.Title>
+			<div class="flex items-center gap-2">
+				<Card.Title class="text-lg">Order {order.code}</Card.Title>
+				<ButtonCopy label="order code" value={order.code} />
+			</div>
 
 			<Card.Description>
 				Created on <time dateTime={createdAtZoned.toString()}>
