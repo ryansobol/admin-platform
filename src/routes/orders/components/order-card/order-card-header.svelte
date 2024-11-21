@@ -76,7 +76,11 @@
 					<DropdownMenu.Item>Edit</DropdownMenu.Item>
 					<DropdownMenu.Item>Export</DropdownMenu.Item>
 					<DropdownMenu.Separator />
-					<DropdownMenu.Item>Trash</DropdownMenu.Item>
+					<!-- TODO: Add destructive variant after upgrading Bits UI to v1 -->
+					<DropdownMenu.Item
+						class="text-red-600 data-[highlighted]:bg-destructive data-[highlighted]:text-destructive-foreground dark:text-red-500 dark:data-[highlighted]:text-destructive-foreground"
+						>Trash</DropdownMenu.Item
+					>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 		</div>
