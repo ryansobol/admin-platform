@@ -38,7 +38,7 @@
 		class="flex flex-row items-start space-y-1.5 bg-muted/50 p-6"
 		role="region"
 	>
-		<div class="grid gap-0.5">
+		<div class="grid gap-1">
 			<div class="flex items-center gap-2">
 				<Card.Title class="text-lg">Order {order.code}</Card.Title>
 				<ButtonCopy label="order code" value={order.code} />
