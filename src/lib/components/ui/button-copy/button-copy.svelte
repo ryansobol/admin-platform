@@ -45,10 +45,10 @@
 			{...restProps}
 		>
 			{#if hasCopied}
-				<Check class="h-3 w-3 text-green-600" />
+				<Check aria-hidden class="h-3 w-3 text-green-600" />
 				<span class="sr-only">{label} copied to clipboard</span>
 			{:else}
-				<Copy class="h-3 w-3" />
+				<Copy aria-hidden class="h-3 w-3" />
 				<span class="sr-only">copy {label} to clipboard</span>
 			{/if}
 		</Button>
