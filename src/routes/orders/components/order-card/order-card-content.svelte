@@ -16,7 +16,7 @@
 </script>
 
 {#if order}
-	<Card.Content class="p-6 text-sm">
+	<Card.Content class="text-sm">
 		<OrderCardContentSummary {order} />
 
 		<Separator class="my-4" />
@@ -32,7 +32,7 @@
 		<OrderCardPaymentInfo {order} />
 	</Card.Content>
 {:else}
-	<Card.Content class="px-7">
+	<Card.Content>
 		<Card.Title>No order selected</Card.Title>
 		<Card.Description>To view an order, select one from the recent orders table.</Card.Description>
 	</Card.Content>
