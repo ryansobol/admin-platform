@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
-import OrderCardCustomerInfo from './order-card-customer-info.svelte';
+import OrderCardContentCustomer from './order-card-content-customer.svelte';
 import type { Order } from '../../types';
 
 it('renders nothing without an order prop', () => {
-	render(OrderCardCustomerInfo);
+	render(OrderCardContentCustomer);
 
 	const element = screen.queryByRole('region', { name: 'Order Customer Information' });
 
@@ -46,7 +46,7 @@ it('renders the component with an order prop', () => {
 		}
 	};
 
-	render(OrderCardCustomerInfo, { order });
+	render(OrderCardContentCustomer, { order });
 
 	const element = screen.getByRole('region', { name: 'Order Customer Information' });
 
