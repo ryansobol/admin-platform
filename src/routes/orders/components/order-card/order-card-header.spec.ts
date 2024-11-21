@@ -8,7 +8,7 @@ import type { Order } from '../../types';
 it('renders nothing without an order prop', () => {
 	render(OrderCardHeader);
 
-	const element = screen.queryByRole('complementary');
+	const element = screen.queryByRole('region', { name: 'Order Metadata and Actions' });
 
 	expect(element).toBeNull();
 });
@@ -49,7 +49,7 @@ it.fails('renders the component with an order prop', () => {
 
 	render(OrderCardHeader, { order });
 
-	const element = screen.getByRole('complementary');
+	const element = screen.getByRole('region', { name: 'Order Metadata and Actions' });
 
 	expect(element).toMatchSnapshot();
 });
