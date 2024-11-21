@@ -32,7 +32,7 @@
 		<OrderCardContentPayment {order} />
 	</Card.Content>
 {:else}
-	<Card.Content>
+	<Card.Content class="space-y-2">
 		<Card.Title>No order selected</Card.Title>
 		<Card.Description>To view an order, select one from the recent orders table.</Card.Description>
 	</Card.Content>
