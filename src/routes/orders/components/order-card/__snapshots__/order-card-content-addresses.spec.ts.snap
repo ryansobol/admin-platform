@@ -3,7 +3,7 @@
 exports[`renders the component with an order prop that has a shipping address but no billing address 1`] = `
 <section
   aria-label="Order Addresses"
-  class="grid grid-cols-2 gap-4"
+  class="flex place-content-between"
 >
   <section
     aria-labelledby="shipping-address"
@@ -17,19 +17,19 @@ exports[`renders the component with an order prop that has a shipping address bu
     </h4>
      
     <address
-      class="grid gap-0.5 not-italic text-muted-foreground"
+      class="space-y-0.5 not-italic text-muted-foreground"
     >
-      <span>
+      <div>
         Firstname Lastname
-      </span>
+      </div>
        
-      <span>
+      <div>
         117 1st Ave.
-      </span>
+      </div>
        
-      <span>
+      <div>
         Phoenix, NY 60975
-      </span>
+      </div>
     </address>
   </section>
    
@@ -57,7 +57,7 @@ exports[`renders the component with an order prop that has a shipping address bu
 exports[`renders the component with an order prop that has both shipping and billing addresses 1`] = `
 <section
   aria-label="Order Addresses"
-  class="grid grid-cols-2 gap-4"
+  class="flex place-content-between"
 >
   <section
     aria-labelledby="shipping-address"
@@ -71,19 +71,19 @@ exports[`renders the component with an order prop that has both shipping and bil
     </h4>
      
     <address
-      class="grid gap-0.5 not-italic text-muted-foreground"
+      class="space-y-0.5 not-italic text-muted-foreground"
     >
-      <span>
+      <div>
         Firstname Lastname
-      </span>
+      </div>
        
-      <span>
+      <div>
         117 1st Ave.
-      </span>
+      </div>
        
-      <span>
+      <div>
         Phoenix, NY 60975
-      </span>
+      </div>
     </address>
   </section>
    
@@ -99,19 +99,19 @@ exports[`renders the component with an order prop that has both shipping and bil
     </h4>
      
     <address
-      class="grid gap-0.5 not-italic text-muted-foreground"
+      class="space-y-0.5 not-italic text-muted-foreground"
     >
-      <span>
+      <div>
         Firstname Lastname
-      </span>
+      </div>
        
-      <span>
+      <div>
         117 1st Ave.
-      </span>
+      </div>
        
-      <span>
+      <div>
         Phoenix, NY 60975
-      </span>
+      </div>
     </address>
     <!---->
   </section>
