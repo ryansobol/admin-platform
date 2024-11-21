@@ -4,8 +4,8 @@
 
 	import OrderCardContentAddresses from './order-card-content-addresses.svelte';
 	import OrderCardContentCustomer from './order-card-content-customer.svelte';
+	import OrderCardContentPayment from './order-card-content-payment.svelte';
 	import OrderCardContentSummary from './order-card-content-summary.svelte';
-	import OrderCardPaymentInfo from './order-card-payment-info.svelte';
 	import type { Order } from '../../types';
 
 	type Props = {
@@ -29,7 +29,7 @@
 
 		<Separator class="my-4" />
 
-		<OrderCardPaymentInfo {order} />
+		<OrderCardContentPayment {order} />
 	</Card.Content>
 {:else}
 	<Card.Content>
