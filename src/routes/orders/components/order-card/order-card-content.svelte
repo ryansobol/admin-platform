@@ -4,7 +4,7 @@
 
 	import OrderCardCustomerInfo from './order-card-customer-info.svelte';
 	import OrderCardOrderAddresses from './order-card-order-addresses.svelte';
-	import OrderCardOrderDetails from './order-card-order-details.svelte';
+	import OrderCardOrderDetails from './order-card-order-purchase.svelte';
 	import OrderCardPaymentInfo from './order-card-payment-info.svelte';
 	import type { Order } from '../../types';
 

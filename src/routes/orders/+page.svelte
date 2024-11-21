@@ -34,11 +34,11 @@
 		<OrdersTabs />
 	</div>
 
-	<div>
+	<aside aria-label="Order Details">
 		<OrderCard.Root>
 			<OrderCard.Header {order} />
 			<OrderCard.Content {order} />
 			<OrderCard.Footer {order} />
 		</OrderCard.Root>
-	</div>
+	</aside>
 </main>
