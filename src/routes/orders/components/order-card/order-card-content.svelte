@@ -2,9 +2,9 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
+	import OrderCardContentSummary from './order-card-content-summary.svelte';
 	import OrderCardCustomerInfo from './order-card-customer-info.svelte';
 	import OrderCardOrderAddresses from './order-card-order-addresses.svelte';
-	import OrderCardOrderDetails from './order-card-order-purchase.svelte';
 	import OrderCardPaymentInfo from './order-card-payment-info.svelte';
 	import type { Order } from '../../types';
 
@@ -17,7 +17,7 @@
 
 {#if order}
 	<Card.Content class="p-6 text-sm">
-		<OrderCardOrderDetails {order} />
+		<OrderCardContentSummary {order} />
 
 		<Separator class="my-4" />
 

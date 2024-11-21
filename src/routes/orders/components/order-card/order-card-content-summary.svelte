@@ -12,8 +12,8 @@
 </script>
 
 {#if order}
-	<section aria-label="Order Purchase Details" class="grid gap-3">
-		<h4 class="font-semibold">Purchase Details</h4>
+	<section aria-labelledby="order-summary" class="grid gap-3">
+		<h4 class="font-semibold" id="order-summary">Order Summary</h4>
 
 		<ul class="grid gap-3">
 			{#each order.products as product (product.id)}

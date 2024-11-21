@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
-import OrderCardOrderDetails from './order-card-order-purchase.svelte';
+import OrderCardContentSummary from './order-card-content-summary.svelte';
 import type { Order } from '../../types';
 
 it('renders nothing without an order prop', () => {
-	render(OrderCardOrderDetails);
+	render(OrderCardContentSummary);
 
-	const element = screen.queryByRole('region', { name: 'Order Purchase Details' });
+	const element = screen.queryByRole('region', { name: 'Order Summary' });
 
 	expect(element).toBeNull();
 });
@@ -46,9 +46,9 @@ it('renders the component with an order prop', () => {
 		}
 	};
 
-	render(OrderCardOrderDetails, { order });
+	render(OrderCardContentSummary, { order });
 
-	const element = screen.getByRole('region', { name: 'Order Purchase Details' });
+	const element = screen.getByRole('region', { name: 'Order Summary' });
 
 	expect(element).toMatchSnapshot();
 });
