@@ -5,14 +5,6 @@ import { expect, it } from 'vitest';
 import OrderCardHeader from './order-card-header.svelte';
 import type { Order } from '../../types';
 
-it('renders nothing without an order prop', () => {
-	render(OrderCardHeader);
-
-	const element = screen.queryByRole('region', { name: 'Order Metadata and Actions' });
-
-	expect(element).toBeNull();
-});
-
 it.fails('renders the component with an order prop', () => {
 	const order: Order = {
 		id: 1,

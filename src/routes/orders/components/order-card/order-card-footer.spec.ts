@@ -4,14 +4,6 @@ import { expect, it } from 'vitest';
 import OrderCardFooter from './order-card-footer.svelte';
 import type { Order } from '../../types';
 
-it('renders nothing without an order prop', () => {
-	render(OrderCardFooter);
-
-	const element = screen.queryByRole('region', { name: 'Order Last Updated Date' });
-
-	expect(element).toBeNull();
-});
-
 it('renders the component with an order prop', () => {
 	const order: Order = {
 		id: 1,

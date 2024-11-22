@@ -37,11 +37,13 @@
 		<OrdersTabs />
 	</div>
 
-	<aside aria-label="order details">
-		<OrderCard.Root>
-			<OrderCard.Header {order} />
-			<OrderCard.Content {order} />
-			<OrderCard.Footer {order} />
-		</OrderCard.Root>
-	</aside>
+	{#if order}
+		<aside aria-label="order details">
+			<OrderCard.Root>
+				<OrderCard.Header {order} />
+				<OrderCard.Content {order} />
+				<OrderCard.Footer {order} />
+			</OrderCard.Root>
+		</aside>
+	{/if}
 </main>
