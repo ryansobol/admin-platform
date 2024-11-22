@@ -199,16 +199,16 @@
 
 			<Breadcrumb.Root class="hidden md:flex">
 				<Breadcrumb.List>
-					<Breadcrumb.Item>
-						<Breadcrumb.Page>Home</Breadcrumb.Page>
-					</Breadcrumb.Item>
-
-					{#each breadcrumbs as breadcrumb}
-						<Breadcrumb.Separator />
+					{#each breadcrumbs as breadcrumb, index}
+						{#if index !== 0}
+							<Breadcrumb.Separator />
+						{/if}
 						<Breadcrumb.Item>
-							<Breadcrumb.Link href={breadcrumb.href}>
-								{breadcrumb.name}
-							</Breadcrumb.Link>
+							{#if index === breadcrumbs.length - 1}
+								<Breadcrumb.Page>{breadcrumb.name}</Breadcrumb.Page>
+							{:else}
+								<Breadcrumb.Link href={breadcrumb.href}>{breadcrumb.name}</Breadcrumb.Link>
+							{/if}
 						</Breadcrumb.Item>
 					{/each}
 				</Breadcrumb.List>

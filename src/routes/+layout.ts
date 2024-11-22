@@ -4,7 +4,7 @@ type Breadcrumb = {
 };
 
 export const load = async () => {
-	const breadcrumbs: Breadcrumb[] = [];
+	const breadcrumbs: Breadcrumb[] = [{ name: 'Home', href: '#' }];
 
 	return { breadcrumbs };
 };
