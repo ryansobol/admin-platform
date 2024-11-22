@@ -166,6 +166,7 @@
 		{#if count > perPage}
 			<Card.Footer class="px-7">
 				<Pagination.Root
+					ariaLabel="orders"
 					class="items-start"
 					let:pages
 					let:currentPage

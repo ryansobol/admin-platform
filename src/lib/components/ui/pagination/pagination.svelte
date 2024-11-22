@@ -3,7 +3,7 @@
 
 	import { cn } from "$lib/utils.js";
 
-	type $$Props = PaginationPrimitive.Props;
+	type $$Props = PaginationPrimitive.Props & { ariaLabel?: string; };
 	type $$Events = PaginationPrimitive.Events;
 
 	let className: $$Props["class"] = undefined;
@@ -14,6 +14,8 @@
 	export { className as class };
 
 	$: currentPage = page;
+
+	export let ariaLabel: $$Props["ariaLabel"] = undefined;
 </script>
 
 <PaginationPrimitive.Root
@@ -27,7 +29,7 @@
 	asChild
 	{...$$restProps}
 >
-	<nav {...builder} class={cn("mx-auto flex w-full flex-col items-center", className)}>
+	<nav {...builder} aria-label={ariaLabel} class={cn("mx-auto flex w-full flex-col items-center", className)}>
 		<slot {pages} {range} {currentPage} />
 	</nav>
 </PaginationPrimitive.Root>
