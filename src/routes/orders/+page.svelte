@@ -23,9 +23,9 @@
 
 <main
 	aria-label="orders"
-	class="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 xl:grid-cols-3"
+	class="grid gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 min-[1358px]:grid-cols-[_minmax(0,_1fr)_minmax(0,max-content)]"
 >
-	<div class="grid auto-rows-max items-start gap-4 md:gap-8 xl:col-span-2">
+	<div class="grid auto-rows-max items-start gap-4 md:gap-8">
 		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			<YourOrdersCard />
 
