@@ -37,7 +37,7 @@
 		<OrdersTabs />
 	</div>
 
-	<aside aria-label="Order Details">
+	<aside aria-label="order details">
 		<OrderCard.Root>
 			<OrderCard.Header {order} />
 			<OrderCard.Content {order} />
