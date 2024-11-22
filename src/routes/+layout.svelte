@@ -218,7 +218,10 @@
 			</Breadcrumb.Root>
 
 			<div class="relative ml-auto flex-1 md:grow-0">
-				<Search aria-hidden class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+				<Search
+					class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"
+					role="presentation"
+				/>
 				<Input
 					type="search"
 					placeholder="Search..."

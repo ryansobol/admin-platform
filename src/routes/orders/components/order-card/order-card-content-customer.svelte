@@ -19,7 +19,7 @@
 		<dl class="grid gap-3">
 			<div class="flex items-center justify-between">
 				<dt class="flex items-center gap-1.5 text-muted-foreground">
-					<UserIcon aria-hidden class="size-4" />
+					<UserIcon class="size-4" role="presentation" />
 					Name
 				</dt>
 				<dd>{order.customer.name}</dd>
@@ -27,7 +27,7 @@
 
 			<div class="flex items-center justify-between">
 				<dt class="flex items-center gap-1.5 text-muted-foreground">
-					<MailIcon aria-hidden class="size-4" />
+					<MailIcon class="size-4" role="presentation" />
 					Email
 				</dt>
 				<dd>
@@ -39,7 +39,7 @@
 
 			<div class="flex items-center justify-between">
 				<dt class="flex items-center gap-1.5 text-muted-foreground">
-					<PhoneIcon aria-hidden class="size-4" />
+					<PhoneIcon class="size-4" role="presentation" />
 					Phone
 				</dt>
 				<dd>

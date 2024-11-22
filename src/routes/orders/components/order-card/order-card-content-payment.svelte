@@ -17,7 +17,7 @@
 		<dl class="grid gap-3">
 			<div class="flex items-center justify-between">
 				<dt class="flex items-center gap-1.5 text-muted-foreground">
-					<CreditCard aria-hidden class="size-4" />
+					<CreditCard class="size-4" role="presentation" />
 					{order.creditCard.type}
 				</dt>
 

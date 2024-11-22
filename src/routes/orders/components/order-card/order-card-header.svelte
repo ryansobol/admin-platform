@@ -58,7 +58,7 @@
 
 		<div class="flex gap-2">
 			<Button size="sm" variant="outline" class="h-8 gap-2">
-				<Truck aria-hidden class="h-3.5 w-3.5" />
+				<Truck class="h-3.5 w-3.5" />
 				<span class="sr-only sm:not-sr-only xl:sr-only 2xl:not-sr-only 2xl:whitespace-nowrap">
 					Track Order
 				</span>
@@ -67,7 +67,7 @@
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger asChild let:builder>
 					<Button builders={[builder]} size="icon" variant="outline" class="h-8 w-8">
-						<EllipsisVertical aria-hidden class="h-3.5 w-3.5" />
+						<EllipsisVertical class="h-3.5 w-3.5" />
 						<span class="sr-only">More Actions Dropdown</span>
 					</Button>
 				</DropdownMenu.Trigger>

@@ -21,10 +21,10 @@ exports[`renders the component with an order prop 1`] = `
         class="flex items-center gap-1.5 text-muted-foreground"
       >
         <svg
-          aria-hidden="true"
           class="lucide-icon lucide lucide-credit-card size-4"
           fill="none"
           height="24"
+          role="presentation"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
