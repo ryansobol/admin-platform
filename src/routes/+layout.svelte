@@ -31,8 +31,11 @@
 <ModeWatcher />
 
 <div class="flex min-h-screen w-full flex-col bg-muted/40">
-	<aside class="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
-		<nav class="flex flex-col items-center gap-4 px-2 sm:py-5">
+	<nav
+		aria-label="app"
+		class="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex"
+	>
+		<div class="flex flex-col items-center gap-4 px-2 sm:py-5">
 			<a
 				href="##"
 				class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
@@ -120,9 +123,9 @@
 
 				<Tooltip.Content side="right">Analytics</Tooltip.Content>
 			</Tooltip.Root>
-		</nav>
+		</div>
 
-		<nav class="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
+		<div class="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
 			<Tooltip.Root>
 				<Tooltip.Trigger asChild let:builder>
 					<a
@@ -137,8 +140,8 @@
 				</Tooltip.Trigger>
 				<Tooltip.Content side="right">Settings</Tooltip.Content>
 			</Tooltip.Root>
-		</nav>
-	</aside>
+		</div>
+	</nav>
 
 	<div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
 		<header
