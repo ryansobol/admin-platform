@@ -23,14 +23,8 @@
 	}}
 />
 
-<main
-	aria-label="orders"
-	class={cn(
-		'grid gap-4 p-4 sm:px-6 sm:py-0 md:gap-8',
-		order ? 'min-[1358px]:grid-cols-[_minmax(0,_1fr)_max-content]' : 'grid-cols-1'
-	)}
->
-	<div class="grid auto-rows-max items-start gap-4 md:gap-8">
+<main aria-label="orders" class="flex flex-col gap-8 p-4 sm:px-6 sm:py-0 xl:flex-row">
+	<div class="grid flex-1 gap-4 lg:gap-8">
 		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			<YourOrdersCard />
 
