@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
 
-	import { replaceState } from '$app/navigation';
 	import { page } from '$app/stores';
 
 	import * as OrderCard from './components/order-card/index.js';
@@ -12,33 +12,7 @@
 	import type { Order } from './types';
 
 	let order: Order | undefined = $derived($page.data.order);
-
-	function slide(node: Element, { delay = 0, duration = 400 }) {
-		const computedStyle = getComputedStyle(node);
-		const o = Number(computedStyle.opacity);
-		const r = Number(computedStyle.right.replace('%', ''));
-		const w = Number(computedStyle.width.replace('px', ''));
-
-		return {
-			delay,
-			duration,
-			css: (t: number) => `
-				opacity: ${t * o};
-				right: ${r + t * (100 - r)}%;
-				width: ${t * w}px;
-			`
-		};
-	}
 </script>
-
-<svelte:window
-	onkeydown={(event: KeyboardEvent) => {
-		if (event.key === 'Escape') {
-			replaceState($page.url.pathname, {});
-			return;
-		}
-	}}
-/>
 
 <main aria-label="orders" class="flex flex-col gap-8 p-4 sm:px-6 sm:py-0 xl:flex-row">
 	<div class="grid flex-1 gap-4 lg:gap-8">
@@ -56,8 +30,8 @@
 	{#if order}
 		<aside
 			aria-label="order details"
-			class="-right-full overflow-hidden text-nowrap"
-			transition:slide={{ duration: 150 }}
+			class="text-nowrap"
+			transition:slide={{ axis: 'x', duration: 150, easing: quadOut }}
 		>
 			<OrderCard.Root>
 				<OrderCard.Header {order} />

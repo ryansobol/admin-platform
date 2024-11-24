@@ -47,6 +47,20 @@
 	}
 </script>
 
+<svelte:window
+	onkeydown={(event: KeyboardEvent) => {
+		if (event.key !== 'Escape') return;
+
+		const newParams = new URLSearchParams($page.url.searchParams);
+
+		if (!newParams.has('code')) return;
+
+		newParams.delete('code');
+
+		goto(`${$page.url.pathname}?${newParams}`);
+	}}
+/>
+
 {#snippet buttonSortableColumn(column: SortColumn, initialDirection: SortDirection, label: string)}
 	<Button
 		class={cn('gap-1', sortColumn === column ? 'text-foreground' : '')}
