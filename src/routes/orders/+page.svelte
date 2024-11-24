@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/stores';
-
-	import { cn } from '$lib/utils';
 
 	import * as OrderCard from './components/order-card/index.js';
 	import OrdersTabs from './components/orders-tabs.svelte';
@@ -12,6 +12,23 @@
 	import type { Order } from './types';
 
 	let order: Order | undefined = $derived($page.data.order);
+
+	function slide(node: Element, { delay = 0, duration = 400 }) {
+		const computedStyle = getComputedStyle(node);
+		const o = Number(computedStyle.opacity);
+		const r = Number(computedStyle.right.replace('%', ''));
+		const w = Number(computedStyle.width.replace('px', ''));
+
+		return {
+			delay,
+			duration,
+			css: (t: number) => `
+				opacity: ${t * o};
+				right: ${r + t * (100 - r)}%;
+				width: ${t * w}px;
+			`
+		};
+	}
 </script>
 
 <svelte:window
@@ -37,7 +54,11 @@
 	</div>
 
 	{#if order}
-		<aside aria-label="order details">
+		<aside
+			aria-label="order details"
+			class="-right-full overflow-hidden text-nowrap"
+			transition:slide={{ duration: 150 }}
+		>
 			<OrderCard.Root>
 				<OrderCard.Header {order} />
 				<OrderCard.Content {order} />
