@@ -12,7 +12,12 @@
 	import type { Order } from './types';
 
 	let order: Order | undefined = $derived($page.data.order);
+
+	let innerWidth = $state(0);
+	let slideAxis: 'x' | 'y' = $derived(innerWidth >= 1280 ? 'x' : 'y');
 </script>
+
+<svelte:window bind:innerWidth />
 
 <main aria-label="orders" class="flex flex-col p-4 sm:px-6 sm:py-0 xl:flex-row">
 	<div class="grid flex-1 gap-4 lg:gap-8">
@@ -30,8 +35,8 @@
 	{#if order}
 		<aside
 			aria-label="order details"
-			class="ml-8 text-nowrap"
-			transition:slide={{ axis: 'x', duration: 150, easing: quadOut }}
+			class="text-nowrap max-xl:mt-8 xl:ml-8"
+			transition:slide={{ axis: slideAxis, duration: 150, easing: quadOut }}
 		>
 			<OrderCard.Root>
 				<OrderCard.Header {order} />
