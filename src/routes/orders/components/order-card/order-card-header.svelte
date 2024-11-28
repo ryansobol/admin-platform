@@ -2,7 +2,6 @@
 	import { Temporal } from 'temporal-polyfill';
 
 	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
-	import Truck from 'lucide-svelte/icons/truck';
 
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import ButtonCopy from '$lib/components/ui/button-copy/button-copy.svelte';
@@ -43,16 +42,9 @@
 
 		<ButtonCopy label="order code" value={order.code} />
 
-		<Button size="sm" variant="outline" class="ml-auto h-8 gap-2">
-			<Truck class="h-3.5 w-3.5" />
-			<span class="sr-only sm:not-sr-only xl:sr-only 2xl:not-sr-only 2xl:whitespace-nowrap">
-				Track Order
-			</span>
-		</Button>
-
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
-				<Button builders={[builder]} size="icon" variant="outline" class="h-8 w-8">
+				<Button builders={[builder]} size="icon" variant="outline" class="ml-auto h-8 w-8">
 					<EllipsisVertical class="h-3.5 w-3.5" />
 					<span class="sr-only">More Actions Dropdown</span>
 				</Button>
