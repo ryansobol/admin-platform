@@ -2,12 +2,17 @@
 	import { Temporal } from 'temporal-polyfill';
 
 	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
+	import X from 'lucide-svelte/icons/x';
+
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import ButtonCopy from '$lib/components/ui/button-copy/button-copy.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 
 	import type { Order } from '../../types';
 
@@ -61,6 +66,33 @@
 				>
 			</DropdownMenu.Content>
 		</DropdownMenu.Root>
+
+		<Tooltip.Root>
+			<Tooltip.Trigger asChild let:builder>
+				<Button
+					builders={[builder]}
+					size="icon"
+					variant="outline"
+					class="h-8 w-8"
+					onclick={() => {
+						{
+							const newParams = new URLSearchParams($page.url.searchParams);
+
+							if (!newParams.has('code')) return;
+
+							newParams.delete('code');
+
+							goto(`${$page.url.pathname}?${newParams}`);
+						}
+					}}
+				>
+					<X class="h-3.5 w-3.5" />
+					<span class="sr-only">hide order</span>
+				</Button>
+			</Tooltip.Trigger>
+
+			<Tooltip.Content>Hide Order</Tooltip.Content>
+		</Tooltip.Root>
 	</div>
 
 	<Card.Description>
