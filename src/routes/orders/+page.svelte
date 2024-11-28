@@ -4,6 +4,8 @@
 
 	import { page } from '$app/stores';
 
+	import { doesPreferReducedMotion } from '$lib/stores.js';
+
 	import * as OrderCard from './components/order-card/index.js';
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import ThisMonthCard from './components/this-month-card.svelte';
@@ -36,7 +38,11 @@
 		<aside
 			aria-label="order details"
 			class="text-nowrap max-xl:mt-8 xl:ml-8"
-			transition:slide={{ axis: slideAxis, duration: 150, easing: quadOut }}
+			transition:slide={{
+				axis: slideAxis,
+				duration: $doesPreferReducedMotion ? 0 : 150,
+				easing: quadOut
+			}}
 		>
 			<OrderCard.Root>
 				<OrderCard.Header {order} />
