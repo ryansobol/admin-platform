@@ -35,29 +35,15 @@
 
 <Card.Header
 	aria-label="Order Metadata and Actions"
-	class="flex flex-row place-content-between space-y-0 bg-muted/50 p-6"
+	class="space-y-2 bg-muted/50 p-6"
 	role="region"
 >
-	<div class="space-y-2">
-		<div class="flex items-center gap-2">
-			<Card.Title class="text-xl">Order {order.code}</Card.Title>
-			<ButtonCopy label="order code" value={order.code} />
-		</div>
+	<div class="flex items-center gap-2">
+		<Card.Title class="text-xl">Order {order.code}</Card.Title>
 
-		<Card.Description>
-			Created on <time dateTime={createdAtZoned.toString()}>
-				{createdAtZoned.toLocaleString(locale, options)}
-			</time>
-		</Card.Description>
+		<ButtonCopy label="order code" value={order.code} />
 
-		<div>
-			<Badge class="text-xs" variant={order.type}>{order.type}</Badge>
-			<Badge class="text-xs" variant={order.status}>{order.status}</Badge>
-		</div>
-	</div>
-
-	<div class="flex gap-2">
-		<Button size="sm" variant="outline" class="h-8 gap-2">
+		<Button size="sm" variant="outline" class="ml-auto h-8 gap-2">
 			<Truck class="h-3.5 w-3.5" />
 			<span class="sr-only sm:not-sr-only xl:sr-only 2xl:not-sr-only 2xl:whitespace-nowrap">
 				Track Order
@@ -83,5 +69,16 @@
 				>
 			</DropdownMenu.Content>
 		</DropdownMenu.Root>
+	</div>
+
+	<Card.Description>
+		Created on <time dateTime={createdAtZoned.toString()}>
+			{createdAtZoned.toLocaleString(locale, options)}
+		</time>
+	</Card.Description>
+
+	<div>
+		<Badge class="text-xs" variant={order.type}>{order.type}</Badge>
+		<Badge class="text-xs" variant={order.status}>{order.status}</Badge>
 	</div>
 </Card.Header>
