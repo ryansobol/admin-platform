@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/svelte';
-import userEvent from '@testing-library/user-event';
 import { expect, it } from 'vitest';
 
 import OrderCardHeader from './order-card-header.svelte';

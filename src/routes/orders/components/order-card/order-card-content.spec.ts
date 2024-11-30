@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/svelte';
-import { expect, it } from 'vitest';
+import { it } from 'vitest';
 
 import OrderCardContent from './order-card-content.svelte';
 import type { Order } from '../../types';
