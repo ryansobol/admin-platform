@@ -46,7 +46,7 @@
 	"type": "module",
 	"dependencies": {
 		"mode-watcher": "^0.4.1",
-		"remeda": "^2.17.3",
+		"remeda": "^2.17.4",
 		"temporal-polyfill": "^0.2.5"
 	}
 }
