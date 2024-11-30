@@ -4,14 +4,14 @@
 
 	import { page } from '$app/stores';
 
-	import { doesPreferReducedMotion } from '$lib/stores.js';
+	import { doesPreferReducedMotion } from '$lib/stores.ts';
 
-	import * as OrderCard from './components/order-card/index.js';
+	import * as OrderCard from './components/order-card/index.ts';
 	import OrdersTabs from './components/orders-tabs.svelte';
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
-	import type { Order } from './types';
+	import type { Order } from './types.ts';
 
 	let order: Order | undefined = $derived($page.data.order);
 

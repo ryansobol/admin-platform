@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Temporal } from 'temporal-polyfill';
 
-	import * as Card from '$lib/components/ui/card/index.js';
+	import * as Card from '$lib/components/ui/card/index.ts';
 
-	import type { Order } from '../../types';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order: Order;

@@ -3,7 +3,7 @@
 	import PhoneIcon from 'lucide-svelte/icons/phone';
 	import UserIcon from 'lucide-svelte/icons/user';
 
-	import type { Order } from '../../types';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order?: Order;

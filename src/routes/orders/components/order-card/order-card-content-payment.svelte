@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CreditCard from 'lucide-svelte/icons/credit-card';
 
-	import type { Order } from '../../types';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order?: Order;

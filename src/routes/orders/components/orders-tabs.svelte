@@ -7,13 +7,13 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import { Badge } from '$lib/components/ui/badge/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import * as Tabs from '$lib/components/ui/tabs/index.js';
+	import { Badge } from '$lib/components/ui/badge/index.ts';
+	import { Button } from '$lib/components/ui/button/index.ts';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
+	import * as Tabs from '$lib/components/ui/tabs/index.ts';
 
 	import OrdersCard from './orders-card.svelte';
-	import type { OrderStatus, OrderType } from '../types';
+	import type { OrderStatus, OrderType } from '../types.ts';
 
 	let isOrderShownFromOrderStatus: Record<OrderStatus, boolean> = $derived($page.data.status);
 	let isOrderShownFromOrderType: Record<OrderType, boolean> = $derived($page.data.type);

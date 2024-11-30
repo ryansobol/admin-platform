@@ -7,14 +7,14 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import Badge from '$lib/components/ui/badge/badge.svelte';
-	import ButtonCopy from '$lib/components/ui/button-copy/button-copy.svelte';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+	import { Badge } from '$lib/components/ui/badge/index.ts';
+	import { ButtonCopy } from '$lib/components/ui/button-copy/index.ts';
+	import { Button } from '$lib/components/ui/button/index.ts';
+	import * as Card from '$lib/components/ui/card/index.ts';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
+	import * as Tooltip from '$lib/components/ui/tooltip/index.ts';
 
-	import type { Order } from '../../types';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order: Order;

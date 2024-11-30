@@ -12,15 +12,15 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	import { Badge } from '$lib/components/ui/badge/index.js';
-	import { Button } from '$lib/components/ui/button';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import * as Pagination from '$lib/components/ui/pagination';
-	import * as Table from '$lib/components/ui/table/index.js';
-	import { cn } from '$lib/utils';
+	import { Badge } from '$lib/components/ui/badge/index.ts';
+	import { Button } from '$lib/components/ui/button/index.ts';
+	import * as Card from '$lib/components/ui/card/index.ts';
+	import * as Pagination from '$lib/components/ui/pagination/index.ts';
+	import * as Table from '$lib/components/ui/table/index.ts';
+	import { cn } from '$lib/utils.ts';
 
-	import { currencyFormatter } from '../utils';
-	import type { PartialOrder, SortColumn, SortDirection } from '../types';
+	import { currencyFormatter } from '../utils.ts';
+	import type { PartialOrder, SortColumn, SortDirection } from '../types.ts';
 
 	let orders: PartialOrder[] = $derived($page.data.orders);
 	let count: number = $derived($page.data.count);

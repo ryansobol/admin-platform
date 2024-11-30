@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Order } from '../../types';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order?: Order;

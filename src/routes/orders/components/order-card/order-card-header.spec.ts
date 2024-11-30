@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
 import OrderCardHeader from './order-card-header.svelte';
-import type { Order } from '../../types';
+import type { Order } from '../../types.ts';
 
 it.fails('renders the component with an order prop', () => {
 	const order: Order = {

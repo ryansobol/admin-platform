@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Separator } from '$lib/components/ui/separator/index.js';
+	import { Separator } from '$lib/components/ui/separator/index.ts';
 
-	import { currencyFormatter } from '../../utils';
-	import type { Order } from '../../types';
+	import { currencyFormatter } from '../../utils.ts';
+	import type { Order } from '../../types.ts';
 
 	type Props = {
 		order?: Order;

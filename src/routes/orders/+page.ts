@@ -1,5 +1,5 @@
-import { findOrder, paginateOrders } from './db';
-import { SortColumn } from './types';
+import { findOrder, paginateOrders } from './db.ts';
+import { SortColumn } from './types.ts';
 
 export const load = ({ url }) => {
 	const page = Number(url.searchParams.get('page') ?? 1);

@@ -15,13 +15,13 @@
 
 	import { page } from '$app/stores';
 
-	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import Darkmode from '$lib/components/ui/darkmode/darkmode.svelte';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import * as Sheet from '$lib/components/ui/sheet/index.js';
-	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.ts';
+	import { Button } from '$lib/components/ui/button/index.ts';
+	import { Darkmode } from '$lib/components/ui/darkmode/index.ts';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
+	import { Input } from '$lib/components/ui/input/index.ts';
+	import * as Sheet from '$lib/components/ui/sheet/index.ts';
+	import * as Tooltip from '$lib/components/ui/tooltip/index.ts';
 
 	const breadcrumbs = $derived($page.data.breadcrumbs);
 

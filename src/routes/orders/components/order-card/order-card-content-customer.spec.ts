@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
 import OrderCardContentCustomer from './order-card-content-customer.svelte';
-import type { Order } from '../../types';
+import type { Order } from '../../types.ts';
 
 it('renders nothing without an order prop', () => {
 	render(OrderCardContentCustomer);

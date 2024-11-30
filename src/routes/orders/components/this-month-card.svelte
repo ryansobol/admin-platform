@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card/index.js';
-	import { Progress } from '$lib/components/ui/progress/index.js';
+	import * as Card from '$lib/components/ui/card/index.ts';
+	import { Progress } from '$lib/components/ui/progress/index.ts';
 </script>
 
 <Card.Root>

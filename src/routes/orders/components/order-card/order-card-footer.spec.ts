@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/svelte';
 import { expect, it } from 'vitest';
 
 import OrderCardFooter from './order-card-footer.svelte';
-import type { Order } from '../../types';
+import type { Order } from '../../types.ts';
 
 it('renders the component with an order prop', () => {
 	const order: Order = {
