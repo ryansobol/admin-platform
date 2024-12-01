@@ -8,23 +8,30 @@
 	import { Badge } from '$lib/components/ui/badge/index.ts';
 	import { Button } from '$lib/components/ui/button/index.ts';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
+	import { cn } from '$lib/utils.ts';
 
 	import type { OrderStatus, OrderType } from '../../types.ts';
 
 	type Props = {
+		class?: string;
 		isOrderShownFromOrderStatus: Record<OrderStatus, boolean>;
 		isOrderShownFromOrderType: Record<OrderType, boolean>;
 		pathname: string;
 		searchParams: URLSearchParams;
 	};
 
-	let { isOrderShownFromOrderStatus, isOrderShownFromOrderType, pathname, searchParams }: Props =
-		$props();
+	let {
+		class: className,
+		isOrderShownFromOrderStatus,
+		isOrderShownFromOrderType,
+		pathname,
+		searchParams
+	}: Props = $props();
 </script>
 
 <DropdownMenu.Root closeOnItemClick={false}>
 	<DropdownMenu.Trigger asChild let:builder>
-		<Button variant="outline" size="sm" class="h-7 gap-1 text-sm" builders={[builder]}>
+		<Button variant="outline" size="sm" class={cn('h-8 gap-2', className)} builders={[builder]}>
 			<ListFilter class="h-3.5 w-3.5" />
 			<span class="sr-only sm:not-sr-only">Filter</span>
 		</Button>

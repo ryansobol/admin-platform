@@ -8,6 +8,7 @@
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import ArrowUp10 from 'lucide-svelte/icons/arrow-up-1-0';
 	import ArrowUpAZ from 'lucide-svelte/icons/arrow-up-a-z';
+	import File from 'lucide-svelte/icons/file';
 
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
@@ -20,6 +21,7 @@
 	import { cn } from '$lib/utils.ts';
 
 	import { currencyFormatter } from '../utils.ts';
+	import { OrdersFilterDropdownMenu } from './orders-filter-dropdown-menu/index.ts';
 	import type { PartialOrder, SortColumn, SortDirection } from '../types.ts';
 
 	let orders: PartialOrder[] = $derived($page.data.orders);
@@ -95,8 +97,24 @@
 
 {#if orders.length}
 	<Card.Root>
-		<Card.Header class="border-b bg-muted/50 p-6">
-			<Card.Title>Recent Orders</Card.Title>
+		<Card.Header class="space-y-2 border-b bg-muted/50 p-6">
+			<div class="flex items-center gap-2">
+				<Card.Title>Recent Orders</Card.Title>
+
+				<OrdersFilterDropdownMenu
+					class="ml-auto"
+					isOrderShownFromOrderStatus={$page.data.status}
+					isOrderShownFromOrderType={$page.data.type}
+					pathname={$page.url.pathname}
+					searchParams={$page.url.searchParams}
+				/>
+
+				<Button size="sm" variant="outline" class="h-8 gap-2">
+					<File class="h-3.5 w-3.5" />
+					<span class="sr-only sm:not-sr-only">Export</span>
+				</Button>
+			</div>
+
 			<Card.Description>Recent orders from your store.</Card.Description>
 		</Card.Header>
 
