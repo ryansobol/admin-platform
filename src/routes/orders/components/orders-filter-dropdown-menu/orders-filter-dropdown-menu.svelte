@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ListFilter from 'lucide-svelte/icons/list-filter';
+	import Filter from 'lucide-svelte/icons/filter';
 	import Origami from 'lucide-svelte/icons/origami';
 	import Waypoints from 'lucide-svelte/icons/waypoints';
 
@@ -32,7 +32,7 @@
 <DropdownMenu.Root closeOnItemClick={false}>
 	<DropdownMenu.Trigger asChild let:builder>
 		<Button variant="outline" size="sm" class={cn('h-8 gap-2', className)} builders={[builder]}>
-			<ListFilter class="size-3.5" />
+			<Filter class="size-3.5" />
 			<span class="sr-only sm:not-sr-only">Filter</span>
 		</Button>
 	</DropdownMenu.Trigger>
