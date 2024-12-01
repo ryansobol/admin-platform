@@ -39,7 +39,7 @@
 
 <Card.Header
 	aria-label="Order Metadata and Actions"
-	class="space-y-2 bg-muted/50 p-6"
+	class="space-y-2 border-b bg-muted/50 p-6"
 	role="region"
 >
 	<div class="flex items-center gap-2">

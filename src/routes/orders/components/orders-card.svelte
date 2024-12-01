@@ -95,7 +95,7 @@
 
 {#if orders.length}
 	<Card.Root>
-		<Card.Header class="px-7">
+		<Card.Header class="border-b bg-muted/50 p-6">
 			<Card.Title>Recent Orders</Card.Title>
 			<Card.Description>Recent orders from your store.</Card.Description>
 		</Card.Header>
