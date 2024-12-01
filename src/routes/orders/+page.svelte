@@ -7,7 +7,7 @@
 	import { doesPreferReducedMotion } from '$lib/stores.ts';
 
 	import * as OrderCard from './components/order-card/index.ts';
-	import OrdersCard from './components/orders-card.svelte';
+	import * as OrdersCard from './components/orders-card/index.ts';
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
@@ -31,7 +31,11 @@
 			<ThisMonthCard />
 		</div>
 
-		<OrdersCard />
+		<OrdersCard.Root>
+			<OrdersCard.Header />
+			<OrdersCard.Content />
+			<OrdersCard.Footer />
+		</OrdersCard.Root>
 	</div>
 
 	{#if order}
