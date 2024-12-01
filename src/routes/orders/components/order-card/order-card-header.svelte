@@ -47,9 +47,10 @@
 
 		<ButtonCopy label="order code" value={order.code} />
 
-		<DropdownMenu.Root>
+		<!-- TODO: Implement more actions dropdown -->
+		<!-- <DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
-				<Button builders={[builder]} size="icon" variant="outline" class="ml-auto h-8 w-8">
+				<Button builders={[builder]} size="icon" variant="outline" class="h-8 w-8">
 					<EllipsisVertical class="h-3.5 w-3.5" />
 					<span class="sr-only">More Actions Dropdown</span>
 				</Button>
@@ -58,14 +59,14 @@
 			<DropdownMenu.Content align="end">
 				<DropdownMenu.Item>Edit</DropdownMenu.Item>
 				<DropdownMenu.Item>Export</DropdownMenu.Item>
-				<DropdownMenu.Separator />
-				<!-- TODO: Add destructive variant after upgrading Bits UI to v1 -->
-				<DropdownMenu.Item
+				<DropdownMenu.Separator /> -->
+		<!-- TODO: Add destructive variant after upgrading Bits UI to v1 -->
+		<!-- <DropdownMenu.Item
 					class="text-red-600 data-[highlighted]:bg-destructive data-[highlighted]:text-destructive-foreground dark:text-red-500 dark:data-[highlighted]:text-destructive-foreground"
 					>Trash</DropdownMenu.Item
 				>
 			</DropdownMenu.Content>
-		</DropdownMenu.Root>
+		</DropdownMenu.Root> -->
 
 		<Tooltip.Root>
 			<Tooltip.Trigger asChild let:builder>
@@ -73,7 +74,7 @@
 					builders={[builder]}
 					size="icon"
 					variant="outline"
-					class="h-8 w-8"
+					class="ml-auto h-8 w-8"
 					onclick={() => {
 						{
 							const newParams = new URLSearchParams($page.url.searchParams);

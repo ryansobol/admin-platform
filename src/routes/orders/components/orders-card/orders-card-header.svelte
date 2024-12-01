@@ -21,10 +21,11 @@
 			searchParams={$page.url.searchParams}
 		/>
 
-		<Button size="sm" variant="outline" class="h-8 gap-2">
+		<!-- TODO: Implement export button -->
+		<!-- <Button size="sm" variant="outline" class="h-8 gap-2">
 			<File class="h-3.5 w-3.5" />
 			<span class="sr-only sm:not-sr-only">Export</span>
-		</Button>
+		</Button> -->
 	</div>
 
 	<Card.Description>Recent orders from your store.</Card.Description>
