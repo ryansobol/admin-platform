@@ -13,7 +13,7 @@
 </script>
 
 {#if count > perPage}
-	<Card.Footer class="px-7">
+	<Card.Footer aria-label="orders pagination" class="border-t bg-muted/50 px-6 py-3" role="region">
 		<Pagination.Root
 			ariaLabel="orders"
 			class="items-start"
