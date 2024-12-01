@@ -38,7 +38,7 @@
 	<Tooltip.Trigger asChild let:builder>
 		<Button
 			builders={[builder]}
-			class={cn('h-8 w-8', className)}
+			class={cn('size-8', className)}
 			{onclick}
 			size="icon"
 			variant="outline"

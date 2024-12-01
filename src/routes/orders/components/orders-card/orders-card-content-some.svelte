@@ -58,7 +58,7 @@
 
 {#snippet buttonSortableColumn(column: SortColumn, initialDirection: SortDirection, label: string)}
 	<Button
-		class={cn('gap-1', sortColumn === column ? 'text-foreground' : '')}
+		class={cn('h-8 gap-2', sortColumn === column ? 'text-foreground' : '')}
 		onclick={() => handleSort(column, initialDirection)}
 		variant="ghost"
 	>
@@ -74,13 +74,13 @@
 						? ArrowUpAZ
 						: ArrowDown10}
 
-			<Icon class="size-4" />
+			<Icon class="size-3.5" />
 			<span class="sr-only">
 				Sorted by {label} in
 				{sortDirection === 'asc' ? 'ascending' : 'descending'} order
 			</span>
 		{:else}
-			<ArrowDownUp class="size-4" />
+			<ArrowDownUp class="size-3.5" />
 			<span class="sr-only">
 				Sort by {label} in either descending or ascending order
 			</span>

@@ -43,7 +43,7 @@
 	role="region"
 >
 	<div class="flex items-center gap-2">
-		<Card.Title class="text-xl">Order {order.code}</Card.Title>
+		<Card.Title>Order {order.code}</Card.Title>
 
 		<ButtonCopy label="order code" value={order.code} />
 
@@ -74,7 +74,7 @@
 					builders={[builder]}
 					size="icon"
 					variant="outline"
-					class="ml-auto h-8 w-8"
+					class="ml-auto size-8"
 					onclick={() => {
 						{
 							const newParams = new URLSearchParams($page.url.searchParams);
@@ -87,7 +87,7 @@
 						}
 					}}
 				>
-					<X class="h-3.5 w-3.5" />
+					<X class="size-3.5" />
 					<span class="sr-only">hide order</span>
 				</Button>
 			</Tooltip.Trigger>

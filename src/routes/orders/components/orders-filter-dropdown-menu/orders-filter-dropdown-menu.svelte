@@ -32,14 +32,14 @@
 <DropdownMenu.Root closeOnItemClick={false}>
 	<DropdownMenu.Trigger asChild let:builder>
 		<Button variant="outline" size="sm" class={cn('h-8 gap-2', className)} builders={[builder]}>
-			<ListFilter class="h-3.5 w-3.5" />
+			<ListFilter class="size-3.5" />
 			<span class="sr-only sm:not-sr-only">Filter</span>
 		</Button>
 	</DropdownMenu.Trigger>
 
 	<DropdownMenu.Content align="end">
 		<DropdownMenu.Label class="inline-flex items-center gap-2">
-			<Waypoints class="h-3.5 w-3.5" />
+			<Waypoints class="size-3.5" />
 			Order Status
 		</DropdownMenu.Label>
 		<DropdownMenu.Separator />
@@ -65,7 +65,7 @@
 		<DropdownMenu.Separator />
 
 		<DropdownMenu.Label class="inline-flex items-center gap-2">
-			<Origami class="h-3.5 w-3.5" />
+			<Origami class="size-3.5" />
 			Order Type
 		</DropdownMenu.Label>
 		<DropdownMenu.Separator />

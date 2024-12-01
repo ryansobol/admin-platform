@@ -32,8 +32,8 @@
 		>
 			<Pagination.Content>
 				<Pagination.Item>
-					<Pagination.PrevButton>
-						<ArrowLeft class="size-4" />
+					<Pagination.PrevButton class="h-8 gap-2">
+						<ArrowLeft class="size-3.5" />
 						<span class="hidden sm:block">Previous</span>
 					</Pagination.PrevButton>
 				</Pagination.Item>
@@ -45,7 +45,7 @@
 						</Pagination.Item>
 					{:else}
 						<Pagination.Item>
-							<Pagination.Link {page} isActive={currentPage === page.value}>
+							<Pagination.Link class="h-8" {page} isActive={currentPage === page.value}>
 								{page.value}
 							</Pagination.Link>
 						</Pagination.Item>
@@ -53,9 +53,9 @@
 				{/each}
 
 				<Pagination.Item>
-					<Pagination.NextButton>
+					<Pagination.NextButton class="h-8 gap-2">
 						<span class="hidden sm:block">Next</span>
-						<ArrowRight class="size-4" />
+						<ArrowRight class="size-3.5" />
 					</Pagination.NextButton>
 				</Pagination.Item>
 			</Pagination.Content>
