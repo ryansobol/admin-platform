@@ -8,14 +8,13 @@
 	import type { OrderStatus, OrderType } from '../../types.ts';
 
 	type Props = {
-		isOrderShownFromOrderStatus: Record<OrderStatus, boolean>;
-		isOrderShownFromOrderType: Record<OrderType, boolean>;
 		pathname: string;
+		status: Record<OrderStatus, boolean>;
 		searchParams: URLSearchParams;
+		type: Record<OrderType, boolean>;
 	};
 
-	const { isOrderShownFromOrderStatus, isOrderShownFromOrderType, pathname, searchParams }: Props =
-		$props();
+	const { pathname, status, searchParams, type }: Props = $props();
 </script>
 
 <Card.Header class="space-y-2 border-b bg-muted/50 p-6">
@@ -24,8 +23,8 @@
 
 		<OrdersFilterDropdownMenu
 			class="ml-auto"
-			{isOrderShownFromOrderStatus}
-			{isOrderShownFromOrderType}
+			isOrderShownFromOrderStatus={status}
+			isOrderShownFromOrderType={type}
 			{pathname}
 			{searchParams}
 		/>

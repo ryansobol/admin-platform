@@ -14,7 +14,15 @@
 
 	let { data } = $props();
 
-	let { status, type, order } = data;
+	let count = $derived(data.count);
+	let order = $derived(data.order);
+	let perPage = $derived(data.perPage);
+	let status = $derived(data.status);
+	let type = $derived(data.type);
+
+	let pathname = $derived($page.url.pathname);
+	let searchParams = $derived($page.url.searchParams);
+
 	let innerWidth = $state(0);
 	let slideAxis: 'x' | 'y' = $derived(innerWidth >= 1280 ? 'x' : 'y');
 </script>
@@ -32,14 +40,9 @@
 		</div>
 
 		<OrdersCard.Root>
-			<OrdersCard.Header
-				isOrderShownFromOrderStatus={status}
-				isOrderShownFromOrderType={type}
-				pathname={$page.url.pathname}
-				searchParams={$page.url.searchParams}
-			/>
+			<OrdersCard.Header {status} {type} {pathname} {searchParams} />
 			<OrdersCard.Content />
-			<OrdersCard.Footer />
+			<OrdersCard.Footer {count} {pathname} {perPage} {searchParams} />
 		</OrdersCard.Root>
 	</div>
 

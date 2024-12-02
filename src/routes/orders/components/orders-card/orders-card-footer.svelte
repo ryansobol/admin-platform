@@ -3,13 +3,18 @@
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
 
 	import * as Card from '$lib/components/ui/card/index.ts';
 	import * as Pagination from '$lib/components/ui/pagination/index.ts';
 
-	let count: number = $derived($page.data.count);
-	let perPage: number = $derived($page.data.perPage);
+	type Props = {
+		count: number;
+		pathname: string;
+		perPage: number;
+		searchParams: URLSearchParams;
+	};
+
+	let { count, pathname, perPage, searchParams }: Props = $props();
 </script>
 
 {#if count > perPage}
@@ -22,12 +27,12 @@
 			{count}
 			{perPage}
 			onPageChange={(pageNumber) => {
-				const newParams = new URLSearchParams($page.url.searchParams);
+				const newParams = new URLSearchParams(searchParams);
 
 				newParams.set('page', pageNumber.toString());
 				newParams.set('perPage', perPage.toString());
 
-				goto(`${$page.url.pathname}?${newParams}`);
+				goto(`${pathname}?${newParams}`);
 			}}
 		>
 			<Pagination.Content>
