@@ -1,12 +1,21 @@
 <script lang="ts">
-	import { File } from 'lucide-svelte';
+	// import { File } from 'lucide-svelte';
 
-	import { page } from '$app/stores';
-
-	import { Button } from '$lib/components/ui/button/index.ts';
+	// import { Button } from '$lib/components/ui/button/index.ts';
 	import * as Card from '$lib/components/ui/card/index.ts';
 
 	import OrdersFilterDropdownMenu from '../orders-filter-dropdown-menu/orders-filter-dropdown-menu.svelte';
+	import type { OrderStatus, OrderType } from '../../types.ts';
+
+	type Props = {
+		isOrderShownFromOrderStatus: Record<OrderStatus, boolean>;
+		isOrderShownFromOrderType: Record<OrderType, boolean>;
+		pathname: string;
+		searchParams: URLSearchParams;
+	};
+
+	const { isOrderShownFromOrderStatus, isOrderShownFromOrderType, pathname, searchParams }: Props =
+		$props();
 </script>
 
 <Card.Header class="space-y-2 border-b bg-muted/50 p-6">
@@ -15,10 +24,10 @@
 
 		<OrdersFilterDropdownMenu
 			class="ml-auto"
-			isOrderShownFromOrderStatus={$page.data.status}
-			isOrderShownFromOrderType={$page.data.type}
-			pathname={$page.url.pathname}
-			searchParams={$page.url.searchParams}
+			{isOrderShownFromOrderStatus}
+			{isOrderShownFromOrderType}
+			{pathname}
+			{searchParams}
 		/>
 
 		<!-- TODO: Implement export button -->

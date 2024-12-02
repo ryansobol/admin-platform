@@ -11,10 +11,10 @@
 	import ThisMonthCard from './components/this-month-card.svelte';
 	import ThisWeekCard from './components/this-week-card.svelte';
 	import YourOrdersCard from './components/your-orders-card.svelte';
-	import type { Order } from './types.ts';
 
-	let order: Order | undefined = $derived($page.data.order);
+	let { data } = $props();
 
+	let { status, type, order } = data;
 	let innerWidth = $state(0);
 	let slideAxis: 'x' | 'y' = $derived(innerWidth >= 1280 ? 'x' : 'y');
 </script>
@@ -32,7 +32,12 @@
 		</div>
 
 		<OrdersCard.Root>
-			<OrdersCard.Header />
+			<OrdersCard.Header
+				isOrderShownFromOrderStatus={status}
+				isOrderShownFromOrderType={type}
+				pathname={$page.url.pathname}
+				searchParams={$page.url.searchParams}
+			/>
 			<OrdersCard.Content />
 			<OrdersCard.Footer />
 		</OrdersCard.Root>
