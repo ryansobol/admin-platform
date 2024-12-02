@@ -4,7 +4,9 @@
 	import * as Card from '$lib/components/ui/card/index.ts';
 </script>
 
-<Card.Content class="flex h-3/4 flex-row content-center items-center justify-center gap-8">
+<Card.Content
+	class="flex min-h-fit flex-row content-center items-center justify-center gap-8 py-28"
+>
 	<FilterX class="mb-4 size-32 text-muted-foreground" />
 
 	<div class="flex flex-col items-center justify-center gap-2">
