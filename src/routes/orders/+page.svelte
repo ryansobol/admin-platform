@@ -16,9 +16,14 @@
 
 	let count = $derived(data.count);
 	let order = $derived(data.order);
+	let orders = $derived(data.orders);
 	let perPage = $derived(data.perPage);
+	let sortColumn = $derived(data.sortColumn);
+	let sortDirection = $derived(data.sortDirection);
 	let status = $derived(data.status);
 	let type = $derived(data.type);
+
+	let selectedOrderCode = $derived(order?.code ?? '');
 
 	let pathname = $derived($page.url.pathname);
 	let searchParams = $derived($page.url.searchParams);
@@ -41,7 +46,14 @@
 
 		<OrdersCard.Root>
 			<OrdersCard.Header {status} {type} {pathname} {searchParams} />
-			<OrdersCard.Content />
+			<OrdersCard.Content
+				{orders}
+				{pathname}
+				{searchParams}
+				{selectedOrderCode}
+				{sortColumn}
+				{sortDirection}
+			/>
 			<OrdersCard.Footer {count} {pathname} {perPage} {searchParams} />
 		</OrdersCard.Root>
 	</div>

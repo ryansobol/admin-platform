@@ -8,7 +8,6 @@
 	import ArrowUpAZ from 'lucide-svelte/icons/arrow-up-a-z';
 
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
 
 	import { Badge } from '$lib/components/ui/badge/index.ts';
 	import { Button } from '$lib/components/ui/button/index.ts';
@@ -19,13 +18,20 @@
 	import { currencyFormatter } from '../../utils.ts';
 	import type { PartialOrder, SortColumn, SortDirection } from '../../types.ts';
 
-	let orders: PartialOrder[] = $derived($page.data.orders);
-	let sortColumn: SortColumn = $derived($page.data.sortColumn);
-	let sortDirection: SortDirection = $derived($page.data.sortDirection);
-	let selected = $derived($page.data.order?.code ?? '');
+	type Props = {
+		orders: PartialOrder[];
+		pathname: string;
+		searchParams: URLSearchParams;
+		selectedOrderCode: string;
+		sortColumn: SortColumn;
+		sortDirection: SortDirection;
+	};
+
+	let { orders, pathname, searchParams, selectedOrderCode, sortColumn, sortDirection }: Props =
+		$props();
 
 	function handleSort(column: SortColumn, initialDirection: SortDirection) {
-		const newParams = new URLSearchParams($page.url.searchParams);
+		const newParams = new URLSearchParams(searchParams);
 
 		if (sortColumn === column) {
 			if (sortDirection === 'asc') {
@@ -38,7 +44,7 @@
 			newParams.set('sortDirection', initialDirection);
 		}
 
-		goto(`${$page.url.pathname}?${newParams}`);
+		goto(`${pathname}?${newParams}`);
 	}
 </script>
 
@@ -46,13 +52,13 @@
 	onkeydown={(event: KeyboardEvent) => {
 		if (event.key !== 'Escape') return;
 
-		const newParams = new URLSearchParams($page.url.searchParams);
+		const newParams = new URLSearchParams(searchParams);
 
 		if (!newParams.has('code')) return;
 
 		newParams.delete('code');
 
-		goto(`${$page.url.pathname}?${newParams}`);
+		goto(`${pathname}?${newParams}`);
 	}}
 />
 
@@ -116,17 +122,17 @@
 
 				<Table.Row
 					class={cn('cursor-pointer', index % 2 === 0 ? 'bg-muted/30' : '')}
-					data-state={selected === code ? 'selected' : ''}
+					data-state={selectedOrderCode === code ? 'selected' : ''}
 					onclick={() => {
-						const newParams = new URLSearchParams($page.url.searchParams);
+						const newParams = new URLSearchParams(searchParams);
 
-						if (selected === code) {
+						if (selectedOrderCode === code) {
 							newParams.delete('code');
 						} else {
 							newParams.set('code', code);
 						}
 
-						goto(`${$page.url.pathname}?${newParams}`);
+						goto(`${pathname}?${newParams}`);
 					}}
 				>
 					<Table.Cell>
