@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { quadOut } from 'svelte/easing';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import { slide } from 'svelte/transition';
 
 	import { page } from '$app/stores';
-
-	import { doesPreferReducedMotion } from '$lib/stores.ts';
 
 	import * as OrderCard from './components/order-card/index.ts';
 	import * as OrdersCard from './components/orders-card/index.ts';
@@ -64,7 +63,7 @@
 			class="text-nowrap max-xl:mt-8 xl:ml-8"
 			transition:slide={{
 				axis: slideAxis,
-				duration: $doesPreferReducedMotion ? 0 : 150,
+				duration: prefersReducedMotion.current ? 0 : 150,
 				easing: quadOut
 			}}
 		>
