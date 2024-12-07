@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Temporal } from 'temporal-polyfill';
 
-	import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
+	// import EllipsisVertical from 'lucide-svelte/icons/ellipsis-vertical';
 	import X from 'lucide-svelte/icons/x';
 
 	import { goto } from '$app/navigation';
@@ -11,7 +11,7 @@
 	import { ButtonCopy } from '$lib/components/ui/button-copy/index.ts';
 	import { Button } from '$lib/components/ui/button/index.ts';
 	import * as Card from '$lib/components/ui/card/index.ts';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
+	// import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.ts';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.ts';
 
 	import type { Order } from '../../types.ts';
