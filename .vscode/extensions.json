@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"etsi0.class-collapse",
+		"kamikillerto.vscode-colorize",
+		"dbaeumer.vscode-eslint",
+		"quicktype.quicktype",
+		"esbenp.prettier-vscode",
+		"yoavbls.pretty-ts-errors",
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss",
+		"vitest.explorer"
+	]
+}
