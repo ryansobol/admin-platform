@@ -25,7 +25,6 @@
 	},
 	"class-collapse.functionality.enable": false,
 	"colorize.languages": ["javascript", "svelte"],
-	"editor.wordWrapColumn": 100,
 	"files.associations": {
 		"*.css": "tailwindcss"
 	},
@@ -37,8 +36,5 @@
 	],
 	"tailwindCSS.includeLanguages": {
 		"svelte": "html"
-	},
-	"template-string-converter.addBracketsToProps": true,
-	"template-string-converter.autoRemoveTemplateString": true,
-	"template-string-converter.convertOutermostQuotes": true
+	}
 }
