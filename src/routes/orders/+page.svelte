@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { quadOut } from 'svelte/easing';
 	import { prefersReducedMotion } from 'svelte/motion';
+	import { innerWidth } from 'svelte/reactivity/window';
 	import { slide } from 'svelte/transition';
 
 	import { page } from '$app/state';
@@ -27,11 +28,10 @@
 	let pathname = $derived(page.url.pathname);
 	let searchParams = $derived(page.url.searchParams);
 
-	let innerWidth = $state(0);
-	let slideAxis: 'x' | 'y' = $derived(innerWidth >= 1280 ? 'x' : 'y');
+	let slideAxis = $derived.by((): 'x' | 'y' | undefined =>
+		innerWidth.current ? (innerWidth.current >= 1280 ? 'x' : 'y') : undefined
+	);
 </script>
-
-<svelte:window bind:innerWidth />
 
 <main aria-label="orders" class="flex flex-col p-4 sm:px-6 sm:py-0 xl:flex-row">
 	<div class="grid flex-1 gap-4 lg:gap-8">
