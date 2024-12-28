@@ -13,7 +13,7 @@
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import UsersRound from 'lucide-svelte/icons/users-round';
 
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.ts';
 	import { Button } from '$lib/components/ui/button/index.ts';
@@ -23,7 +23,7 @@
 	import * as Sheet from '$lib/components/ui/sheet/index.ts';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.ts';
 
-	const breadcrumbs = $derived($page.data.breadcrumbs);
+	const breadcrumbs = $derived(page.data.breadcrumbs);
 
 	const { children } = $props();
 </script>

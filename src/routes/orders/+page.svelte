@@ -3,7 +3,7 @@
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { slide } from 'svelte/transition';
 
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	import * as OrderCard from './components/order-card/index.ts';
 	import * as OrdersCard from './components/orders-card/index.ts';
@@ -24,8 +24,8 @@
 
 	let selectedOrderCode = $derived(order?.code ?? '');
 
-	let pathname = $derived($page.url.pathname);
-	let searchParams = $derived($page.url.searchParams);
+	let pathname = $derived(page.url.pathname);
+	let searchParams = $derived(page.url.searchParams);
 
 	let innerWidth = $state(0);
 	let slideAxis: 'x' | 'y' = $derived(innerWidth >= 1280 ? 'x' : 'y');

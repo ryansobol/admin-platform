@@ -5,7 +5,7 @@
 	import X from 'lucide-svelte/icons/x';
 
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	import { Badge } from '$lib/components/ui/badge/index.ts';
 	import { ButtonCopy } from '$lib/components/ui/button-copy/index.ts';
@@ -77,13 +77,13 @@
 					class="ml-auto size-8"
 					onclick={() => {
 						{
-							const newParams = new URLSearchParams($page.url.searchParams);
+							const newParams = new URLSearchParams(page.url.searchParams);
 
 							if (!newParams.has('code')) return;
 
 							newParams.delete('code');
 
-							goto(`${$page.url.pathname}?${newParams}`);
+							goto(`${page.url.pathname}?${newParams}`);
 						}
 					}}
 				>
