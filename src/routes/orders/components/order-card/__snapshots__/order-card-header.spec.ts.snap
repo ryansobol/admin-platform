@@ -1,0 +1,242 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the component with an order prop 1`] = `
+<div
+  aria-label="Order Metadata and Actions"
+  class="flex flex-col space-y-2 border-b bg-muted/50 p-6"
+  role="region"
+>
+  <div
+    class="flex items-center gap-2"
+  >
+    <!---->
+    <h3
+      class="text-lg font-semibold leading-none tracking-tight"
+    >
+      <!---->
+      Order ABC123
+      
+      
+    </h3>
+    
+    <!---->
+     
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <button
+      aria-describedby="JJZd7zej6q"
+      class="ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input bg-background hover:bg-accent hover:text-accent-foreground border size-8"
+      data-button-root=""
+      data-melt-tooltip-trigger=""
+      data-state="closed"
+      data-tooltip-trigger=""
+      id="O_IuTqFNVa"
+      tabindex="0"
+      type="button"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <svg
+        class="lucide-icon lucide lucide-copy h-3.5 w-3.5"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!---->
+        <rect
+          height="14"
+          rx="2"
+          ry="2"
+          width="14"
+          x="8"
+          y="8"
+        >
+          
+        </rect>
+        
+        <!---->
+        <path
+          d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+        >
+          
+        </path>
+        
+        <!---->
+        <!---->
+        
+        <!---->
+      </svg>
+      <!---->
+       
+      <span
+        class="sr-only"
+      >
+        copy order code to clipboard
+      </span>
+      
+      
+      
+      
+    </button>
+    
+    
+    
+    
+    <!---->
+     
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    
+    
+    
+    
+    
+    
+    <!---->
+    
+    
+    <!---->
+       
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <button
+      aria-describedby="eoM5NlBjoh"
+      class="ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input bg-background hover:bg-accent hover:text-accent-foreground border ml-auto size-8"
+      data-button-root=""
+      data-melt-tooltip-trigger=""
+      data-state="closed"
+      data-tooltip-trigger=""
+      id="aM2EU9UpP7"
+      tabindex="0"
+      type="button"
+    >
+      <!---->
+      <!---->
+      <!---->
+      <svg
+        class="lucide-icon lucide lucide-x size-3.5"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!---->
+        <path
+          d="M18 6 6 18"
+        >
+          
+        </path>
+        
+        <!---->
+        <path
+          d="m6 6 12 12"
+        >
+          
+        </path>
+        
+        <!---->
+        <!---->
+        
+        <!---->
+      </svg>
+      <!---->
+       
+      <span
+        class="sr-only"
+      >
+        hide order
+      </span>
+      
+      
+      
+    </button>
+    
+    
+    
+    
+    <!---->
+     
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    
+    
+    
+    
+    
+    
+    <!---->
+    
+    <!---->
+  </div>
+   
+  <p
+    class="text-muted-foreground text-sm"
+  >
+    Created on 
+    <time
+      datetime="2023-01-09T11:11:27-08:00[America/Los_Angeles]"
+    >
+      January 9, 2023 at 11:11 AM PST
+    </time>
+    <!---->
+  </p>
+  <!---->
+   
+  <div>
+    <!---->
+    <span
+      class="focus:ring-ring inline-flex select-none items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 border-fuchsia-500/90 text-fuchsia-500/90 text-center text-xs"
+    >
+      <!---->
+      Monthly Subscription
+      
+      
+    </span>
+    
+    <!---->
+     
+    <!---->
+    <span
+      class="focus:ring-ring inline-flex select-none items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 border-green-500/90 text-green-500/90 text-center text-xs"
+    >
+      <!---->
+      Fulfilled
+      
+      
+    </span>
+    
+    <!---->
+  </div>
+  <!---->
+</div>
+`;

@@ -34,6 +34,7 @@ exports[`renders the component with an order prop 1`] = `
     
   </ul>
    
+  <!---->
   <div
     aria-hidden="true"
     class="bg-border shrink-0 h-[1px] w-full my-2"
@@ -42,7 +43,6 @@ exports[`renders the component with an order prop 1`] = `
     data-separator-root=""
     role="none"
   />
-  <!---->
   
   <!---->
    

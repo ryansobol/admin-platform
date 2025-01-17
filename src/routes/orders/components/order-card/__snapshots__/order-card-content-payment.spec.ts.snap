@@ -33,6 +33,7 @@ exports[`renders the component with an order prop 1`] = `
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <!---->
           <rect
             height="14"
             rx="2"
@@ -42,8 +43,8 @@ exports[`renders the component with an order prop 1`] = `
           >
             
           </rect>
-          <!---->
           
+          <!---->
           <line
             x1="2"
             x2="22"
@@ -52,7 +53,6 @@ exports[`renders the component with an order prop 1`] = `
           >
             
           </line>
-          <!---->
           
           <!---->
           <!---->
