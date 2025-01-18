@@ -30,7 +30,7 @@
 
 <ModeWatcher />
 
-<div class="min-h-screen w-full bg-muted/40">
+<div class="min-h-dvh w-full bg-muted/40">
 	<nav
 		aria-label="app"
 		class="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex"
