@@ -30,10 +30,14 @@
 	);
 </script>
 
-<main aria-label="orders" class="flex flex-col p-4 sm:px-6 sm:py-0 xl:flex-row">
-	<OrdersCard.Root class="flex-1">
+<main
+	aria-label="orders"
+	class="flex h-[calc(100dvh-88px)] flex-col p-4 sm:px-6 sm:py-0 xl:flex-row"
+>
+	<OrdersCard.Root class="flex flex-1 flex-col">
 		<OrdersCard.Header {status} {type} {pathname} {searchParams} />
 		<OrdersCard.Content
+			class="flex-1 overflow-y-auto"
 			{orders}
 			{pathname}
 			{searchParams}

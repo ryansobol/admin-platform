@@ -3,7 +3,7 @@ import { SortColumn } from './types.ts';
 
 export const load = ({ url }) => {
 	const page = Number(url.searchParams.get('page') ?? 1);
-	const perPage = Number(url.searchParams.get('perPage') ?? 10);
+	const perPage = Number(url.searchParams.get('perPage') ?? 15);
 
 	const status = {
 		Declined: (url.searchParams.get('Declined') ?? 'true') === 'true',

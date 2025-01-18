@@ -4,6 +4,7 @@
 	import type { PartialOrder, SortColumn, SortDirection } from '../../types.ts';
 
 	type Props = {
+		class?: string;
 		orders: PartialOrder[];
 		pathname: string;
 		searchParams: URLSearchParams;
@@ -12,12 +13,20 @@
 		sortDirection: SortDirection;
 	};
 
-	let { orders, pathname, searchParams, selectedOrderCode, sortColumn, sortDirection }: Props =
-		$props();
+	let {
+		class: className,
+		orders,
+		pathname,
+		searchParams,
+		selectedOrderCode,
+		sortColumn,
+		sortDirection
+	}: Props = $props();
 </script>
 
 {#if orders.length}
 	<OrdersCardContentSome
+		class={className}
 		{orders}
 		{pathname}
 		{searchParams}

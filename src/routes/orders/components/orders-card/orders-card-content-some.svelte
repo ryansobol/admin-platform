@@ -19,6 +19,7 @@
 	import type { PartialOrder, SortColumn, SortDirection } from '../../types.ts';
 
 	type Props = {
+		class?: string;
 		orders: PartialOrder[];
 		pathname: string;
 		searchParams: URLSearchParams;
@@ -27,8 +28,15 @@
 		sortDirection: SortDirection;
 	};
 
-	let { orders, pathname, searchParams, selectedOrderCode, sortColumn, sortDirection }: Props =
-		$props();
+	let {
+		class: className,
+		orders,
+		pathname,
+		searchParams,
+		selectedOrderCode,
+		sortColumn,
+		sortDirection
+	}: Props = $props();
 
 	function handleSort(column: SortColumn, initialDirection: SortDirection) {
 		const newParams = new URLSearchParams(searchParams);
@@ -94,7 +102,7 @@
 	</Button>
 {/snippet}
 
-<Card.Content>
+<Card.Content class={className}>
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
