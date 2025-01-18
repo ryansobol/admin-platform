@@ -8,9 +8,6 @@
 
 	import * as OrderCard from './components/order-card/index.ts';
 	import * as OrdersCard from './components/orders-card/index.ts';
-	import ThisMonthCard from './components/this-month-card.svelte';
-	import ThisWeekCard from './components/this-week-card.svelte';
-	import YourOrdersCard from './components/your-orders-card.svelte';
 
 	let { data } = $props();
 
@@ -34,28 +31,18 @@
 </script>
 
 <main aria-label="orders" class="flex flex-col p-4 sm:px-6 sm:py-0 xl:flex-row">
-	<div class="grid flex-1 gap-4 lg:gap-8">
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-			<YourOrdersCard />
-
-			<ThisWeekCard />
-
-			<ThisMonthCard />
-		</div>
-
-		<OrdersCard.Root>
-			<OrdersCard.Header {status} {type} {pathname} {searchParams} />
-			<OrdersCard.Content
-				{orders}
-				{pathname}
-				{searchParams}
-				{selectedOrderCode}
-				{sortColumn}
-				{sortDirection}
-			/>
-			<OrdersCard.Footer {count} {pathname} {perPage} {searchParams} />
-		</OrdersCard.Root>
-	</div>
+	<OrdersCard.Root class="flex-1">
+		<OrdersCard.Header {status} {type} {pathname} {searchParams} />
+		<OrdersCard.Content
+			{orders}
+			{pathname}
+			{searchParams}
+			{selectedOrderCode}
+			{sortColumn}
+			{sortDirection}
+		/>
+		<OrdersCard.Footer {count} {pathname} {perPage} {searchParams} />
+	</OrdersCard.Root>
 
 	{#if order}
 		<aside
